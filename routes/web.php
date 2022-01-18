@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//List all teams
+Route::get('/teams', function () {
+    return view('teams');
+});
+
+//List all matches
+Route::get('/matches', function () {
+    return view('matches');
+});
+
+//Show summary/details of a particular team
+Route::get('/teams/{id}', function () {
+    return view('');
+});
