@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Rubik';
+    src: url(fonts/Rubik-VariableFont_wght.ttf);
+}
+
+@layer components {
+    .green-pill-btn {
+        @apply p-2 pl-3 pr-3 mx-auto rounded-3xl shadow shadow-indigo-800 hover:bg-green-600 hover:shadow-none hover:shadow-inner bg-green-900 text-white font-rubik;
+    }
+}
+

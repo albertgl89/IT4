@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\MatchController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Team;
+use App\Models\Match;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +22,47 @@ Route::get('/', function () {
 });
 
 //List all teams
-Route::get('/teams', function () {
-    return view('teams');
-});
+Route::get('teams', [TeamController::class, 'index']);
 
 //List all matches
-Route::get('/matches', function () {
-    return view('matches');
-});
+Route::get('matches', [MatchController::class, 'index']);
 
 //Show summary/details of a particular team
-Route::get('/teams/{id}', function () {
-    return view('');
+Route::get('team/{id}', function (Team $team) {
+    return view('teamdetail', ['team' => $team]);
+});
+
+//Show summary/details of a particular match
+Route::get('match/{id}', function (Match $match) {
+    return view('matchdetail', ['match' => $match]);
+});
+
+//New teams form
+Route::get('teams/add', function () {
+    return view('teamsadd');
+});
+
+//Submit new team
+Route::post('teams/add', function (Request $request){
+    return view('teamsadd');
+});
+
+//Edit team form
+Route::get('teams/edit/{team}', function (Team $team) {
+    return view('teamsadd', ['team' => $team]);
+});
+
+//New match form
+Route::get('matches/add', function () {
+    return view('teamsadd');
+});
+
+//Submit new match
+Route::post('matches/add', function (Request $request){
+    return view('matchesadd');
+});
+
+//Edit match form
+Route::get('matches/edit/{match}', function (Match $match) {
+    return view('teamsadd', ['match' => $match]);
 });
