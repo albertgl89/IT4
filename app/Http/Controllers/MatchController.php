@@ -25,7 +25,7 @@ class MatchController extends Controller
      */
     public function create()
     {
-        //
+        return view('addmatch');
     }
 
     /**

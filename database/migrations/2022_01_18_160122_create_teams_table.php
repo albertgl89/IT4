@@ -18,7 +18,7 @@ class CreateTeamsTable extends Migration
             $table->id();
             $table->string('name',100);
             $table->string('short_name', 10);
-            $table->foreignIdFor(Location::class, 'city');
+            $table->foreignIdFor(Location::class, 'city')->nullable();
             $table->timestamps();
         });
     }

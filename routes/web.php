@@ -38,12 +38,10 @@ Route::get('match/{id}', function (Match $match) {
 });
 
 //New teams form
-Route::get('teams/add', function () {
-    return view('teamsadd');
-});
+Route::get('teams/add', [TeamController::class, 'create']);
 
 //Submit new team
-Route::post('teams/add', function (Request $request){
+Route::put('teams/add', function (Request $request){
     return view('teamsadd');
 });
 

@@ -11,7 +11,12 @@
                 <p class="p-2 rounded-t-lg bg-indigo-900 text-white w-full">Gestió d'equips</p>
             </div>
             <form action="teams" method="get" class="mx-auto">
+                @csrf
                 <input type="submit" value="Mostra equips" class="green-pill-btn">
+            </form>
+            <form action="teams/add" method="get" class="mx-auto">
+                @csrf
+                <input type="submit" value="Crea equip" class="green-pill-btn">
             </form>
         </div>
 
@@ -20,6 +25,7 @@
                 <p class="p-2 rounded-t-lg bg-indigo-900 text-white w-full">Gestió de partits</p>
             </div>
             <form action="matches" method="get" class="mx-auto">
+                @csrf
                 <input type="submit" value="Mostra partits" class="green-pill-btn">
             </form>
         </div>

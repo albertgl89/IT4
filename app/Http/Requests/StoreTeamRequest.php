@@ -24,7 +24,9 @@ class StoreTeamRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:100',
+            'short_name'=> 'required|string|max:10|regex:/[A-Z]*/i',
+            'city' => 'required',
         ];
     }
 }
