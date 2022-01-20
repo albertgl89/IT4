@@ -19,4 +19,8 @@ class Team extends Model
         'short_name',
         'city',
     ];
+
+    public function city(){
+        return $this->hasOne(Location::class, 'id');
+    }
 }
