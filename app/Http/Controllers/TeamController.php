@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Team;
 use App\Http\Requests\StoreTeamRequest;
 use App\Http\Requests\UpdateTeamRequest;
+use Illuminate\Support\Facades\Route;
 
 class TeamController extends Controller
 {
@@ -36,7 +37,20 @@ class TeamController extends Controller
      */
     public function store(StoreTeamRequest $request)
     {
-        return $request;//test
+        $team = new Team;
+        $team->name = $request->name;
+        $team->short_name = $request->short_name;
+        if($request->city === "null"){
+            $team->city = null;
+        } else {
+            $team->city = $request->city;
+        }
+        $team->save();
+        $dbTeam = Team::where('name', $team->name)->first();
+        if($team->city == "null"){
+            return redirect()->action([LocationController::class, 'create'],[$dbTeam]);
+        }
+        return redirect('teams')->with('status', `L'equip $team->name ha estat donat d'alta correctament.`);//TODO confirmation message
     }
 
     /**
