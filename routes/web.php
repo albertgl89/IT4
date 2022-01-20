@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\MatchController;
+use App\Http\Controllers\LocationController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Team;
 use App\Models\Match;
@@ -26,6 +27,12 @@ Route::get('teams', [TeamController::class, 'index']);
 
 //List all matches
 Route::get('matches', [MatchController::class, 'index']);
+
+//List all locations
+Route::get('locations', [LocationController::class, 'index']);
+
+//New locations form
+Route::get('locations/add', [LocationController::class, 'create']);
 
 //Show summary/details of a particular team
 Route::get('team/{id}', function (Team $team) {

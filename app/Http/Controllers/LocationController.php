@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Location;
+use App\Models\Team;
 use App\Http\Requests\StoreLocationRequest;
 use App\Http\Requests\UpdateLocationRequest;
 
@@ -23,9 +24,12 @@ class LocationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Team $team = null)
     {
-        //
+        if ($team != null){
+            return view('addlocation', ['team' => $team]);
+        }
+        return view('addlocation');
     }
 
     /**
@@ -36,7 +40,7 @@ class LocationController extends Controller
      */
     public function store(StoreLocationRequest $request)
     {
-        //
+        return $request;//test
     }
 
     /**

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Http\Controllers\LocationController;
 use App\Http\Requests\StoreTeamRequest;
 use App\Http\Requests\UpdateTeamRequest;
-use Illuminate\Support\Facades\Route;
 
 class TeamController extends Controller
 {
@@ -47,8 +47,8 @@ class TeamController extends Controller
         }
         $team->save();
         $dbTeam = Team::where('name', $team->name)->first();
-        if($team->city == "null"){
-            return redirect()->action([LocationController::class, 'create'],[$dbTeam]);
+        if($team->city == null){
+            return redirect()->action([LocationController::class, 'create'],['team' => $dbTeam]);
         }
         return redirect('teams')->with('status', `L'equip $team->name ha estat donat d'alta correctament.`);//TODO confirmation message
     }
