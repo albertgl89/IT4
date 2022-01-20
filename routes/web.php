@@ -41,9 +41,7 @@ Route::get('match/{id}', function (Match $match) {
 Route::get('teams/add', [TeamController::class, 'create']);
 
 //Submit new team
-Route::put('teams/add', function (Request $request){
-    return view('teamsadd');
-});
+Route::post('teams/add', [TeamController::class, 'store']);
 
 //Edit team form
 Route::get('teams/edit/{team}', function (Team $team) {
