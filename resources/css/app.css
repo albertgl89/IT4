@@ -9,7 +9,11 @@
 
 @layer components {
     .green-pill-btn {
-        @apply p-2 pl-3 pr-3 mx-auto rounded-3xl shadow shadow-indigo-800 hover:bg-green-600 hover:shadow-none hover:shadow-inner bg-green-900 text-white font-rubik;
+        @apply p-2 pl-3 pr-3 mx-auto rounded-3xl shadow shadow-indigo-800 hover:bg-green-600 hover:shadow-inner bg-green-900 text-white font-rubik;
+    }
+
+    .gold-pill-btn {
+        @apply p-2 pl-3 pr-3 rounded-3xl shadow-lg hover:bg-yellow-400 hover:shadow-inner bg-yellow-500 text-indigo-900 font-rubik;
     }
 
     .std-form {

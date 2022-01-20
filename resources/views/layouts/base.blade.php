@@ -14,11 +14,15 @@
 
 <body class="bg-green-100">
     <header class="w-full max-w-5xl mx-auto mt-2">
-        <div class="rounded-tr-lg rounded-tl-lg bg-green-900 text-white text-3xl p-2 font-rubik">
-            <p ><span
+        <div class="rounded-tr-lg rounded-tl-lg bg-green-900 text-white text-3xl p-2 font-rubik flex flex-nowrap justify-between">
+            <p><span
                     class="material-icons text-5xl p-2 align-middle">
                     sports_soccer
                 </span>MatchMaker</p>
+                <a href="{{url('/')}}" class="text-base p-2 align-middle gold-pill-btn"><span class="material-icons text-sm align-middle pr-1">
+                    dashboard
+                    </span>Dashboard</a>
+                
         </div>
     </header>
     <div class="w-full max-w-5xl mx-auto rounded-br-lg rounded-bl-lg mt-0 p-2 shadow bg-white">
