@@ -83,7 +83,7 @@ $missingFields = false;
 
             
 
-                <input type="submit" value="Crea l'equip" class=" w-full mt-4 @if($missingFields) disabled-btn @else green-pill-btn @endif" @if ($missingFields) disabled @endif>
+                <input type="submit" value="Crea el partit" class=" w-full mt-4 @if($missingFields) disabled-btn @else green-pill-btn @endif" @if ($missingFields) disabled @endif>
             </form>
 
         </div>

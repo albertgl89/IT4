@@ -3,6 +3,7 @@
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\MatchController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\MatchResultController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Team;
 use App\Models\Match;
@@ -48,6 +49,17 @@ Route::get('matches/add', [MatchController::class, 'create']);
 
 //Submit new match
 Route::post('matches/add', [MatchController::class, 'store']);
+
+//New result registration process
+Route::get('results/selectmatch', function(){
+    return view('selectmatch');
+});
+
+//New result form
+Route::get('results/add/{match}', [MatchResultController::class, 'create']);
+
+//Submit result form
+Route::post('results/add', [MatchResultController::class, 'store']);
 
 
 //Show summary/details of a particular team

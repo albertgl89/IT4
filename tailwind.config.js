@@ -10,5 +10,8 @@ module.exports = {
       'rubik': ['Rubik', 'sans-serif'],
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss'),
+    require('autoprefixer')
+  ],
 }

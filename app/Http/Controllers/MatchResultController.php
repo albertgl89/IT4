@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\MatchResult;
+use App\Models\Match;
 use App\Http\Requests\StoreMatchResultRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateMatchResultRequest;
 
 class MatchResultController extends Controller
@@ -21,11 +23,13 @@ class MatchResultController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param \Illuminate\Http\Request
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $match = Match::find($request->query('match_id'));
+        return view('addresult', ['match' => $match]);
     }
 
     /**
@@ -35,8 +39,25 @@ class MatchResultController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreMatchResultRequest $request)
-    {
-        //
+    {        
+        $result = new MatchResult;
+        $result->goals_team1 = $request->goals_team1;
+        $result->goals_team2 = $request->goals_team2;
+        if($result->goals_team1 == $result->goals_team2){
+            $result->tie = true;
+        } else if ($result->goals_team1 > $result->goals_team2){
+            $result->tie = false;
+            $result->winning_team = $request->team1;
+        } else {
+            $result->tie = false;
+            $result->winning_team = $request->team2;
+        }
+        $result->save();
+        //Assign this result to the match
+        $match = Match::find($request->match);
+        $match->match_result_id = MatchResult::all()->last()->id;
+        $match->save();
+        return redirect('/')->with('status', `Els resultats s'han desat correctament.`);//TODO confirmation message
     }
 
     /**

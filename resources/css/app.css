@@ -32,8 +32,16 @@
         @apply p-2 mb-2 border border-transparent border-b-2 border-b-indigo-900 text-indigo-600 hover:border-green-900 focus:outline-green-600 focus:outline-2;
     }
 
+    .std-form-number-input {
+        @apply appearance-none text-center text-2xl font-bold w-3/4 mx-auto h-4 p-2 pt-8 pb-8 mb-2 border border-transparent border-b-2 border-b-indigo-900 text-indigo-600 hover:border-green-900 focus:outline-green-600 focus:outline-2;
+    }
+
     .std-form-selector {
         @apply p-2 border border-b-indigo-900 text-indigo-600 hover:border-green-900 focus:outline-green-600 focus:outline-2;
+    }
+
+    .std-form-radio {
+        @apply my-auto p-1 rounded-full m-2 mr-3 appearance-none border border-gray-600 bg-white hover:border-green-600 hover:bg-indigo-400 checked:bg-indigo-900 checked:border-0 checked:outline checked:outline-green-600 checked:outline-offset-4;
     }
 }
 

@@ -20,6 +20,7 @@
             </div>
             <a href="{{url('matches')}}" class="green-pill-btn">Mostra partits</a>
             <a href="{{url('matches/add')}}" class="green-pill-btn">Crea partit</a>
+            <a href="{{url('results/selectmatch')}}" class="green-pill-btn">Registra un resultat</a>
         </div>
 
         <div class="rounded-lg grid grid-flow-row gap-2 border border-indigo-900 shadow-md pb-2">
