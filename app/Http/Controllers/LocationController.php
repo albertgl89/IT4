@@ -40,7 +40,24 @@ class LocationController extends Controller
      */
     public function store(StoreLocationRequest $request)
     {
-        return $request;//test
+        $location = new Location;
+        $location->city = $request->city;
+        $location->state = $request->state;
+        $location->stadium_name = $request->stadium_name;
+        $location->save();
+        //If this is for a team, assign it now
+        if($request->team != null){
+            $locationId = Location::all()->last()->id;
+            $team = Team::find($request->team);
+            $team->city = $locationId;
+            $team->save();
+        }
+        
+        $dbTeam = Team::where('name', $team->name)->first();
+        if($team->city == null){
+            return redirect()->action([LocationController::class, 'create'],['team' => $dbTeam]);
+        }
+        return redirect('teams')->with('status', `L'equip $team->name ha estat donat d'alta correctament.`);//TODO confirmation message
     }
 
     /**

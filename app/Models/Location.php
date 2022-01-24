@@ -9,7 +9,15 @@ class Location extends Model
 {
     use HasFactory;
 
-    public function id(){
-        return $this->belongsTo(Team::class,'city');
-    }
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'city',
+        'state',
+        'stadium_name',
+    ];
+
 }

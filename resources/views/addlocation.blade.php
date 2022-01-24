@@ -4,7 +4,7 @@
 use App\Models\Location;
 use App\Models\Team;
 $teamId = Request::query('team', null);
-$team = Team::where('id', $teamId)->first();
+$team = Team::find($teamId);
 @endphp
 
 @section('page-title', 'Afegir nova localització')
@@ -21,9 +21,9 @@ $team = Team::where('id', $teamId)->first();
             </div>
 
             @if ($team != null)
-                <div class="rounded-xl bg-yellow-500 text-black p-2 w-3/4 mx-auto">
+                <div class="rounded-xl bg-yellow-500 text-indigo-900 p-2 mb-2 w-3/4 mx-auto">
                     <p class="text-center font-bold">Afegint nova localització per a l'equip
-                        {{ $team->name . ' (' . $team->short_name . ')' }}</p>
+                        {{ $team->name . '  (' . $team->short_name . ')' }}</p>
                 </div>
             @endif
 
@@ -43,6 +43,7 @@ $team = Team::where('id', $teamId)->first();
 
             <form action="add" method="post" class="std-form">
                 @csrf
+                <input type="hidden" name="team" value="{{ $team->id }}">
                 <label for="city" class="std-form-label">Ciutat</label>
                 <input type="text" name="city" id="" placeholder="Barcelona" class="std-form-text-input"
                     value="{{ old('city') }}">

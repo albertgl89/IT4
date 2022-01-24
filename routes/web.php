@@ -34,6 +34,9 @@ Route::get('locations', [LocationController::class, 'index']);
 //New locations form
 Route::get('locations/add', [LocationController::class, 'create']);
 
+//Submit new location
+Route::post('locations/add',[LocationController::class, 'store']);
+
 //Show summary/details of a particular team
 Route::get('team/{id}', function (Team $team) {
     return view('teamdetail', ['team' => $team]);

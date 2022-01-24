@@ -46,7 +46,7 @@ class TeamController extends Controller
             $team->city = $request->city;
         }
         $team->save();
-        $dbTeam = Team::where('name', $team->name)->first();
+        $dbTeam = Team::all()->last();
         if($team->city == null){
             return redirect()->action([LocationController::class, 'create'],['team' => $dbTeam]);
         }
