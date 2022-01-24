@@ -26,7 +26,7 @@ class StoreMatchRequest extends FormRequest
         return [
             'match_date' => 'required|date',
             'location_id' => 'required',
-            'team1' => 'required',
+            'team1' => 'required|different:team2',
             'team2'=> 'required',
         ];
     }
@@ -56,6 +56,7 @@ class StoreMatchRequest extends FormRequest
             'match_date.date' => 'La :attribute ha de ser una data i hora correcta.',
             'team1.required' => 'El :attribute és obligatori.',
             'team2.required' => 'El :attribute és obligatori.',
+            'team1.different' => 'Un equip no pot jugar contra ell mateix.',
             'location_id.required' => 'La :attribute és obligatòria.',
             ];
     }
