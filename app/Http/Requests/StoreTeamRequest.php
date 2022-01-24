@@ -24,8 +24,8 @@ class StoreTeamRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:100',
-            'short_name' => 'required|string|max:10|regex:/[A-Z]+/',
+            'name' => 'required|string|max:100|unique:teams,name',
+            'short_name' => 'required|string|max:10|regex:/[A-Z]+/||unique:teams,short_name',
             'city' => 'required',
         ];
     }
@@ -51,7 +51,9 @@ class StoreTeamRequest extends FormRequest
     {
         return [
             'name.required' => 'El :attribute és obligatori.',
+            'name.unique' => 'El :attribute ja existeix a la base de dades.',
             'short_name.required' => 'El :attribute és obligatori.',
+            'short_name.unique' => 'El :attribute ja existeix a la base de dades.',
             'short_name.regex' => 'El :attribute ha de ser una combinació de lletres en majúscules.',
             'city.required' => 'El :attribute és obligatori.',
             'name.max' => 'El :attribute no pot excedir els 100 caràcters.',

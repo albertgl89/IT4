@@ -26,7 +26,7 @@ class StoreLocationRequest extends FormRequest
         return [
             'city' => 'required|string|max:40',
             'state' => 'required|string|max:40',
-            'stadium_name' => 'required|string|max:150',
+            'stadium_name' => 'required|string|max:150|unique:locations,stadium_name',
         ];
     }
 
@@ -56,6 +56,7 @@ class StoreLocationRequest extends FormRequest
             'city.max' => 'La :attribute no pot excedir els 40 caràcters.',
             'state.max' => 'El :attribute no pot excedir els 40 caràcters.',
             'stadium_name.max' => 'El :attribute no pot excedir els 150 caràcters.',
+            'stadium_name.unique' => 'El :attribute ja existeix a la base de dades.',
         ];
     }
 }
