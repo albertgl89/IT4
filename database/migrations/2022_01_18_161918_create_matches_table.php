@@ -22,7 +22,7 @@ class CreateMatchesTable extends Migration
             $table->foreignIdFor(Location::class);
             $table->foreignIdFor(Team::class, 'team1');
             $table->foreignIdFor(Team::class, 'team2');
-            $table->foreignIdFor(MatchResult::class);
+            $table->foreignIdFor(MatchResult::class)->nullable();
             $table->timestamps();
         });
     }

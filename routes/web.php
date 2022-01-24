@@ -37,6 +37,19 @@ Route::get('locations/add', [LocationController::class, 'create']);
 //Submit new location
 Route::post('locations/add',[LocationController::class, 'store']);
 
+//New teams form
+Route::get('teams/add', [TeamController::class, 'create']);
+
+//Submit new team
+Route::post('teams/add', [TeamController::class, 'store']);
+
+//New match form
+Route::get('matches/add', [MatchController::class, 'create']);
+
+//Submit new match
+Route::post('matches/add', [MatchController::class, 'store']);
+
+
 //Show summary/details of a particular team
 Route::get('team/{id}', function (Team $team) {
     return view('teamdetail', ['team' => $team]);
@@ -47,26 +60,11 @@ Route::get('match/{id}', function (Match $match) {
     return view('matchdetail', ['match' => $match]);
 });
 
-//New teams form
-Route::get('teams/add', [TeamController::class, 'create']);
-
-//Submit new team
-Route::post('teams/add', [TeamController::class, 'store']);
-
 //Edit team form
 Route::get('teams/edit/{team}', function (Team $team) {
     return view('teamsadd', ['team' => $team]);
 });
 
-//New match form
-Route::get('matches/add', function () {
-    return view('teamsadd');
-});
-
-//Submit new match
-Route::post('matches/add', function (Request $request){
-    return view('matchesadd');
-});
 
 //Edit match form
 Route::get('matches/edit/{match}', function (Match $match) {

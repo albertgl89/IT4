@@ -19,6 +19,7 @@
                 <p class="p-2 rounded-t-lg bg-indigo-900 text-white w-full">Gestió de partits</p>
             </div>
             <a href="{{url('matches')}}" class="green-pill-btn">Mostra partits</a>
+            <a href="{{url('matches/add')}}" class="green-pill-btn">Crea partit</a>
         </div>
 
         <div class="rounded-lg grid grid-flow-row shadow border-2 pb-2">
