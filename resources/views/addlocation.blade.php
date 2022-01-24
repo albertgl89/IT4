@@ -43,7 +43,9 @@ $team = Team::find($teamId);
 
             <form action="add" method="post" class="std-form">
                 @csrf
+                @if ($team != null)
                 <input type="hidden" name="team" value="{{ $team->id }}">
+                @endif
                 <label for="city" class="std-form-label">Ciutat</label>
                 <input type="text" name="city" id="" placeholder="Barcelona" class="std-form-text-input"
                     value="{{ old('city') }}">

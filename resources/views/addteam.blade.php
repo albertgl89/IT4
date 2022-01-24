@@ -46,7 +46,7 @@ use App\Models\Location;
                     <option value="null" class="text-indigo-600 ">Crea una nova localització...</option>
                     @foreach (Location::all() as $city)
                         <option value="{{ $city->id }}" class="text-indigo-600">
-                            {{ $city->city . ', ' . $city->state . '(' . $city->stadium_name . ')' }}</option>
+                            {{ $city->city . ', ' . $city->state . ' (' . $city->stadium_name . ')' }}</option>
                     @endforeach
                 </select>
                 <input type="submit" value="Crea l'equip" class="green-pill-btn w-full mt-4">

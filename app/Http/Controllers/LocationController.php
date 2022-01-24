@@ -16,7 +16,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        return view('locations');
     }
 
     /**
@@ -51,13 +51,17 @@ class LocationController extends Controller
             $team = Team::find($request->team);
             $team->city = $locationId;
             $team->save();
+            $dbTeam = Team::where('name', $team->name)->first();
+            if($team->city == null){
+                return redirect()->action([LocationController::class, 'create'],['team' => $dbTeam]);
+            }
+        }
+        if(!isset($request->team)){
+            return redirect('locations')->with('status', `La localització $location->city ($location->stadium_name) ha estat donat d'alta correctament.`);//TODO confirmation message
+        } else {
+            return redirect('teams')->with('status', `La localització $location->city ($location->stadium_name) ha estat donat d'alta correctament per a l'equip $team->name ($team->short_name).`);//TODO confirmation message
         }
         
-        $dbTeam = Team::where('name', $team->name)->first();
-        if($team->city == null){
-            return redirect()->action([LocationController::class, 'create'],['team' => $dbTeam]);
-        }
-        return redirect('teams')->with('status', `L'equip $team->name ha estat donat d'alta correctament.`);//TODO confirmation message
     }
 
     /**

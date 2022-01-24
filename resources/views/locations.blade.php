@@ -1,13 +1,13 @@
 @extends('layouts.base')
 @php
-use App\Models\Team;
+use App\Models\Location;
 @endphp
 
-@section('page-title', 'Equips')
+@section('page-title', 'Localitzacions')
 
 
 @section('content')
-    <p>Llistat de tots els equips del sistema</p>
+    <p>Llistat de totes les localitzacions del sistema</p>
 
     <div class="grid grid-flow-col w-full mt-2">
 
@@ -17,16 +17,16 @@ use App\Models\Team;
             </div>
         @endif
 
-        @if (Team::all()->count() == 0)
-            <div>
-                <p>No hi ha cap equip encara.</p>
-            </div>
+        @if (Location::all()->count() == 0)
+                <div>
+                    <p>No hi ha cap localització encara.</p>
+                </div>
         @endif
 
-        @foreach (Team::all() as $team)
-
+        @foreach (Location::all() as $location)
+            
             <div>
-                <p>{{ $team->name }}</p>
+                <p>{{ $location->stadium_name }}</p>
             </div>
 
         @endforeach
