@@ -36,7 +36,13 @@ class MatchController extends Controller
      */
     public function store(StoreMatchRequest $request)
     {
-        //
+        $match = new Match;
+        $match->match_date = $request->match_date;
+        $match->location_id = $request->location_id;
+        $match->team1 = $request->team1;
+        $match->team2 = $request->team2;
+        $match->save();
+        return redirect('matches')->with('status', `El partit ha estat donat d'alta correctament.`);//TODO confirmation message
     }
 
     /**
