@@ -52,7 +52,7 @@ Route::post('matches/add', [MatchController::class, 'store']);
 
 //New result registration process
 Route::get('results/selectmatch', function(){
-    return view('selectmatch');
+    return view('results.selectmatch');
 });
 
 //New result form
@@ -63,7 +63,7 @@ Route::post('results/add', [MatchResultController::class, 'store']);
 
 
 //Show summary/details of a particular team
-Route::get('team/{id}', function (Team $team) {
+Route::get('teams/{id}', function (Team $team) {
     return view('teamdetail', ['team' => $team]);
 });
 
