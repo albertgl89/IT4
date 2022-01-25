@@ -20,6 +20,10 @@
         @apply p-2 pl-3 pr-3 rounded-3xl shadow-lg hover:bg-yellow-400 hover:shadow-inner bg-yellow-500 text-indigo-900 font-rubik h-min;
     }
 
+    .red-pill-btn {
+        @apply p-2 pl-3 pr-3 rounded-3xl shadow-lg hover:bg-red-400 hover:shadow-inner bg-red-500 text-yellow-400 font-rubik h-min;
+    }
+
     .std-form {
         @apply mx-auto grid grid-flow-row gap-2 p-2 min-w-fit w-3/4;
     }
