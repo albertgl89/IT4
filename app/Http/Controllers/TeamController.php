@@ -72,7 +72,7 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        //
+        return view('teams.editteam', ['team' => $team]);
     }
 
     /**
@@ -84,7 +84,20 @@ class TeamController extends Controller
      */
     public function update(UpdateTeamRequest $request, Team $team)
     {
-        //
+        $team->name = $request->name;
+        $team->short_name = $request->short_name;
+        if($request->city === "null"){
+            $team->city = null;
+        } else {
+            $team->city = $request->city;
+        }
+        $team->save();
+        
+        if($team->city == null){
+            return redirect()->action([LocationController::class, 'create'],['team' => $team]);
+        }
+        
+        return redirect('teams')->with('status', `L'equip $team->name ha estat actualitzat correctament.`);//TODO confirmation message
     }
 
     /**

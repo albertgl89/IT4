@@ -35,7 +35,7 @@ use App\Models\Team;
                     
                     <div class="grid grid-flow-col md:max-w-none max-w-[30%] justify-items-center content-center items-center md:gap-1 gap-2">
                         <a href="teams/{{ $team->id }}" class="gold-pill-btn w-fit">Detalls</a>
-                        <a href=""><span class="material-icons text-xl gold-pill-btn">
+                        <a href="{{url('teams/'.$team->id.'/edit')}}"><span class="material-icons text-xl gold-pill-btn">
                             edit
                             </span></a>
                             <a href=""><span class="material-icons text-xl red-pill-btn">
