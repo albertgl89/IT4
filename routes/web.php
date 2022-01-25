@@ -63,9 +63,10 @@ Route::post('results/add', [MatchResultController::class, 'store']);
 
 
 //Show summary/details of a particular team
-Route::get('teams/{id}', function (Team $team) {
-    return view('teamdetail', ['team' => $team]);
-});
+Route::get('teams/{team}', [TeamController::class, 'show']);
+
+//Show summary/details of a particular location
+Route::get('locations/{location}', [LocationController::class, 'show']);
 
 //Show summary/details of a particular match
 Route::get('match/{id}', function (Match $match) {

@@ -27,7 +27,7 @@ use App\Models\Team;
             @foreach (Team::all() as $team)
 
                 <div
-                    class="rounded-xl border border-indigo-900 bg-green-600 hover:bg-green-800 text-white min-w-fit max-w-1/4 p-2 m-2 grid grid-flow-col md:grid-flow-row gap-1 shadow-md md:items-center md:content-center justify-around">
+                    class="rounded-xl border border-indigo-900 hover:bg-indigo-600 bg-indigo-800 text-white min-w-fit max-w-1/4 p-2 m-2 grid grid-flow-col md:grid-flow-row gap-1 shadow-md md:items-center md:content-center justify-around">
                     <div class="grid grid-flow-col justify-items-center items-center">
                         <p class="font-rubik rounded-full p-4 bg-white text-green-900 m-2 w-min">{{ $team->short_name }}</p>
                         <p class="font-rubik justify-self-start">{{ $team->name }}</p>

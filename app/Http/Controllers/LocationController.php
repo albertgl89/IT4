@@ -73,7 +73,7 @@ class LocationController extends Controller
      */
     public function show(Location $location)
     {
-        //
+       return view('locations.locationdetail', ['location' => $location]);
     }
 
     /**

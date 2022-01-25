@@ -47,5 +47,9 @@
     .std-form-radio {
         @apply my-auto p-1 rounded-full m-2 mr-3 appearance-none border border-gray-600 bg-white hover:border-green-600 hover:bg-indigo-400 checked:bg-indigo-900 checked:border-0 checked:outline checked:outline-green-600 checked:outline-offset-4;
     }
+
+    .std-link {
+        @apply underline underline-offset-4 decoration-dotted decoration-indigo-900  hover:text-indigo-900 hover:font-bold;
+    }
 }
 
