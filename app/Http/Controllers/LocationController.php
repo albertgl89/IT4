@@ -84,7 +84,7 @@ class LocationController extends Controller
      */
     public function edit(Location $location)
     {
-        //
+        return view('locations.editlocation', ['location' => $location]);
     }
 
     /**
@@ -96,7 +96,11 @@ class LocationController extends Controller
      */
     public function update(UpdateLocationRequest $request, Location $location)
     {
-        //
+        $location->city = $request->city;
+        $location->state = $request->state;
+        $location->stadium_name = $request->stadium_name;
+        $location->save();
+        return redirect('locations')->with('status', `La localització $location->city ($location->stadium_name) ha estat actualitzada correctament.`);//TODO confirmation message
     }
 
     /**

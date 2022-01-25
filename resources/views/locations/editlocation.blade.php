@@ -3,11 +3,9 @@
 @php
 use App\Models\Location;
 use App\Models\Team;
-$teamId = Request::query('team', null);
-$team = Team::find($teamId);
 @endphp
 
-@section('page-title', 'Afegir nova localització')
+@section('page-title', 'Editar localització')
 
 
 @section('content')
@@ -16,19 +14,8 @@ $team = Team::find($teamId);
         <div class="w-3/4 mx-auto rounded-lg grid grid-flow-row shadow border-2 pb-2">
 
             <div class="mb-2 w-full -m-1 mx-auto">
-                <p class="p-2 rounded-t-lg bg-indigo-900 text-white w-full">Emplena tots els camps amb la informació
-                    necessària</p>
+                <p class="p-2 rounded-t-lg bg-indigo-900 text-white w-full">Modifica els camps necessaris</p>
             </div>
-
-            @if ($team != null)
-                <div class="rounded-xl bg-yellow-500 text-indigo-900 p-2 mb-2 w-3/4 mx-auto">
-                    <p class="text-center font-bold">Afegint nova localització per a l'equip
-                        {{ $team->name . '  (' . $team->short_name . ')' }}</p>
-                </div>
-            @endif
-
-
-
 
             @if ($errors->any())
                 <div class="rounded-xl bg-red-800 text-white p-2 w-3/4 mx-auto">
@@ -41,30 +28,27 @@ $team = Team::find($teamId);
                 </div>
             @endif
 
-            <form action="add" method="post" class="std-form">
+            <form action="{{url('locations/'.$location->id.'/edit')}}" method="post" class="std-form">
                 @csrf
-                @if ($team != null)
-                <input type="hidden" name="team" value="{{ $team->id }}">
-                @endif
+                @method('put')
+
                 <label for="city" class="std-form-label">Ciutat</label>
                 <input type="text" name="city" id="" placeholder="Barcelona" class="std-form-text-input"
-                    value="{{ old('city') }}">
+                    value="{{ $location->city }}">
 
                 <label for="state" class="std-form-label">País
                     </label>
                 <input type="text" name="state" id="" placeholder="Espanya" class="std-form-text-input"
-                value="{{ old('state') }}">
+                    value="{{ $location->state }}">
 
                 <label for="stadium_name" class="std-form-label">Nom de l'estadi de l'equip
                 </label>
                 <input type="text" name="stadium_name" id="" placeholder="Camp Nou" class="std-form-text-input"
-                value="{{ old('stadium_name') }}">
+                    value="{{ $location->stadium_name }}">
 
-                @if ($team == null)
-                    <input type="submit" value="Crea la localització" class="green-pill-btn w-full mt-4">
-                @else
-                    <input type="submit" value="Crea la localització i assigna-la a l'equip" class="green-pill-btn w-full mt-4">
-                @endif
+                
+                <input type="submit" value="Actualitza les dades" class="green-pill-btn w-full mt-4">
+                
             </form>
 
         </div>

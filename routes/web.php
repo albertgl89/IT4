@@ -83,8 +83,9 @@ Route::get('matches/{match}/edit', [MatchController::class, 'edit']);
 //Update Match 
 Route::put('matches/{match}/edit', [MatchController::class, 'update']);
 
+//Edit location form
+Route::get('locations/{location}/edit', [LocationController::class, 'edit']);
 
-//Edit match form
-Route::get('matches/edit/{match}', function (Match $match) {
-    return view('teamsadd', ['match' => $match]);
-});
+//Update location 
+Route::put('locations/{location}/edit', [LocationController::class, 'update']);
+
