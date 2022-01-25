@@ -79,7 +79,8 @@ class MatchResultController extends Controller
      */
     public function edit(MatchResult $matchResult)
     {
-        //
+        $match = Match::firstWhere('match_result_id', $matchResult->id);
+        return view('results.editresult',['matchResult' => $matchResult, 'match' => $match]);
     }
 
     /**
@@ -91,7 +92,19 @@ class MatchResultController extends Controller
      */
     public function update(UpdateMatchResultRequest $request, MatchResult $matchResult)
     {
-        //
+        $matchResult->goals_team1 = $request->goals_team1;
+        $matchResult->goals_team2 = $request->goals_team2;
+        if($matchResult->goals_team1 == $matchResult->goals_team2){
+            $matchResult->tie = true;
+        } else if ($matchResult->goals_team1 > $matchResult->goals_team2){
+            $matchResult->tie = false;
+            $matchResult->winning_team = $request->team1;
+        } else {
+            $matchResult->tie = false;
+            $matchResult->winning_team = $request->team2;
+        }
+        $matchResult->save();
+        return redirect('/')->with('status', `Els resultats s'han actualitzat correctament.`);//TODO confirmation message
     }
 
     /**

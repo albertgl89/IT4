@@ -16,11 +16,14 @@ use App\Models\Match;
         <div class="w-3/4 mx-auto rounded-lg grid grid-flow-row shadow border-2 pb-2">
 
             <div class="mb-2 w-full -m-1 mx-auto">
-                <p class="p-2 rounded-t-lg bg-indigo-900 text-white w-full">
-                    <a href="{{url('matches')}}" class="gold-pill-btn m-2 align-middle"><span class="material-icons text-xl align-middle">
+                <div class="p-2 rounded-t-lg bg-indigo-900 text-white w-full grid grid-flow-col gap-1 justify-end items-center">
+                    <a href="{{url('matches')}}" class="gold-pill-btn m-2 w-fit align-middle justify-self-start"><span class="material-icons text-xl align-middle">
                         arrow_back
-                        </span>Torna</a>
-                </p>
+                        </span>Partits</a>
+                        <a href="{{url('results/'.$match->match_result_id.'/edit')}}" class="gold-pill-btn w-fit m-2 align-middle"><span class="material-icons text-xl align-middle">
+                            edit
+                            </span>Edita el resultat</a>
+                        </div>
             </div>
 
             <div class="grid grid-flow-row gap-1 justify-items-center text-left items-center p-2">

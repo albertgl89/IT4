@@ -89,3 +89,9 @@ Route::get('locations/{location}/edit', [LocationController::class, 'edit']);
 //Update location 
 Route::put('locations/{location}/edit', [LocationController::class, 'update']);
 
+//Edit results form
+Route::get('results/{matchResult}/edit', [MatchResultController::class, 'edit']);
+
+//Update results 
+Route::put('results/{matchResult}/edit', [MatchResultController::class, 'update']);
+
