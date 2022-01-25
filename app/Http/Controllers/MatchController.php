@@ -64,7 +64,7 @@ class MatchController extends Controller
      */
     public function edit(Match $match)
     {
-        //
+        return view('matches.editmatch', ['match' => $match]);
     }
 
     /**
@@ -76,7 +76,16 @@ class MatchController extends Controller
      */
     public function update(UpdateMatchRequest $request, Match $match)
     {
-        //
+        $match->match_date = $request->match_date;
+        $match->location_id = $request->location_id;
+        $match->team1 = $request->team1;
+        $match->team2 = $request->team2;
+        //If the date a match is to be celebrated is moved forward, but a result had already been registered, erase it
+        if($match->match_result_id != null && $match->match_date > now()){
+            $match->match_result_id = null;
+        }
+        $match->save();
+        return redirect('matches')->with('status', `El partit ha estat modificat correctament.`);//TODO confirmation message
     }
 
     /**

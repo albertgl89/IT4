@@ -77,6 +77,12 @@ Route::get('teams/{team}/edit', [TeamController::class, 'edit']);
 //Update team 
 Route::put('teams/{team}/edit', [TeamController::class, 'update']);
 
+//Edit match form
+Route::get('matches/{match}/edit', [MatchController::class, 'edit']);
+
+//Update Match 
+Route::put('matches/{match}/edit', [MatchController::class, 'update']);
+
 
 //Edit match form
 Route::get('matches/edit/{match}', function (Match $match) {
