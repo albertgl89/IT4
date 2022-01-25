@@ -29,8 +29,30 @@ use App\Models\MatchResult;
 
                 <div
                     class="rounded-xl border border-indigo-900 hover:bg-indigo-600 bg-indigo-800 text-white min-w-fit max-w-1/4 p-2 m-2 grid grid-flow-col md:grid-flow-row gap-1 shadow-md md:items-center md:content-center justify-around">
+                   <div class="grid md:grid-flow-col gap-1 grid-flow-row h-min w-full place-self-center">
+                    @if ($match->match_date > now())
+                    <div class="bg-orange-400 text-indigo-900 text-xs text-center w-full p-1 rounded-sm">
+                        <p>Pendent de disputar</p>
+                    </div>
+                @else 
+                    <div class="bg-green-400 text-indigo-900 text-xs text-center w-full p-1 rounded-sm">
+                        <p>Disputat</p>
+                    </div>
+                    @if ($match->match_result_id == null)
+                        <div class="bg-red-400 text-indigo-900 text-xs text-center w-full p-1 rounded-sm">
+                            <p>Esperant resultat</p>
+                        </div>
+                    @else 
+                        <div class="bg-green-400 text-indigo-900 text-xs text-center w-full p-1 rounded-sm">
+                            <p>Resultat registrat</p>
+                        </div>
+                    @endif
+                @endif
+                   </div>
+                   
+                   
                     <div class="grid grid-flow-row justify-items-center items-center">
-                        <p class="font-rubik rounded-full p-2 bg-white text-green-900 m-2 w-full text-center">{{ Team::find($match->team1)->name }} <br> vs <br> {{ Team::find($match->team2)->name }} </p>
+                        <p class="font-rubik rounded-lg p-2 shadow-xl bg-indigo-200 text-black m-2 w-full text-center">{{ Team::find($match->team1)->name }} <br> vs <br> {{ Team::find($match->team2)->name }} </p>
                         <p class="font-rubik justify-self-center">{{$match->match_date}}</p>
                         
                         
