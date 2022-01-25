@@ -25,7 +25,7 @@ use App\Models\Team;
                 
                 <p class="">Nom complet de l'equip: {{ $team->name }}</p>
                 <p class="">Nom abreviat de l'equip: {{ $team->short_name }}</p>
-                <p class="">Estadi de l'equip: <a href="{{url('locations', [$team->id]);}}" class="std-link">{{ Location::find($team->city)->stadium_name }}</a></p>
+                <p class="">Estadi de l'equip: <a href="{{url('locations', [$team->city]);}}" class="std-link">{{ Location::find($team->city)->stadium_name }}</a></p>
                 <p class="">Ciutat de l'equip: {{ Location::find($team->city)->city }}</p>
                 <p class="">País de l'equip: {{ Location::find($team->city)->state }}</p>
                 <p class="">Alta al sistema: {{ $team->created_at }}</p>
