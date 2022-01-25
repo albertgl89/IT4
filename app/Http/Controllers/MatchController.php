@@ -53,7 +53,7 @@ class MatchController extends Controller
      */
     public function show(Match $match)
     {
-        //
+        return view('matches.matchdetail', ['match' => $match]);
     }
 
     /**

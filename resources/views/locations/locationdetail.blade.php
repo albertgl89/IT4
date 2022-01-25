@@ -15,7 +15,7 @@ use App\Models\Team;
 
             <div class="mb-2 w-full -m-1 mx-auto">
                 <p class="p-2 rounded-t-lg bg-indigo-900 text-white w-full">
-                    <a href="{{url()->previous()}}" class="gold-pill-btn m-2 align-middle"><span class="material-icons text-xl align-middle">
+                    <a href="{{url('locations')}}" class="gold-pill-btn m-2 align-middle"><span class="material-icons text-xl align-middle">
                         arrow_back
                         </span>Torna</a>
                 </p>

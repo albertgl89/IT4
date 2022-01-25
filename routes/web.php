@@ -69,9 +69,7 @@ Route::get('teams/{team}', [TeamController::class, 'show']);
 Route::get('locations/{location}', [LocationController::class, 'show']);
 
 //Show summary/details of a particular match
-Route::get('match/{id}', function (Match $match) {
-    return view('matchdetail', ['match' => $match]);
-});
+Route::get('matches/{match}', [MatchController::class, 'show']);
 
 //Edit team form
 Route::get('teams/edit/{team}', function (Team $team) {
