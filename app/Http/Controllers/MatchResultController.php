@@ -29,7 +29,7 @@ class MatchResultController extends Controller
     public function create(Request $request)
     {
         $match = Match::find($request->query('match_id'));
-        return view('addresult', ['match' => $match]);
+        return view('results.addresult', ['match' => $match]);
     }
 
     /**

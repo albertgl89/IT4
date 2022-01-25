@@ -16,7 +16,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        return view('teams');
+        return view('teams.teams');
     }
 
     /**
@@ -26,7 +26,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        return view('addteam');
+        return view('teams.addteam');
     }
 
     /**

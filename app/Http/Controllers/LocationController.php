@@ -16,7 +16,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        return view('locations');
+        return view('locations.locations');
     }
 
     /**
@@ -28,9 +28,9 @@ class LocationController extends Controller
     public function create(Team $team = null)
     {
         if ($team != null){
-            return view('addlocation', ['team' => $team]);
+            return view('locations.addlocation', ['team' => $team]);
         }
-        return view('addlocation');
+        return view('locations.addlocation');
     }
 
     /**

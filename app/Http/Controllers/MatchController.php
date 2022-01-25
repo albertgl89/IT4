@@ -15,7 +15,7 @@ class MatchController extends Controller
      */
     public function index()
     {
-        return view('matches');
+        return view('matches.matches');
     }
 
     /**
@@ -25,7 +25,7 @@ class MatchController extends Controller
      */
     public function create()
     {
-        return view('addmatch');
+        return view('matches.addmatch');
     }
 
     /**
