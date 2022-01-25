@@ -52,8 +52,8 @@ use App\Models\MatchResult;
                    
                    
                     <div class="grid grid-flow-row justify-items-center items-center">
-                        <p class="font-rubik rounded-lg p-2 shadow-xl bg-indigo-200 text-black m-2 w-full text-center">{{ Team::find($match->team1)->name }} <br> vs <br> {{ Team::find($match->team2)->name }} </p>
-                        <p class="font-rubik justify-self-center">{{$match->match_date}}</p>
+                        <p class="font-rubik rounded-md p-2 shadow-xl bg-indigo-200 text-black m-2 w-full text-center">{{ Team::find($match->team1)->name }} <br> vs <br> {{ Team::find($match->team2)->name }} </p>
+                        <p class="font-rubik justify-self-center text-center">{{$match->match_date}}</p>
                         
                         
                     </div>
