@@ -108,6 +108,18 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
-        //
+        $team->delete();
+        return redirect('teams')->with('status', `L'equip $team->name ha estat eliminat correctament.`);//TODO confirmation message
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Team  $team
+     * @return \Illuminate\Http\Response
+     */
+    public function confirmSoftDeletion(Team $team)
+    {
+        return view('teams.confirmdeletion', ['team' => $team]);
     }
 }

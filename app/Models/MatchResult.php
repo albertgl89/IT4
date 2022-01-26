@@ -34,7 +34,7 @@ class MatchResult extends Model
      * Loads the winning team model for this result
      */
     public function winningTeam(){
-        return $this->belongsTo(Team::class, 'id', 'winning_team');
+        return $this->belongsTo(Team::class, 'winning_team', 'id');
     }
     
 }

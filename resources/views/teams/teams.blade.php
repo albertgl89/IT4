@@ -38,7 +38,7 @@ use App\Models\Team;
                         <a href="{{url('teams/'.$team->id.'/edit')}}"><span class="material-icons text-xl gold-pill-btn">
                             edit
                             </span></a>
-                            <a href=""><span class="material-icons text-xl red-pill-btn">
+                            <a href="{{url('teams/'.$team->id.'/delete')}}"><span class="material-icons text-xl red-pill-btn">
                                 delete
                                 </span></a>
                     </div>

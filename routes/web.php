@@ -94,3 +94,9 @@ Route::get('results/{matchResult}/edit', [MatchResultController::class, 'edit'])
 //Update results 
 Route::put('results/{matchResult}/edit', [MatchResultController::class, 'update']);
 
+//Soft delete team confirmation page
+Route::get('teams/{team}/delete', [TeamController::class, 'confirmSoftDeletion']);
+
+//Soft delete team
+Route::delete('teams/{team}/delete', [TeamController::class, 'destroy']);
+

@@ -29,24 +29,24 @@ use App\Models\Match;
             <div class="grid grid-flow-row gap-1 justify-items-center text-left items-center p-2">
 
                 <p>Partit del {{$match->match_date}}</p>
-                <p>Disputat a {{Location::find($match->location_id)->stadium_name}} ({{Location::find($match->location_id)->city}}, {{Location::find($match->location_id)->state}})</p>
-                <p>entre {{Team::find($match->team1)->name}} i {{Team::find($match->team2)->name}}</p>
+                <p>Disputat a {{$match->location()->withTrashed()->first()->stadium_name}} ({{$match->location()->withTrashed()->first()->city}}, {{$match->location()->withTrashed()->first()->state}})</p>
+                <p>entre {{$match->team1()->withTrashed()->first()->name}} i {{$match->team2()->withTrashed()->first()->name}}</p>
                 
                 @if ($match->match_result_id == null)
                             <p class="justify-self-center">Pendent del resultat</p>
-                        @elseif (MatchResult::find($match->match_result_id)->tie == true)
+                        @elseif ($match->results()->withTrashed()->first()->tie == true)
                         <p>Marcador:</p>
                             <ul>
-                                <li>{{Team::find($match->team1)->name}}: {{MatchResult::find($match->match_result_id)->goals_team1}}</li>
-                                <li>{{Team::find($match->team2)->name}}: {{MatchResult::find($match->match_result_id)->goals_team2}}</li>
+                                <li>{{$match->team1()->withTrashed()->first()->name}}: {{$match->results()->withTrashed()->first()->goals_team1}}</li>
+                                <li>{{$match->team2()->withTrashed()->first()->name}}: {{$match->results()->withTrashed()->first()->goals_team2}}</li>
                             </ul>
                             <p class=" justify-self-center">Guanyador: empat</p>
                         @else 
                             <ul>
-                                <li>{{Team::find($match->team1)->name}}: {{MatchResult::find($match->match_result_id)->goals_team1}}</li>
-                                <li>{{Team::find($match->team2)->name}}: {{MatchResult::find($match->match_result_id)->goals_team2}}</li>
+                                <li>{{$match->team1()->withTrashed()->first()->name}}: {{$match->results()->withTrashed()->first()->goals_team1}}</li>
+                                <li>{{$match->team2()->withTrashed()->first()->name}}: {{$match->results()->withTrashed()->first()->goals_team2}}</li>
                             </ul>
-                            <p class=" justify-self-center">Guanyador: {{Team::find(MatchResult::find($match->match_result_id)->winning_team)->name}}</p>
+                            <p class=" justify-self-center">Guanyador: {{$match->results()->withTrashed()->first()->winningTeam()->withTrashed()->first()->name}}</p>
                         @endif
                 
             </div>

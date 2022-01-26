@@ -46,7 +46,7 @@ class Match extends Model
      * Loads the team1 model in this match
      */
     public function team1(){
-        return $this->belongsTo(Team::class, 'id', 'team1');
+        return $this->belongsTo(Team::class, 'team1', 'id');
     }
 
     
@@ -54,6 +54,6 @@ class Match extends Model
      * Loads the team2 model in this match
      */
     public function team2(){
-        return $this->belongsTo(Team::class, 'id', 'team2');
+        return $this->belongsTo(Team::class, 'team2', 'id');
     }
 }

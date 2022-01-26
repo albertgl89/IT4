@@ -17,7 +17,7 @@ class MatchResultSeeder extends Seeder
         $goals_team1 = [6,3];
         $goals_team2 = [1,3];
         $tie = [0,1];
-        $winning_team = [1, null];
+        $winning_team = [2, null];
 
         for ($i = 0; $i < 2; $i++) {
             DB::table('match_results')->insert([
