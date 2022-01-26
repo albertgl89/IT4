@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Match;
+use App\Models\MatchResult;
 use App\Http\Requests\StoreMatchRequest;
 use App\Http\Requests\UpdateMatchRequest;
 
@@ -88,7 +89,7 @@ class MatchController extends Controller
         return redirect('matches')->with('status', `El partit ha estat modificat correctament.`);//TODO confirmation message
     }
 
-    /**
+        /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Match  $match
@@ -96,6 +97,21 @@ class MatchController extends Controller
      */
     public function destroy(Match $match)
     {
-        //
+        if($match->match_result_id != null){
+            MatchResult::find($match->match_result_id)->delete();//Soft delete its result too
+        }
+        $match->delete();
+        return redirect('matches')->with('status', `El partit ha estat eliminat correctament.`);//TODO confirmation message
+    }
+
+    /**
+     * Show confirmation page before deletion.
+     *
+     * @param  \App\Models\Match  $team
+     * @return \Illuminate\Http\Response
+     */
+    public function confirmSoftDeletion(Match $match)
+    {
+        return view('matches.confirmdeletion', ['match' => $match]);
     }
 }

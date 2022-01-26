@@ -113,7 +113,7 @@ class TeamController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Show confirmation page before deletion.
      *
      * @param  \App\Models\Team  $team
      * @return \Illuminate\Http\Response

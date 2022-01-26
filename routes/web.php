@@ -100,3 +100,9 @@ Route::get('teams/{team}/delete', [TeamController::class, 'confirmSoftDeletion']
 //Soft delete team
 Route::delete('teams/{team}/delete', [TeamController::class, 'destroy']);
 
+//Soft delete match confirmation page
+Route::get('matches/{match}/delete', [MatchController::class, 'confirmSoftDeletion']);
+
+//Soft delete match
+Route::delete('matches/{match}/delete', [MatchController::class, 'destroy']);
+
