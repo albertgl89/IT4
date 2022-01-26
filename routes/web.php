@@ -5,8 +5,6 @@ use App\Http\Controllers\MatchController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MatchResultController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Team;
-use App\Models\Match;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,10 +31,10 @@ Route::get('matches', [MatchController::class, 'index']);
 Route::get('locations', [LocationController::class, 'index']);
 
 //New locations form
-Route::get('locations/add', [LocationController::class, 'create']);
+Route::get('locations/add/{team?}', [LocationController::class, 'create']);
 
 //Submit new location
-Route::post('locations/add',[LocationController::class, 'store']);
+Route::post('locations/add/{team?}',[LocationController::class, 'store']);
 
 //New teams form
 Route::get('teams/add', [TeamController::class, 'create']);

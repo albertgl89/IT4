@@ -3,8 +3,6 @@
 @php
 use App\Models\Location;
 use App\Models\Team;
-$teamId = Request::query('team', null);
-$team = Team::find($teamId);
 @endphp
 
 @section('page-title', 'Afegir nova localització')

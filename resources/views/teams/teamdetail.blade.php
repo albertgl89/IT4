@@ -3,6 +3,12 @@
 @php
 use App\Models\Location;
 use App\Models\Team;
+$location = ["stadium_name" => "Sense estadi associat", "city" => "Sense ciutat associada", "state" => "Sense país associat"];
+if($team->location()->first() != null){
+    $location["stadium_name"] = $team->location()->first()->stadium_name;
+    $location["city"] = $team->location()->first()->city;
+    $location["state"] = $team->location()->first()->state;
+}
 @endphp
 
 @section('page-title', 'Detall de l\'equip')
@@ -25,9 +31,9 @@ use App\Models\Team;
                 
                 <p class="">Nom complet de l'equip: {{ $team->name }}</p>
                 <p class="">Nom abreviat de l'equip: {{ $team->short_name }}</p>
-                <p class="">Estadi de l'equip: <a href="{{url('locations', [$team->city]);}}" class="std-link">{{ Location::find($team->city)->stadium_name }}</a></p>
-                <p class="">Ciutat de l'equip: {{ Location::find($team->city)->city }}</p>
-                <p class="">País de l'equip: {{ Location::find($team->city)->state }}</p>
+                <p class="">Estadi de l'equip: <a href="@if ($team->city != null) {{url('locations', [$team->city]);}}@else {{url('locations/add/'.$team->id)}} @endif" class="std-link">{{ $location["stadium_name"]}}</a></p>
+                <p class="">Ciutat de l'equip: {{ $location["city"] }}</p>
+                <p class="">País de l'equip: {{ $location["state"] }}</p>
                 <p class="">Alta al sistema: {{ $team->created_at }}</p>
                 <p class="">Darrera actualització: {{ $team->updated_at }}</p>
                 <hr class="border border-indigo-900 border-dotted w-5/6">

@@ -39,7 +39,7 @@ class LocationController extends Controller
      * @param  \App\Http\Requests\StoreLocationRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreLocationRequest $request)
+    public function store(StoreLocationRequest $request, Team $team)
     {
         $location = new Location;
         $location->city = $request->city;
@@ -49,13 +49,8 @@ class LocationController extends Controller
         //If this is for a team, assign it now
         if($request->team != null){
             $locationId = Location::all()->last()->id;
-            $team = Team::find($request->team);
             $team->city = $locationId;
             $team->save();
-            $dbTeam = Team::where('name', $team->name)->first();
-            if($team->city == null){
-                return redirect()->action([LocationController::class, 'create'],['team' => $dbTeam]);
-            }
         }
         if(!isset($request->team)){
             return redirect('locations')->with('status', `La localització $location->city ($location->stadium_name) ha estat donat d'alta correctament.`);//TODO confirmation message
