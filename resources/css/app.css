@@ -1,3 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Rubik';
+    src: url(fonts/Rubik-VariableFont_wght.ttf);
+}
+
+@layer components {
+    .green-pill-btn {
+        @apply p-2 pl-3 pr-3 mx-auto rounded-3xl shadow shadow-indigo-800 hover:bg-green-600 hover:shadow-inner bg-green-900 text-white font-rubik h-min;
+    }
+
+    .disabled-btn {
+        @apply p-2 pl-3 pr-3 mx-auto rounded-3xl shadow shadow-gray-800 bg-gray-600 text-white font-rubik h-min;
+    }
+
+    .gold-pill-btn {
+        @apply p-2 pl-3 pr-3 rounded-3xl shadow-lg hover:bg-yellow-400 hover:shadow-inner bg-yellow-500 text-indigo-900 font-rubik h-min;
+    }
+
+    .red-pill-btn {
+        @apply p-2 pl-3 pr-3 rounded-3xl shadow-lg hover:bg-red-600 hover:shadow-inner bg-red-700 text-yellow-400 font-rubik h-min;
+    }
+
+    .std-form {
+        @apply mx-auto grid grid-flow-row gap-2 p-2 min-w-fit w-3/4;
+    }
+
+    .std-form-label {
+        @apply p-2 pl-0 -my-2 text-xs;
+    }
+
+    .std-form-text-input {
+        @apply p-2 mb-2 border border-transparent border-b-2 border-b-indigo-900 text-indigo-600 hover:border-green-900 focus:outline-green-600 focus:outline-2;
+    }
+
+    .std-form-number-input {
+        @apply appearance-none text-center text-2xl font-bold w-3/4 mx-auto h-4 p-2 pt-8 pb-8 mb-2 border border-transparent border-b-2 border-b-indigo-900 text-indigo-600 hover:border-green-900 focus:outline-green-600 focus:outline-2;
+    }
+
+    .std-form-selector {
+        @apply p-2 border border-b-indigo-900 text-indigo-600 hover:border-green-900 focus:outline-green-600 focus:outline-2;
+    }
+
+    .std-form-radio {
+        @apply my-auto p-1 rounded-full m-2 mr-3 appearance-none border border-gray-600 bg-white hover:border-green-600 hover:bg-indigo-400 checked:bg-indigo-900 checked:border-0 checked:outline checked:outline-green-600 checked:outline-offset-4;
+    }
+
+    .std-link {
+        @apply underline underline-offset-4 decoration-dotted decoration-indigo-900  hover:text-indigo-900 hover:font-bold;
+    }
+}
+
