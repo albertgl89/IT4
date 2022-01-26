@@ -27,6 +27,7 @@ class LocationSeeder extends Seeder
                 'stadium_name' => $stadium_name[$i],
                 'city' => $city[$i],
                 'state' => $state[$i],
+                'created_at' => now(),
             ]);
         }
     }

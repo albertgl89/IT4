@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\DateFactory;
+use Illuminate\Support\Facades\Date;
 
 class MatchSeeder extends Seeder
 {
@@ -16,12 +16,12 @@ class MatchSeeder extends Seeder
     public function run()
     {
         $match_date = [
-            DateFactory::create(2022,04,12,20,00,00),
-            DateFactory::create(2022,01,15,21,00,00),
-            DateFactory::create(2021,12,27,20,30,00),
-            DateFactory::create(2022,01,01,15,00,00),
-            DateFactory::create(2022,06,16,19,30,00),
-            DateFactory::create(2022,01,31,21,30,00)
+            Date::create(2022,04,12,20,00,00),
+            Date::create(2022,01,15,21,00,00),
+            Date::create(2021,12,27,20,30,00),
+            Date::create(2022,01,01,15,00,00),
+            Date::create(2022,06,16,19,30,00),
+            Date::create(2022,01,31,21,30,00)
         ];
 
         $location_id = [rand(1,6),rand(1,6),rand(1,6),rand(1,6),rand(1,6),rand(1,6)];
@@ -38,6 +38,7 @@ class MatchSeeder extends Seeder
                 'team1' => $team1[$i],
                 'team2' => $team2[$i],
                 'match_result_id' => $match_result_id[$i],
+                'created_at' => now(),
             ]);
         }
     }

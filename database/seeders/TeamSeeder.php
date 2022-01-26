@@ -23,6 +23,7 @@ class TeamSeeder extends Seeder
                 'name'=>$name[$i],
                 'short_name'=>$short_name[$i],
                 'city'=>$city[$i],
+                'created_at' => now(),
             ]);
         }
     }

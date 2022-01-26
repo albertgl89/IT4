@@ -25,6 +25,7 @@ class MatchResultSeeder extends Seeder
                 'goals_team2' => $goals_team2[$i],
                 'tie' => $tie[$i],
                 'winning_team' => $winning_team[$i],
+                'created_at' => now(),
             ]);
         }
     }
