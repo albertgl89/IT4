@@ -24,11 +24,11 @@ class MatchResultController extends Controller
      * Show the form for creating a new resource.
      *
      * @param \Illuminate\Http\Request
+     * @param App\Models\Match;
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(Request $request, Match $match)
     {
-        $match = Match::find($request->query('match_id'));
         return view('results.addresult', ['match' => $match]);
     }
 
@@ -57,7 +57,7 @@ class MatchResultController extends Controller
         $match = Match::find($request->match);
         $match->match_result_id = MatchResult::all()->last()->id;
         $match->save();
-        return redirect('/')->with('status', `Els resultats s'han desat correctament.`);//TODO confirmation message
+        return redirect('matches')->with('status', `Els resultats s'han desat correctament.`);//TODO confirmation message
     }
 
     /**
@@ -110,11 +110,29 @@ class MatchResultController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\MatchResult  $matchResult
+     * @param  \App\Models\MatchResult  $team
      * @return \Illuminate\Http\Response
      */
     public function destroy(MatchResult $matchResult)
     {
-        //
+        $matchId = $matchResult->match()->first()->id;
+        //Set the result to null on the match where it was registered
+        $match = Match::find($matchId);
+        $match->match_result_id = null;
+        $match->save();
+        //Delete the result
+        $matchResult->delete();
+        return redirect('matches/'.$matchId)->with('status', `Resultat eliminat correctament.`);//TODO confirmation message
+    }
+
+    /**
+     * Show confirmation page before deletion.
+     *
+     * @param  \App\Models\MatchResult  $matchResult
+     * @return \Illuminate\Http\Response
+     */
+    public function confirmSoftDeletion(MatchResult $matchResult)
+    {
+        return view('results.confirmdeletion', ['matchResult' => $matchResult]);
     }
 }

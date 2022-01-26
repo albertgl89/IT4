@@ -20,9 +20,19 @@ use App\Models\Match;
                     <a href="{{url('matches')}}" class="gold-pill-btn m-2 w-fit align-middle justify-self-start"><span class="material-icons text-xl align-middle">
                         arrow_back
                         </span>Partits</a>
-                        <a href="{{url('results/'.$match->match_result_id.'/edit')}}" class="gold-pill-btn w-fit m-2 align-middle"><span class="material-icons text-xl align-middle">
+                        @if ($match->match_result_id != null)
+                        <a href="{{url('results/'.$match->match_result_id.'/edit')}}" class="gold-pill-btn w-fit m-2 align-middle"><span class="material-icons text-xl align-middle px-2 mr-1">
                             edit
                             </span>Edita el resultat</a>
+                            <a href="{{url('results/'.$match->match_result_id.'/delete')}}" class="red-pill-btn w-fit m-2 align-middle"><span class="material-icons text-xl align-middle px-2 mr-1">
+                                delete
+                                </span>Esborra el resultat</a>
+                        @else
+                        <a href="{{url('results/add/'.$match->id)}}" class="gold-pill-btn w-fit m-2 align-middle"><span class="material-icons text-xl align-middle px-2 mr-1">
+                            add_circle
+                            </span>Afegeix resultat</a>
+                        @endif
+                        
                         </div>
             </div>
 
