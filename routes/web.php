@@ -61,7 +61,6 @@ Route::get('results/add/{match}', [MatchResultController::class, 'create']);
 //Submit result form
 Route::post('results/add', [MatchResultController::class, 'store']);
 
-
 //Show summary/details of a particular team
 Route::get('teams/{team}', [TeamController::class, 'show']);
 

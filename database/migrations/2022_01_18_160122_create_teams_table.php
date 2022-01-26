@@ -16,10 +16,11 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('name',100);
-            $table->string('short_name', 10);
+            $table->string('name',100)->unique();
+            $table->string('short_name', 10)->unique();
             $table->foreignIdFor(Location::class, 'city')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

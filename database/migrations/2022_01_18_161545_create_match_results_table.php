@@ -21,6 +21,7 @@ class CreateMatchResultsTable extends Migration
             $table->boolean('tie');
             $table->foreignIdFor(Team::class, 'winning_team')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

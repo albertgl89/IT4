@@ -15,10 +15,11 @@ class CreateLocationsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string('stadium_name', 150);
+            $table->string('stadium_name', 150)->unique();
             $table->string('city', 40);
             $table->string('state', 40);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

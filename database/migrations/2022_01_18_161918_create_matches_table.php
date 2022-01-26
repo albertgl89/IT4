@@ -18,12 +18,13 @@ class CreateMatchesTable extends Migration
     {
         Schema::create('matches', function (Blueprint $table) {
             $table->id();
-            $table->dateTimeTz('match_date');
-            $table->foreignIdFor(Location::class);
+            $table->dateTimeTz('match_date')->unique();
+            $table->foreignIdFor(Location::class)->unique();
             $table->foreignIdFor(Team::class, 'team1');
             $table->foreignIdFor(Team::class, 'team2');
             $table->foreignIdFor(MatchResult::class)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

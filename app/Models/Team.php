@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Team extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +22,27 @@ class Team extends Model
         'city',
     ];
 
-    public function city(){
-        return $this->hasOne(Location::class, 'id');
+    /**
+     * Load the location model for this team
+     */
+    public function location(){
+        return $this->belongsTo(Location::class, 'location_id', 'id');
+    }
+
+    /**
+     * Load matches where this team has taken part in
+     */
+    public function matches(){
+        $asTeam1 = $this->hasMany(Match::class, 'team1', 'id');
+        $asTeam2 = $this->hasMany(Match::class, 'team2', 'id');
+        $merged = $asTeam1->merge($asTeam2);
+        return $merged;
+    }
+
+    /**
+     * Load the results where this team has won
+     */
+    public function wins(){
+        return $this->hasMany(MatchResults::class, 'winning_team', 'id');
     }
 }
