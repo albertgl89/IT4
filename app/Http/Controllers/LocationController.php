@@ -106,11 +106,23 @@ class LocationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Location  $location
+     * @param  \App\Models\Location  $team
      * @return \Illuminate\Http\Response
      */
     public function destroy(Location $location)
     {
-        //
+        $location->delete();
+        return redirect('locations')->with('status', `La localització $location->stadium_name ha estat eliminada correctament.`);//TODO confirmation message
+    }
+
+    /**
+     * Show confirmation page before deletion.
+     *
+     * @param  \App\Models\Location  $location
+     * @return \Illuminate\Http\Response
+     */
+    public function confirmSoftDeletion(Location $location)
+    {
+        return view('locations.confirmdeletion', ['location' => $location]);
     }
 }

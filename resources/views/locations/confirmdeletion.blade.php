@@ -2,10 +2,9 @@
 
 @php
 use App\Models\Location;
-use App\Models\Team;
 @endphp
 
-@section('page-title', 'Detall de la localització')
+@section('page-title', 'Eliminar localització')
 
 
 @section('content')
@@ -22,6 +21,16 @@ use App\Models\Team;
             </div>
 
             <div class="grid grid-flow-row gap-1 justify-items-center text-left items-center p-2">
+                
+                <div class="rounded-lg bg-red-700 text-white p-2">
+                    <p class="font-bold text-lg align-middle"><span class="material-icons text-xl align-middle p-2 m-1">
+                        warning
+                        </span>Atenció!</p>
+                        <p>Estàs segur que vols eliminar la següent localització?</p>
+                        <p>Estàs a punt de realitzar una acció irreversible.</p>                        
+                        <p>Els equips i partits relacionats amb aquesta ubicació <b>no</b> es veuran afectats.</p>
+                </div>
+                
                 <p>Estadi: {{$location->stadium_name}}</p>
                 <p>Ciutat: {{$location->city}}, {{$location->state}}</p>
                 <p>Equips amb base en aquest estadi: </p>
@@ -47,8 +56,14 @@ use App\Models\Team;
                     @endif
                 </ul>
                 <p>Total de partits disputats en aquest estadi: TODO</p>
-                
             </div>
+
+            <form action="{{url('locations/'.$location->id.'/delete')}}" method="post" class="std-form">
+            @csrf
+            @method('delete')
+            <input type="submit" value="Esborra la localització" class="red-pill-btn">
+            <a class="gold-pill-btn text-center align-middle" href="{{url('locations')}}">Cancel·la</a>
+            </form>
       
 
         </div>

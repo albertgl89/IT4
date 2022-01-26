@@ -38,7 +38,7 @@ use App\Models\Location;
                         <a href="{{url('locations/'.$location->id.'/edit')}}"><span class="material-icons text-xl gold-pill-btn">
                             edit
                             </span></a>
-                            <a href=""><span class="material-icons text-xl red-pill-btn">
+                            <a href="{{url('locations/'.$location->id.'/delete')}}"><span class="material-icons text-xl red-pill-btn">
                                 delete
                                 </span></a>
                     </div>

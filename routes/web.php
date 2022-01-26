@@ -106,3 +106,9 @@ Route::get('matches/{match}/delete', [MatchController::class, 'confirmSoftDeleti
 //Soft delete match
 Route::delete('matches/{match}/delete', [MatchController::class, 'destroy']);
 
+//Soft delete location confirmation page
+Route::get('locations/{location}/delete', [LocationController::class, 'confirmSoftDeletion']);
+
+//Soft delete location
+Route::delete('locations/{location}/delete', [LocationController::class, 'destroy']);
+

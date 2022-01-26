@@ -26,7 +26,7 @@ class Location extends Model
      * Load the teams models associated with this location
      */
     public function teams(){
-        return $this->belongsTo(Team::class, 'city', 'id');
+        return $this->hasMany(Team::class, 'city', 'id');
     }
 
     /**
