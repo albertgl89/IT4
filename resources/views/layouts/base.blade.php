@@ -12,7 +12,7 @@
     <title>MatchMaker</title>
 </head>
 
-<body class="bg-orange-300">
+<body class="bg-fixed bg-gradient-to-br from-purple-400 via-teal-600 to-indigo-400">
     <header class="w-full max-w-5xl mx-auto mt-2">
         <div class="rounded-tr-lg rounded-tl-lg bg-green-900 text-white text-3xl p-2 font-rubik flex flex-nowrap justify-between">
             <p><span
@@ -25,7 +25,7 @@
                 
         </div>
     </header>
-    <div class="w-full max-w-5xl mx-auto rounded-br-lg rounded-bl-lg mt-0 p-2 shadow bg-stone-100">
+    <div class="w-full max-w-5xl mx-auto rounded-br-lg rounded-bl-lg mt-0 p-2 shadow bg-slate-300">
         <div class="w-full font-rubik text-green-900 text-2xl p-2">
             @yield('page-title')
         </div>

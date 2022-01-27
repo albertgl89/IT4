@@ -5,9 +5,12 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+     
+    },
     fontFamily: {
       'rubik': ['Rubik', 'sans-serif'],
+      'heebo': ['Heebo', 'sans-serif'],
     },
   },
   plugins: [
