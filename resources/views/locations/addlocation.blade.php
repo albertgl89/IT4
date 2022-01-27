@@ -9,7 +9,7 @@ use App\Models\Team;
 
 
 @section('content')
-    <div class="grid grid-flow-row w-full mt-2">
+    <div class="grid grid-flow-row w-full mt-2 font-heebo">
 
         <div class="w-3/4 mx-auto rounded-tl-xl rounded-br-xl bg-white grid grid-flow-row shadow pb-2">
 

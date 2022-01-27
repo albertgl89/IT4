@@ -7,7 +7,7 @@ use App\Models\Location;
 @section('page-title', 'Afegir nou equip')
 
 @section('content')
-    <div class="grid grid-flow-row w-full mt-2">
+    <div class="grid grid-flow-row w-full mt-2 font-heebo">
 
         <div class="w-3/4 mx-auto rounded-br-xl rounded-tl-xl grid grid-flow-row shadow bg-white pb-2">
 

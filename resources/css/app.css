@@ -49,9 +49,18 @@
         @apply p-2 border border-b-indigo-900 text-indigo-600 hover:border-green-900 focus:outline-green-600 focus:outline-2;
     }
 
-    .std-form-radio {
-        @apply my-auto p-1 rounded-full m-2 mr-3 appearance-none border border-gray-600 bg-white hover:border-green-600 hover:bg-indigo-400 checked:bg-indigo-900 checked:border-0 checked:outline checked:outline-green-600 checked:outline-offset-4;
+    .std-form-radio-div {
+        @apply bg-gradient-to-tl from-indigo-800  to-violet-900 rounded-tr-xl rounded-bl-xl shadow-lg flex list-card-bg hover:shadow-2xl hover:from-green-500 hover:to-green-900/80 active:bg-green-600 justify-start content-center;
     }
+
+    .std-form-radio-input {
+        @apply appearance-none checked:bg-green-600 checked:shadow-inner;
+    }
+    
+    .std-form-radio-label{
+    @apply text-white peer-checked:bg-green-700 peer-checked:shadow-inner w-full p-2 rounded-tr-xl rounded-bl-xl;
+    }
+    
 
     .std-link {
         @apply underline underline-offset-4 decoration-dotted decoration-indigo-900  hover:text-indigo-900 hover:font-bold;
