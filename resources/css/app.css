@@ -56,5 +56,9 @@
     .std-link {
         @apply underline underline-offset-4 decoration-dotted decoration-indigo-900  hover:text-indigo-900 hover:font-bold;
     }
+
+    .list-card-bg {
+        @apply hover:to-violet-900/80 bg-gradient-to-tl from-indigo-800  to-violet-900 rounded-tr-xl rounded-bl-xl shadow-lg;
+    }
 }
 
