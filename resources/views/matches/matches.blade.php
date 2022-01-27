@@ -50,11 +50,9 @@ use App\Models\MatchResult;
                    </div>
                    
                    
-                    <div class="grid grid-flow-row justify-items-center items-center">
-                        <p class="font-rubik rounded-md p-2 shadow-xl bg-indigo-200 text-black m-2 w-full text-center">{{ $match->team1()->withTrashed()->first()->name }} <br> vs <br> {{ $match->team2()->withTrashed()->first()->name }} </p>
-                        <p class="font-rubik justify-self-center text-center">{{$match->getDate();}}</p>
-                        
-                        
+                    <div class="grid grid-flow-row justify-items-center items-center mb-2">
+                        <p class="font-rubik rounded-t-md p-2 shadow-xl bg-indigo-200 text-black m-2 mb-0 w-full text-center">{{ $match->team1()->withTrashed()->first()->name }} <br> <span class="animation-ping bg-indigo-400 rounded-full p-1 text-white"> vs </span>  <br> {{ $match->team2()->withTrashed()->first()->name }} </p>
+                        <p class="font-rubik shadow-xl rounded-b-md bg-indigo-400 text-white w-full justify-self-center text-center">{{$match->getDate();}}</p>                        
                     </div>
                     
                     <div class="grid grid-flow-col text-center md:flex md:flex-wrap md:max-w-none max-w-[30%] md:justify-items-around justify-items-center content-center items-center md:gap-2 gap-2">
