@@ -4,10 +4,16 @@ use App\Models\Location;
 @endphp
 
 @section('page-title', 'Localitzacions')
+@section('actions')
+<div class="flex flex-nowrap text-base justify-items-start gap-2">
+    <a href="{{url('locations/add')}}" class="green-pill-btn w-fit mx-0 h-fit"><span class="material-icons text-xl align-top pr-2">
+        add_circle
+        </span>Crea localització</a>
+</div>
+@endsection
 
 
 @section('content')
-    <p class="font-heebo">Totes les localitzacions del sistema</p>
 
     <div class="grid grid-flow-col w-full mt-2">
 
@@ -29,10 +35,10 @@ use App\Models\Location;
                 <div
                     class="list-card-bg text-white min-w-fit max-w-1/4 p-2 m-2 grid grid-cols-2 md:grid-flow-row md:grid-cols-none gap-2 shadow-md md:items-center md:content-center justify-around font-heebo">
                    
-                    <div class="grid grid-flow-row justify-items-center items-center md:row-1">
-                        <p class="font-rubik rounded-full p-2 text-center bg-white text-green-900 m-2 w-full">
+                    <div class="grid grid-flow-row justify-items-center items-center md:row-1 mt-2 mb-2">
+                        <p class="font-rubik rounded-tr-xl p-2 text-center bg-white text-green-900 w-full">
                             {{ $location->stadium_name }}</p>
-                        <p class="font-rubik justify-self-center">{{ $location->city }}, {{ $location->state }}</p>
+                        <p class="font-rubik justify-self-center bg-indigo-400 rounded-bl-xl p-2 w-full text-center">{{ $location->city }}, {{ $location->state }}</p>
                     </div>
 
                     <div

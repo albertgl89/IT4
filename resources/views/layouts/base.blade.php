@@ -16,19 +16,23 @@
     <header class="w-full max-w-5xl mx-auto mt-2">
         <div class="rounded-tr-lg rounded-tl-lg bg-green-900 text-white text-3xl p-2 font-rubik flex flex-nowrap justify-between">
             <p><span
-                    class="material-icons text-5xl p-2 align-middle">
+                    class="material-icons text-5xl p-2 align-top">
                     sports_soccer
                 </span>MatchMaker</p>
-                <a href="{{url('/')}}" class="text-base p-2 align-middle gold-pill-btn"><span class="material-icons text-sm align-middle pr-1">
+                <a href="{{url('/')}}" class="md:inline hidden text-base p-2 align-middle gold-pill-btn"><span class="material-icons text-sm align-top pr-1">
                     dashboard
                     </span>Dashboard</a>
+                    <a href="{{url('/')}}" class="inline md:hidden text-base p-2 align-middle gold-pill-btn "><span class="material-icons text-sm align-top p-1 text-center">
+                        dashboard
+                        </span></a>
                 
         </div>
     </header>
     <div class="w-full max-w-5xl mx-auto rounded-br-lg rounded-bl-lg mt-0 p-2 shadow bg-slate-300">
-        <div class="w-full font-rubik text-green-900 text-2xl p-2">
+        <div class="w-full font-rubik text-green-900 text-2xl p-2 flex flex-nowrap justify-start">
             @yield('page-title')
         </div>
+        @yield('actions')
         <div class="w-full mx-auto p-2">
             @yield('content')
         </div>

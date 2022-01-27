@@ -4,6 +4,13 @@ use App\Models\Team;
 @endphp
 
 @section('page-title', 'Equips')
+@section('actions')
+    <div class="flex flex-col-reverse text-base justify-items-start gap-2">
+        <a href="{{url('teams/add')}}" class="green-pill-btn w-fit mx-0 h-fit"><span class="material-icons text-xl align-top pr-2">
+            add_circle
+            </span>Crea equip</a>
+    </div>
+@endsection
 
 
 @section('content')
