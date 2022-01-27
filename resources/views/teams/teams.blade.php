@@ -25,7 +25,7 @@ use App\Models\Team;
 
         <div class="grid grid-flow-row md:grid-cols-4 gap-2 font-heebo w-full">
             @foreach (Team::all() as $team)
-                <div class="md:flex md:flex-wrap rounded-xl shadow-md hover:bg-indigo-600 bg-indigo-800 text-white md:max-w-1/4 min-w-fit">
+                <div class="md:flex md:flex-wrap rounded-tr-xl rounded-bl-xl shadow-lg hover:to-violet-900/80 bg-gradient-to-tl from-indigo-800  to-violet-900 text-white md:max-w-1/4 min-w-fit">
                     <div
                         class="p-2 m-2 grid grid-cols-4 md:grid-cols-4 gap-1 md:items-center md:content-center justify-around">
                         

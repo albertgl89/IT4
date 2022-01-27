@@ -880,6 +880,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded-tl-md {
   border-top-left-radius: 0.375rem;
 }
+.rounded-tr-xl {
+  border-top-right-radius: 0.75rem;
+}
+.rounded-bl-xl {
+  border-bottom-left-radius: 0.75rem;
+}
 .border {
   border-width: 1px;
 }
@@ -959,15 +965,34 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
+.bg-gradient-to-tl {
+  background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+}
 .from-purple-400 {
   --tw-gradient-from: #c084fc;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(192 132 252 / 0));
 }
+.from-indigo-800 {
+  --tw-gradient-from: #3730a3;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(55 48 163 / 0));
+}
 .via-teal-600 {
   --tw-gradient-stops: var(--tw-gradient-from), #0d9488, var(--tw-gradient-to, rgb(13 148 136 / 0));
 }
+.via-transparent {
+  --tw-gradient-stops: var(--tw-gradient-from), transparent, var(--tw-gradient-to, rgb(0 0 0 / 0));
+}
 .to-indigo-400 {
   --tw-gradient-to: #818cf8;
+}
+.to-violet-900 {
+  --tw-gradient-to: #4c1d95;
+}
+.to-violet-900\/40 {
+  --tw-gradient-to: rgb(76 29 149 / 0.4);
+}
+.to-violet-900\/80 {
+  --tw-gradient-to: rgb(76 29 149 / 0.8);
 }
 .bg-fixed {
   background-attachment: fixed;
@@ -1076,6 +1101,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 
 @font-face {
     font-family: 'Rubik';
@@ -1095,6 +1125,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:bg-indigo-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(79 70 229 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-indigo-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(199 210 254 / var(--tw-bg-opacity));
+}
+
+.hover\:to-violet-900\/80:hover {
+  --tw-gradient-to: rgb(76 29 149 / 0.8);
 }
 
 @media (min-width: 640px) {
