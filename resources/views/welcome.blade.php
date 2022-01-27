@@ -8,12 +8,12 @@
 
         <div class="">
             <div class="w-full mx-auto">
-                <p class="p-2 rounded-tl-md bg-indigo-900 text-white w-full"><span class="material-icons text-xl align-top pr-2 pl-2 rounded-full text-center mx-auto mr-2 bg-white text-indigo-900">
+                <p class="p-2 rounded-tl-xl bg-indigo-900 text-white w-full"><span class="material-icons text-xl align-top pr-2 pl-2 rounded-full text-center mx-auto mr-2 bg-white text-indigo-900">
                     groups
                     </span>Gestió d'equips</p>
             </div>
 
-            <div class="rounded-br-lg grid grid-flow-row gap-2  shadow-md p-2 bg-white">
+            <div class="rounded-br-xl grid grid-flow-row gap-2  shadow-md p-2 bg-white">
                 <a href="{{url('teams')}}" class="green-pill-btn"><span class="material-icons text-xl align-top pr-2">
                     list_alt
                     </span>Mostra equips</a>
@@ -25,11 +25,11 @@
         
         <div>
             <div class="w-full mx-auto">
-                <p class="p-2 rounded-tl-md bg-indigo-900 text-white w-full"><span class="material-icons text-xl align-top pr-2 pl-2 rounded-full text-center mx-auto mr-2 bg-white text-indigo-900">
+                <p class="p-2 rounded-tl-xl bg-indigo-900 text-white w-full"><span class="material-icons text-xl align-top pr-2 pl-2 rounded-full text-center mx-auto mr-2 bg-white text-indigo-900">
                     sports_soccer
                     </span>Gestió de partits</p>
             </div>
-            <div class="rounded-br-lg grid grid-flow-row gap-2 shadow-md p-2 bg-white">
+            <div class="rounded-br-xl grid grid-flow-row gap-2 shadow-md p-2 bg-white">
                 <a href="{{url('matches')}}" class="green-pill-btn"><span class="material-icons text-xl align-top pr-2">
                     list_alt
                     </span>Mostra partits</a>
@@ -44,12 +44,12 @@
 
        <div>
         <div class="w-full mx-auto">
-            <p class="p-2 rounded-tl-md bg-indigo-900 text-white w-full"><span class="material-icons text-xl align-top pr-2 pl-2 rounded-full text-center mx-auto mr-2 bg-white text-indigo-900">
+            <p class="p-2 rounded-tl-xl bg-indigo-900 text-white w-full"><span class="material-icons text-xl align-top pr-2 pl-2 rounded-full text-center mx-auto mr-2 bg-white text-indigo-900">
                 place
                 </span>Gestió de localitzacions</p>
         </div>
 
-        <div class="rounded-br-lg grid grid-flow-row gap-2 shadow-md p-2 bg-white">
+        <div class="rounded-br-xl grid grid-flow-row gap-2 shadow-md p-2 bg-white">
             <a href="{{url('locations')}}" class="green-pill-btn"><span class="material-icons text-xl align-top pr-2">
                 list_alt
                 </span>Mostra localitzacions</a>

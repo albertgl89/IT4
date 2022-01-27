@@ -940,6 +940,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded-bl-md {
   border-bottom-left-radius: 0.375rem;
 }
+.rounded-tl-xl {
+  border-top-left-radius: 0.75rem;
+}
+.rounded-br-xl {
+  border-bottom-right-radius: 0.75rem;
+}
 .border-2 {
   border-width: 2px;
 }
@@ -1071,6 +1077,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .text-justify {
   text-align: justify;
+}
+.align-baseline {
+  vertical-align: baseline;
 }
 .align-top {
   vertical-align: top;

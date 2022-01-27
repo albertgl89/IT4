@@ -12,10 +12,12 @@ use App\Models\Location;
 @section('content')
     <div class="grid grid-flow-row w-full mt-2">
 
-        <div class="w-3/4 mx-auto rounded-lg grid grid-flow-row shadow border-2 pb-2">
+        <div class="w-3/4 mx-auto rounded-br-xl bg-white grid grid-flow-row shadow pb-2">
 
             <div class="mb-2 w-full -m-1 mx-auto">
-                <p class="p-2 rounded-t-lg bg-indigo-900 text-white w-full">Selecciona el partit al qual vols registrar-hi un resultat</p>
+                <p class="p-2 rounded-tl-xl bg-indigo-900 text-white w-full"><span class="material-icons text-xl align-top pr-2 pl-2 rounded-full text-center mx-auto mr-2 bg-white text-indigo-900">
+                    add_circle
+                    </span>Selecciona el partit al qual vols registrar-hi un resultat</p>
             </div>
 
             @if ($errors->any())
