@@ -56,4 +56,11 @@ class Match extends Model
     public function team2(){
         return $this->belongsTo(Team::class, 'team2', 'id');
     }
+
+    /**
+     * Returns the date for this match in the desired way for rendering to the user
+     */
+    public function getDate(){
+        return $this->serializeDate($this->match_date);
+    }
 }
