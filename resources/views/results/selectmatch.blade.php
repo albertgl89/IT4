@@ -10,13 +10,13 @@ use App\Models\Location;
 
 
 @section('content')
-    <div class="grid grid-flow-row w-full mt-2">
+    <div class="grid grid-flow-row w-full mt-2 font-heebo">
 
         <div class="w-3/4 mx-auto rounded-tl-xl rounded-br-xl bg-white grid grid-flow-row shadow pb-2">
 
             <div class="mb-2 w-full -m-1 mx-auto">
                 <p class="p-2 rounded-tl-xl bg-indigo-900 text-white w-full"><span class="material-icons text-xl align-top pr-2 pl-2 rounded-full text-center mx-auto mr-2 bg-white text-indigo-900">
-                    add_circle
+                    search
                     </span>Selecciona el partit al qual vols registrar-hi un resultat</p>
             </div>
 
@@ -31,16 +31,22 @@ use App\Models\Location;
                 </div>
             @endif
 
-            <form action="add/{match}" method="get" class="std-form">
+            <form action="{{url('results/add/')}}" method="get" class="std-form">
                 @csrf
                 @if (Match::where('match_result_id', null)->count() == 0)
-                    <p class="mx-auto w-full text-center">No hi ha cap partit registrat encara, o tots els partits ja tenen resultats guardats.</p>
+                    <p class="font-heebo mx-auto w-full text-center">No hi ha cap partit registrat encara, tots els partits ja tenen resultats guardats, o bé els partits no s'han disputat encara.</p>
                 @else
-                    @foreach (Match::where('match_result_id', null)->get() as $match)
-                    <div class="grid grid-flow-col border rounded-lg border-indigo-900 hover:border-green-600 p-2 m-1 justify-start content-center">
-                        <input type="radio" name="match_id" id="{{$match->id}}" value="{{$match->id}}" class="peer std-form-radio">
-                        <label for="{{$match->id}}" class="text-indigo-600">
-                        {{Team::find($match->team1)->name}} vs {{Team::find($match->team2)->name}} @ {{Location::find($match->location_id)->stadium_name}}, {{$match->match_date}}
+                    @foreach (Match::where('match_result_id', null)->where('match_date', '<', now())->get() as $match)
+                    <div class="group std-form-radio-div">
+                        <input type="radio" name="match_id" id="{{$match->id}}" value="{{$match->id}}" class="peer std-form-radio-input">
+                        <label for="{{$match->id}}" class="std-form-radio-label">
+                            <span class="material-icons text-xl align-top pr-2 pl-2 rounded-full text-center mx-auto mr-2 mb-1 bg-white text-indigo-900">
+                                groups
+                                </span>{{$match->team1()->withTrashed()->first()->name}} vs {{$match->team2()->withTrashed()->first()->name}}<br><span class="material-icons text-xl align-top pr-2 pl-2 mb-1 rounded-full text-center mx-auto mr-2 bg-white text-indigo-900">
+                                    place
+                                    </span>{{$match->location()->withTrashed()->first()->stadium_name}}<br><span class="material-icons text-xl align-top pr-2 pl-2 rounded-full text-center mx-auto mr-2 mb-1 bg-white text-indigo-900">
+                                        event
+                                        </span>{{$match->getDate()}}
                         </label>
                     </div>
                     @endforeach
