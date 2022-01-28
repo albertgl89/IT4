@@ -67,13 +67,15 @@ class Team extends Model
         $ties = 0;
         $asT1 = $this->matchT1()->withTrashed()->get();
         $asT2 = $this->matchT2()->withTrashed()->get();
-        foreach($asT1 as $result){
-            if ($result->tie == 1){
+        foreach($asT1 as $match){
+            $results = MatchResult::find($match->match_result_id);
+            if (isset($results->tie) && $results->tie == true){
                 $ties++;
             }
         }
-        foreach($asT2 as $result){
-            if ($result->tie == 1){
+        foreach($asT2 as $match){
+            $results = MatchResult::find($match->match_result_id);
+            if (isset($results->tie) && $results->tie == true){
                 $ties++;
             }
         }
