@@ -85,19 +85,19 @@ if ($team->location()->first() != null) {
                 <!--Stats-->
                 <div class="list-item-bg">
                     <p class="text-center md:text-left">Total partits disputats</p>
-                    <p class="text-center">TODO</p>
+                    <p class="text-center">{{$team->countMatches()}}</p>
                 </div>
                 <div class="list-item-bg">
-                    <p class="text-center md:text-left">Total victòries acumulades</p>
-                    <p class="text-center">TODO</p>
+                    <p class="text-center md:text-left">Total victòries</p>
+                    <p class="text-center">{{$team->wins()->count()}}</p>
                 </div>
                 <div class="list-item-bg">
                     <p class="text-center md:text-left">Total empats</p>
-                    <p class="text-center">TODO</p>
+                    <p class="text-center">{{$team->ties()}}</p>
                 </div>
                 <div class="list-item-bg">
                     <p class="text-center md:text-left">Total derrotes</p>
-                    <p class="text-center">TODO</p>
+                    <p class="text-center">{{$team->losses()}}</p>
                 </div>
             </div>
 

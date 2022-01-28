@@ -30,19 +30,63 @@ class Team extends Model
     }
 
     /**
-     * Load matches where this team has taken part in
+     * Load matches where this team has taken part in as team 1
      */
-    public function matches(){
-        $asTeam1 = $this->hasMany(Match::class, 'team1', 'id');
-        $asTeam2 = $this->hasMany(Match::class, 'team2', 'id');
-        $merged = $asTeam1->merge($asTeam2);
-        return $merged;
+    public function matchT1(){
+        return $this->hasMany(Match::class, 'team1', 'id');
+    }
+
+    /**
+     * Load matches where this team has taken part in as team 2
+     */
+    public function matchT2(){
+        return $this->hasMany(Match::class, 'team2', 'id');
+    }
+
+    /**
+     * Load matches where this team has taken part in the past
+     */
+    public function countMatches(){
+        $asTeam1 = $this->matchT1()->where('match_date','<', now())->count();
+        $asTeam2 = $this->matchT2()->where('match_date','<', now())->count();;
+        $result = $asTeam1+$asTeam2;
+        return $result;
     }
 
     /**
      * Load the results where this team has won
      */
     public function wins(){
-        return $this->hasMany(MatchResults::class, 'winning_team', 'id');
+        return $this->hasMany(MatchResult::class, 'winning_team', 'id');
+    }
+
+    /**
+     * Returns the number of times where this team has tied
+     */
+    public function ties(){
+        $ties = 0;
+        $asT1 = $this->matchT1()->withTrashed()->get();
+        $asT2 = $this->matchT2()->withTrashed()->get();
+        foreach($asT1 as $result){
+            if ($result->tie == 1){
+                $ties++;
+            }
+        }
+        foreach($asT2 as $result){
+            if ($result->tie == 1){
+                $ties++;
+            }
+        }
+        return $ties;
+    }
+
+    /**
+     * Returns the number of times where this team has lost
+     */
+    public function losses(){
+        $tieNumber = $this->ties();
+        $totalMatches = $this->countMatches();
+        $totalWins = $this->wins()->count();
+        return $totalMatches - $tieNumber - $totalWins;
     }
 }
