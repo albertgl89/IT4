@@ -29,7 +29,7 @@ use App\Models\Location;
                 </div>
             @endif
 
-            <form action="add" method="post" class="std-form">
+            <form action="{{url('teams/add')}}" method="post" class="std-form">
                 @csrf
                 <label for="name" class="std-form-label">Nom complet de l'equip</label>
                 <input type="text" name="name" id="" placeholder="París St. Germain"

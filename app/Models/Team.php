@@ -26,7 +26,7 @@ class Team extends Model
      * Load the location model for this team
      */
     public function location(){
-        return $this->belongsTo(Location::class, 'id', 'city');
+        return $this->belongsTo(Location::class, 'city', 'id');
     }
 
     /**

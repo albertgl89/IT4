@@ -28,7 +28,9 @@ use App\Models\Location;
                         </span>Atenció!</p>
                         <p>Estàs segur que vols eliminar la següent localització?</p>
                         <p>Estàs a punt de realitzar una acció irreversible.</p>                        
-                        <p>Els equips i partits relacionats amb aquesta ubicació <b>no</b> es veuran afectats.</p>
+                        <p>Els equips amb aquesta ubicació <b>deixaran de tenir-la associada.</b></p>
+                        <p>Els partits pendents de cel·lebrar-se en aquesta ubicació <b>deixaran de tenir-la associada.</b></p>
+                        <p>Els partits celebrats en aquesta ubicació <b>no es veuran afectats.</b></p>
                 </div>
                 
                 <p>Estadi: {{$location->stadium_name}}</p>

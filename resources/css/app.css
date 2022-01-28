@@ -22,11 +22,11 @@
     }
 
     .gold-pill-btn {
-        @apply p-2 pl-3 pr-3 rounded-3xl shadow-lg hover:bg-yellow-400 hover:shadow-inner bg-yellow-500 text-indigo-900 font-rubik h-min;
+        @apply p-2 pl-3 pr-3 rounded-3xl shadow-lg hover:bg-yellow-400 hover:shadow-inner bg-yellow-500 text-indigo-900 font-rubik h-min text-center;
     }
 
     .red-pill-btn {
-        @apply p-2 pl-3 pr-3 rounded-3xl shadow-lg hover:bg-red-600 hover:shadow-inner bg-red-700 text-yellow-400 font-rubik h-min;
+        @apply p-2 pl-3 pr-3 rounded-3xl shadow-lg hover:bg-red-600 hover:shadow-inner bg-red-700 text-yellow-400 font-rubik h-min text-center;
     }
 
     .std-form {
@@ -68,6 +68,10 @@
 
     .list-card-bg {
         @apply hover:to-violet-900/80 bg-gradient-to-tl from-indigo-800  to-violet-900 rounded-tr-xl rounded-bl-xl shadow-lg;
+    }
+
+    .list-item-bg {
+        @apply bg-gradient-to-tl from-indigo-800  to-violet-900 rounded-tr-xl rounded-bl-xl shadow-lg text-white w-full p-2 grid grid-rows-2 md:grid-cols-2 md:grid-rows-none justify-items-stretch;
     }
 }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Location;
 use App\Models\Team;
+use App\Models\Match;
 use App\Http\Requests\StoreLocationRequest;
 use App\Http\Requests\UpdateLocationRequest;
 
@@ -106,6 +107,16 @@ class LocationController extends Controller
      */
     public function destroy(Location $location)
     {
+        //Dissociate this location from teams and future matches, but not past matches as they have already been celebrated
+        foreach (Team::where('city', $location->id)->get() as $team){
+            $team->city = null;
+            $team->save();
+        }
+        foreach (Match::where('location_id', $location->id)->where('match_date', '>', now())->get() as $match){
+            $match->location_id = null;
+            $match->save();
+        }
+
         $location->delete();
         return redirect('locations')->with('status', `La localització $location->stadium_name ha estat eliminada correctament.`);//TODO confirmation message
     }
