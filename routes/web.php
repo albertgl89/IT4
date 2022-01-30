@@ -116,3 +116,9 @@ Route::get('results/{matchResult}/delete', [MatchResultController::class, 'confi
 //Soft delete result
 Route::delete('results/{matchResult}/delete', [MatchResultController::class, 'destroy']);
 
+//List all stadiums within same city
+Route::get('cities/{location}', [LocationController::class, 'filterCity']);
+
+//List all stadiums within same state
+Route::get('states/{location}', [LocationController::class, 'filterState']);
+

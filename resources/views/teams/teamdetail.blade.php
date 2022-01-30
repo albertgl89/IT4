@@ -60,44 +60,53 @@ if ($team->location()->first() != null) {
             <div class="grid grid-flow-row gap-1 justify-items-left text-justify items-center p-2 place-self-start w-full">
 
                 <p class="font-rubik text-2xl text-green-900 p-2">{{ $team->name }}</p>
-                <p class="p-2">Nom abreviat de l'equip: {{ $team->short_name }}</p>
-                @if ($team->city != null)
-                    <p class="p-2">
-                        <a href="{{ url('locations', [$team->city]) }}" class="green-pill-btn"><span
-                                class="material-icons text-xl align-top mr-1">
-                                place
-                            </span>{{ $location['stadium_name'] }}</a>
-                    </p>
-                    <p class="p-2">Ciutat de l'equip: {{ $location['city'] }}</p>
-                    <p class="p-2">País de l'equip: {{ $location['state'] }}</p>
-                @else
-                    <p class="p-2">
-                        <a href="{{ url('locations/add/' . $team->id) }} " class="green-pill-btn">
-                            <span class="material-icons text-xl align-top mr-1">
-                                add_circle
-                            </span>{{ $location['stadium_name'] }}</a>
-                    </p>
-                @endif
-                <p class="p-2">Alta al sistema: {{ $team->created_at }}</p>
-                <p class="p-2">Darrera actualització: {{ $team->updated_at }}</p>
+
+                <div class="grid grid-flow-row md:grid-flow-col w-full">
+                    <div>
+                        <p class="p-2">Nom abreviat de l'equip: {{ $team->short_name }}</p>
+                        @if ($team->city != null)
+                            <p class="p-2">
+                                <a href="{{ url('locations', [$team->city]) }}" class="green-pill-btn"><span
+                                        class="material-icons text-xl align-top mr-1">
+                                        place
+                                    </span>{{ $location['stadium_name'] }}</a>
+                            </p>
+                            <p class="p-2"><a href="{{url('cities/'.$team->location()->first()->id)}}" class="std-link">{{ $location['city'] }}</a>, <a href="{{url('states/'.$team->location()->first()->id)}}" class="std-link">{{ $location['state'] }}</a></p>
+                        @else
+                            <p class="p-2">
+                                <a href="{{ url('locations/add/' . $team->id) }} " class="green-pill-btn">
+                                    <span class="material-icons text-xl align-top mr-1">
+                                        add_circle
+                                    </span>{{ $location['stadium_name'] }}</a>
+                            </p>
+                        @endif
+
+                    </div>
+                    <div>
+                        <p class="p-2">Alta al sistema: {{ $team->created_at }}</p>
+                        <p class="p-2">Darrera actualització: {{ $team->updated_at }}</p>
+                    </div>
+                </div>
+
+
 
                 <p class="font-rubik text-2xl text-green-900 p-2">Estadístiques</p>
                 <!--Stats-->
                 <div class="list-item-bg">
                     <p class="text-center md:text-left">Total partits disputats</p>
-                    <p class="text-center">{{$team->countMatches()}}</p>
+                    <p class="text-center">{{ $team->countMatches() }}</p>
                 </div>
                 <div class="list-item-bg">
                     <p class="text-center md:text-left">Total victòries</p>
-                    <p class="text-center">{{$team->wins()->count()}}</p>
+                    <p class="text-center">{{ $team->wins()->count() }}</p>
                 </div>
                 <div class="list-item-bg">
                     <p class="text-center md:text-left">Total empats</p>
-                    <p class="text-center">{{$team->ties()}}</p>
+                    <p class="text-center">{{ $team->ties() }}</p>
                 </div>
                 <div class="list-item-bg">
                     <p class="text-center md:text-left">Total derrotes</p>
-                    <p class="text-center">{{$team->losses()}}</p>
+                    <p class="text-center">{{ $team->losses() }}</p>
                 </div>
             </div>
 

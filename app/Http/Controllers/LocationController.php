@@ -131,4 +131,26 @@ class LocationController extends Controller
     {
         return view('locations.confirmdeletion', ['location' => $location]);
     }
+
+    /**
+     * Display a listing of the resource where the city is shared.
+     * @param App\Models\Location
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function filterCity(Location $location)
+    {
+        return view('locations.cities.filter', ['location'=>$location]);
+    }
+
+        /**
+     * Display a listing of the resource where the state is shared.
+     * @param App\Models\Location
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function filterState(Location $location)
+    {
+        return view('locations.states.filter', ['location'=>$location]);
+    }
 }
