@@ -63,27 +63,6 @@ if ($match->match_result_id != null){
                                         class="material-icons text-xl align-top">
                                         add_circle emoji_events
                                     </span></a>
-                            @elseif ($match->match_date < now() && $resultat)
-                                <a href="{{ url('results/' . $match->match_result_id.'/edit') }}"
-                                    class="gold-pill-btn m-2 align-middle h-min md:inline hidden"><span
-                                        class="material-icons text-xl align-top">
-                                        edit
-                                    </span>Edita resultat</a>
-                                <a href="{{  url('results/' . $match->match_result_id.'/edit') }}"
-                                    class="gold-pill-btn m-2 align-middle h-min md:hidden"><span
-                                        class="material-icons text-xl align-top">
-                                        edit emoji_events
-                                    </span></a>
-                                    <a href="{{ url('results/' . $match->match_result_id.'/delete') }}"
-                                        class="red-pill-btn m-2 align-middle h-min md:inline hidden"><span
-                                            class="material-icons text-xl align-top">
-                                            delete
-                                        </span>Elimina resultat</a>
-                                    <a href="{{  url('results/' . $match->match_result_id.'/delete') }}"
-                                        class="red-pill-btn m-2 align-middle h-min md:hidden"><span
-                                            class="material-icons text-xl align-top">
-                                            delete emoji_events
-                                        </span></a>
                             @endif
                     </div>
 
@@ -125,7 +104,19 @@ if ($match->match_result_id != null){
                 @endif
                 
             </div>
-      
+            @if ($match->match_date < now() && $resultat)
+                <a href="{{ url('results/' . $match->match_result_id.'/edit') }}"
+                    class="gold-pill-btn m-2 align-middle h-min w-3/4 mx-auto"><span
+                        class="material-icons text-xl align-top">
+                        edit
+                    </span>Edita resultat</a>
+                
+                    <a href="{{ url('results/' . $match->match_result_id.'/delete') }}"
+                        class="red-pill-btn m-2 align-middle h-min w-3/4 mx-auto"><span
+                            class="material-icons text-xl align-top">
+                            delete
+                        </span>Elimina resultat</a>
+            @endif
 
         </div>
 
