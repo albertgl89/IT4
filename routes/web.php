@@ -56,6 +56,9 @@ Route::get('results/selectmatch', function(){
 //New result form
 Route::get('results/add/', [MatchResultController::class, 'create']);
 
+//New result form from match detail
+Route::get('results/add/{match}', [MatchResultController::class, 'createFromDetail']);
+
 //Submit result form
 Route::post('results/add', [MatchResultController::class, 'store']);
 

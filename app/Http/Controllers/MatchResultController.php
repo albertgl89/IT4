@@ -42,6 +42,21 @@ class MatchResultController extends Controller
         return view('results.addresult', ['match' => $match]);
     }
 
+        /**
+     * Show the form for creating a new resource.
+     *
+     * @param \Illuminate\Http\Request
+     * @return \Illuminate\Http\Response
+     */
+    public function createFromDetail(Match $match)
+    {
+        //If we try to add a result via url to a match in the future or a match with a result already, redirect
+        if($match->match_date > now() || $match->match_result_id != null){
+            return redirect('/')->with('status', `Aquesta acció està prohibida.`);//TODO confirmation message
+        }
+        return view('results.addresult', ['match' => $match]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

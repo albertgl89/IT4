@@ -73,5 +73,9 @@
     .list-item-bg {
         @apply bg-gradient-to-tl from-indigo-800  to-violet-900 rounded-tr-xl rounded-bl-xl shadow-lg text-white w-full p-2 grid grid-rows-2 md:grid-cols-2 md:grid-rows-none justify-items-stretch;
     }
+
+    .result-item-bg {
+        @apply bg-white md:rounded-tr-xl rounded-bl-xl shadow-lg text-violet-900 w-full p-2 mb-2 md:mb-0 md:mr-1 md:-ml-4 border border-violet-900 border-t-0 md:border-t-[1px] justify-items-stretch;
+    }
 }
 
