@@ -840,6 +840,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ml-0 {
   margin-left: 0px;
 }
+.mb-4 {
+  margin-bottom: 1rem;
+}
 .inline {
   display: inline;
 }
@@ -917,6 +920,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.grid-cols-none {
+  grid-template-columns: none;
 }
 .grid-rows-none {
   grid-template-rows: none;
