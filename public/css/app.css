@@ -791,6 +791,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-1 {
   margin-bottom: 0.25rem;
 }
+.ml-1 {
+  margin-left: 0.25rem;
+}
 .inline {
   display: inline;
 }
@@ -840,6 +843,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-1\/3 {
   width: 33.333333%;
 }
+.w-11\/12 {
+  width: 91.666667%;
+}
 .min-w-fit {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
@@ -850,6 +856,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .max-w-\[30\%\] {
   max-width: 30%;
+}
+.max-w-full {
+  max-width: 100%;
 }
 .grid-flow-row {
   grid-auto-flow: row;
@@ -1203,6 +1212,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:w-full {
     width: 100%;
+  }
+
+  .md\:w-1\/2 {
+    width: 50%;
   }
 
   .md\:max-w-none {

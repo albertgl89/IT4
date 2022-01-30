@@ -89,7 +89,7 @@ if ($team->location()->first() != null) {
                 </div>
 
 
-
+                <br>
                 <p class="font-rubik text-2xl text-green-900 p-2">Estadístiques</p>
                 <!--Stats-->
                 <div class="list-item-bg">
