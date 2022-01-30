@@ -43,7 +43,7 @@ use App\Models\Location;
                 <div class="rounded-xl bg-yellow-500 text-indigo-900 p-2 mb-2 w-full mx-auto text-left grid grid-flow-row gap-2">
                     <div class="mx-auto flex flex-wrap gap-2">
                         <b><span class="material-icons text-xl align-top pr-2 pl-2 rounded-full text-center mx-auto mr-2 bg-white text-indigo-900">
-                            sports_soccer
+                            event
                             </span>{{$match->getDate()}}
                         </b>
                         
