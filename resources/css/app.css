@@ -14,7 +14,7 @@
 
 @layer components {
     .green-pill-btn {
-        @apply p-2 pl-3 pr-3 mx-auto rounded-3xl shadow shadow-indigo-800 hover:bg-green-600 hover:shadow-inner bg-green-900 text-white font-rubik h-min;
+        @apply p-2 pl-3 pr-3 mx-auto rounded-3xl shadow-md shadow-indigo-900 hover:bg-green-600 hover:shadow-inner bg-green-900 text-white font-rubik h-min;
     }
 
     .disabled-btn {
@@ -76,6 +76,10 @@
 
     .result-item-bg {
         @apply bg-white md:rounded-tr-xl rounded-bl-xl shadow-lg text-violet-900 w-full p-2 mb-2 md:mb-0 md:mr-1 md:-ml-4 border border-violet-900 border-t-0 md:border-t-[1px] justify-items-stretch;
+    }
+
+    .dashboard-info-div {
+        @apply grid grid-flow-row text-center justify-items-center font-rubik border border-indigo-900 shadow-md rounded-tr-xl rounded-bl-xl w-11/12 mx-auto;
     }
 }
 
