@@ -3,54 +3,103 @@
 @php
 use App\Models\Location;
 use App\Models\Team;
+use App\Models\Match;
 @endphp
 
 @section('page-title', 'Detall de la localització')
 
 
 @section('content')
-    <div class="grid grid-flow-row w-full mt-2">
+    <div class="grid grid-flow-row w-full mt-2 font-heebo">
 
-        <div class="w-3/4 mx-auto rounded-lg grid grid-flow-row shadow border-2 pb-2">
+        <div class="w-3/4 mx-auto rounded-br-xl rounded-tl-xl bg-white grid grid-flow-row shadow pb-2">
 
-            <div class="mb-2 w-full -m-1 mx-auto">
-                <p class="p-2 rounded-t-lg bg-indigo-900 text-white w-full">
-                    <a href="{{url('locations')}}" class="gold-pill-btn m-2 align-middle"><span class="material-icons text-xl align-middle">
-                        arrow_back
-                        </span>Torna</a>
-                </p>
+            <!--Action buttons-->
+            <div class="mb-2 w-full mx-auto">
+                <div
+                    class="div-2 rounded-tl-xl bg-indigo-900 text-white w-full grid grid-flow-col justify-between items-center">
+                    <a href="{{ url('locations') }}" class="gold-pill-btn m-2 align-middle h-min md:inline hidden"><span
+                            class="material-icons text-xl align-top">
+                            arrow_back
+                        </span>Localitzacions</a>
+                    <a href="{{ url('locations') }}" class="gold-pill-btn m-2 align-middle h-min md:hidden"><span
+                            class="material-icons text-xl align-top">
+                            arrow_back
+                        </span></a>
+                    <div class="flex flex-nowrap">
+                        <a href="{{ url('locations/' . $location->id . '/edit') }}"
+                            class="gold-pill-btn m-2 align-middle h-min md:inline hidden"><span
+                                class="material-icons text-xl align-top">
+                                edit
+                            </span>Edita</a>
+                        <a href="{{ url('locations/' . $location->id . '/edit') }}"
+                            class="gold-pill-btn m-2 align-middle h-min md:hidden"><span
+                                class="material-icons text-xl align-top">
+                                edit
+                            </span></a>
+                        <a href="{{ url('locations/' . $location->id . '/delete') }}"
+                            class="red-pill-btn m-2 align-middle h-min md:inline hidden"><span
+                                class="material-icons text-xl align-top">
+                                delete
+                            </span>Elimina</a>
+                        <a href="{{ url('locations/' . $location->id . '/delete') }}"
+                            class="red-pill-btn m-2 align-middle h-min md:hidden"><span
+                                class="material-icons text-xl align-top">
+                                delete
+                            </span></a>
+                    </div>
+
+                </div>
             </div>
-
-            <div class="grid grid-flow-row gap-1 justify-items-center text-left items-center p-2">
-                <p>Estadi: {{$location->stadium_name}}</p>
-                <p>Ciutat: {{$location->city}}, {{$location->state}}</p>
-                <p>Equips amb base en aquest estadi: </p>
-                <ul>
-
-                    @forelse ($location->teams()->get() as $team)
-                        <li><a href="{{url('teams', [$team->id])}}" class="std-link">{{$team->name}}</a></li> 
-                    @empty
-                        No hi ha cap equip amb base en aquest estadi encara.
-                    @endforelse
-                    
-                </ul>
-                <p>Estadis a la mateixa ciutat: </p>
-                <ul>
-                    @if (Location::where('city', $location->city)->count() <= 1)
-                        No hi ha cap altre estadi en aquesta mateixa ciutat.
-                    @else
-                        @foreach (Location::where('city', $location->city)->get() as $loc)
-                            
-                            <li><a href="{{url('locations', [$loc->id])}}" class="std-link">{{$loc->stadium_name}}</a></li> 
-                                                
-                        @endforeach
-                    @endif
-                </ul>
-                <p>Total de partits disputats en aquest estadi: TODO</p>
+            <!--Location details-->
+            <div class="grid grid-flow-row md:grid-flow-col gap-1 justify-items-left text-justify items-center p-2 place-self-start w-full">
+                <div>
+                    <p class="font-rubik text-2xl text-green-900 p-2">{{ $location->stadium_name }}</p>
+                    <p class="p-2"><a href="{{ url('cities/' . $location->id) }}"
+                            class="std-link">{{ $location->city }}</a>, <a href="{{ url('states/' . $location->id) }}"
+                            class="std-link">{{ $location->state }}</a></p>
+                </div>
+                <div>
+                    <p>Equips amb base en aquest estadi: </p>
+                    <ul>
+    
+                        @forelse ($location->teams()->get() as $team)
+                            <li class="m-2"><a href="{{ url('teams', [$team->id]) }}"
+                                    class="green-pill-btn m-1"><span class="material-icons text-sm align-middle p-1">
+                                        group
+                                    </span>{{ $team->name }}</a></li>
+                        @empty
+                            <p class="m-2"> No hi ha cap equip amb base en aquest estadi encara. </p>
+                        @endforelse
+    
+                    </ul>
+                    <p>Estadis a la mateixa ciutat: </p>
+                    <ul>
+                        @if (Location::where('city', $location->city)->count() <= 1)
+                            <p class="m-2"> No hi ha cap altre estadi en aquesta mateixa ciutat.</p>
+                        @else
+                            @foreach (Location::where('city', $location->city)->get() as $loc)
+    
+                                <li class="m-2"><a href="{{ url('locations', [$loc->id]) }}"
+                                        class="green-pill-btn"><span class="material-icons text-sm align-middle p-1">
+                                            place
+                                        </span>{{ $loc->stadium_name }}</a></li>
+    
+                            @endforeach
+                        @endif
+                    </ul>
+                </div>
+            </div>
+            <div class="m-2">
+                <br>
+                <p class="font-rubik text-2xl text-green-900 p-2">Estadístiques</p>
+                <!--Stats-->
+                <div class="list-item-bg">
+                    <p class="text-center md:text-left">Total partits disputats en aquest estadi</p>
+                    <p class="text-center">{{ Match::where('location_id', $location->id)->where('match_date', '<', now())->withTrashed()->count() }}</p>
+                </div>
+            </div>    
                 
-            </div>
-      
-
         </div>
 
     </div>

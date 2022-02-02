@@ -7,9 +7,14 @@
     src: url(fonts/Rubik-VariableFont_wght.ttf);
 }
 
+@font-face {
+    font-family: 'Heebo';
+    src: url(fonts/Heebo-VariableFont_wght.ttf);
+}
+
 @layer components {
     .green-pill-btn {
-        @apply p-2 pl-3 pr-3 mx-auto rounded-3xl shadow shadow-indigo-800 hover:bg-green-600 hover:shadow-inner bg-green-900 text-white font-rubik h-min;
+        @apply p-2 pl-3 pr-3 mx-auto rounded-3xl shadow-md shadow-indigo-900 hover:bg-green-600 hover:shadow-inner bg-green-900 text-white font-rubik h-min;
     }
 
     .disabled-btn {
@@ -17,11 +22,11 @@
     }
 
     .gold-pill-btn {
-        @apply p-2 pl-3 pr-3 rounded-3xl shadow-lg hover:bg-yellow-400 hover:shadow-inner bg-yellow-500 text-indigo-900 font-rubik h-min;
+        @apply p-2 pl-3 pr-3 rounded-3xl shadow-lg hover:bg-yellow-400 hover:shadow-inner bg-yellow-500 text-indigo-900 font-rubik h-min text-center;
     }
 
     .red-pill-btn {
-        @apply p-2 pl-3 pr-3 rounded-3xl shadow-lg hover:bg-red-600 hover:shadow-inner bg-red-700 text-yellow-400 font-rubik h-min;
+        @apply p-2 pl-3 pr-3 rounded-3xl shadow-lg hover:bg-red-600 hover:shadow-inner bg-red-700 text-yellow-400 font-rubik h-min text-center;
     }
 
     .std-form {
@@ -44,12 +49,37 @@
         @apply p-2 border border-b-indigo-900 text-indigo-600 hover:border-green-900 focus:outline-green-600 focus:outline-2;
     }
 
-    .std-form-radio {
-        @apply my-auto p-1 rounded-full m-2 mr-3 appearance-none border border-gray-600 bg-white hover:border-green-600 hover:bg-indigo-400 checked:bg-indigo-900 checked:border-0 checked:outline checked:outline-green-600 checked:outline-offset-4;
+    .std-form-radio-div {
+        @apply bg-gradient-to-tl from-indigo-800  to-violet-900 rounded-tr-xl rounded-bl-xl shadow-lg flex list-card-bg hover:shadow-2xl hover:from-green-500 hover:to-green-900/80 active:bg-green-600 justify-start content-center;
     }
+
+    .std-form-radio-input {
+        @apply appearance-none checked:bg-green-600 checked:shadow-inner;
+    }
+    
+    .std-form-radio-label{
+    @apply text-white peer-checked:bg-green-700 peer-checked:shadow-inner w-full p-2 rounded-tr-xl rounded-bl-xl;
+    }
+    
 
     .std-link {
         @apply underline underline-offset-4 decoration-dotted decoration-indigo-900  hover:text-indigo-900 hover:font-bold;
+    }
+
+    .list-card-bg {
+        @apply hover:to-violet-900/80 bg-gradient-to-tl from-indigo-800  to-violet-900 rounded-tr-xl rounded-bl-xl shadow-lg;
+    }
+
+    .list-item-bg {
+        @apply bg-gradient-to-tl from-indigo-800  to-violet-900 rounded-tr-xl rounded-bl-xl shadow-lg text-white w-full p-2 grid grid-rows-2 md:grid-cols-2 md:grid-rows-none justify-items-stretch;
+    }
+
+    .result-item-bg {
+        @apply bg-white md:rounded-tr-xl rounded-bl-xl shadow-lg text-violet-900 w-full p-2 mb-2 md:mb-0 md:mr-1 md:-ml-4 border border-violet-900 border-t-0 md:border-t-[1px] justify-items-stretch;
+    }
+
+    .dashboard-info-div {
+        @apply grid grid-flow-row text-center justify-items-center font-rubik border border-indigo-900 shadow-md rounded-tr-xl rounded-bl-xl w-11/12 mx-auto;
     }
 }
 

@@ -3,7 +3,7 @@
 use App\Models\Location;
 @endphp
 
-@section('page-title', 'Localitzacions')
+@section('page-title', "Estadis a ".$location->state)
 @section('actions')
 <div class="flex flex-nowrap text-base justify-items-start gap-2">
     <a href="{{url('locations/add')}}" class="green-pill-btn w-fit mx-0 h-fit"><span class="material-icons text-xl align-top pr-2">
@@ -23,14 +23,8 @@ use App\Models\Location;
             </div>
         @endif
 
-        @if (Location::all()->count() == 0)
-            <div>
-                <p class="font-heebo font-bold text-center">No hi ha cap localització encara.</p>
-            </div>
-        @endif
-
         <div class="grid grid-flow-row md:grid-cols-4 gap-2">
-            @foreach (Location::all() as $location)
+            @foreach (Location::where('state', $location->state)->get() as $location)
 
                 <div
                     class="list-card-bg text-white min-w-fit max-w-1/4 p-2 m-2 grid grid-cols-2 md:grid-flow-row md:grid-cols-none gap-2 shadow-md md:items-center md:content-center justify-around font-heebo">

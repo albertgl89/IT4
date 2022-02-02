@@ -19,7 +19,7 @@ class CreateMatchesTable extends Migration
         Schema::create('matches', function (Blueprint $table) {
             $table->id();
             $table->dateTimeTz('match_date');
-            $table->foreignIdFor(Location::class);
+            $table->foreignIdFor(Location::class)->nullable();
             $table->foreignIdFor(Team::class, 'team1');
             $table->foreignIdFor(Team::class, 'team2');
             $table->foreignIdFor(MatchResult::class)->nullable();

@@ -24,11 +24,36 @@ class MatchResultController extends Controller
      * Show the form for creating a new resource.
      *
      * @param \Illuminate\Http\Request
-     * @param App\Models\Match;
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request, Match $match)
+    public function create(Request $request)
     {
+        //If we try to access the form without selecting a match first, show the match selection view
+        if (!isset($request->match_id)){
+            return redirect(url('results/selectmatch'));
+        }
+
+        $matchId = $request->match_id;
+        $match = Match::find($matchId);
+        //If we try to add a result via url to a match in the future or a match with a result already, redirect
+        if($match->match_date > now() || $match->match_result_id != null){
+            return redirect('/')->with('status', `Aquesta acció està prohibida.`);//TODO confirmation message
+        }
+        return view('results.addresult', ['match' => $match]);
+    }
+
+        /**
+     * Show the form for creating a new resource.
+     *
+     * @param \Illuminate\Http\Request
+     * @return \Illuminate\Http\Response
+     */
+    public function createFromDetail(Match $match)
+    {
+        //If we try to add a result via url to a match in the future or a match with a result already, redirect
+        if($match->match_date > now() || $match->match_result_id != null){
+            return redirect('/')->with('status', `Aquesta acció està prohibida.`);//TODO confirmation message
+        }
         return view('results.addresult', ['match' => $match]);
     }
 

@@ -54,7 +54,10 @@ Route::get('results/selectmatch', function(){
 });
 
 //New result form
-Route::get('results/add/{match}', [MatchResultController::class, 'create']);
+Route::get('results/add/', [MatchResultController::class, 'create']);
+
+//New result form from match detail
+Route::get('results/add/{match}', [MatchResultController::class, 'createFromDetail']);
 
 //Submit result form
 Route::post('results/add', [MatchResultController::class, 'store']);
@@ -115,4 +118,10 @@ Route::get('results/{matchResult}/delete', [MatchResultController::class, 'confi
 
 //Soft delete result
 Route::delete('results/{matchResult}/delete', [MatchResultController::class, 'destroy']);
+
+//List all stadiums within same city
+Route::get('cities/{location}', [LocationController::class, 'filterCity']);
+
+//List all stadiums within same state
+Route::get('states/{location}', [LocationController::class, 'filterState']);
 
