@@ -34,7 +34,7 @@ use App\Models\MatchResult;
             </div>
         @endif
 
-        <div class="grid grid-flow-row md:grid-cols-4 gap-2 font-heebo">
+        <div class="grid grid-flow-row md:grid-cols-3 lg:grid-cols-4 gap-2 font-heebo">
             @foreach (Match::all() as $match)
                 <div
                     class="list-card-bg text-white min-w-fit max-w-1/4 p-2 m-2 grid grid-flow-col md:grid-flow-row gap-1 md:items-center md:content-center justify-around">
@@ -44,7 +44,7 @@ use App\Models\MatchResult;
                         <p>Pendent de disputar</p>
                     </div>
                 @else 
-                    <div class="bg-green-400 text-indigo-900 text-xs font-bold text-center w-full p-1 rounded-sm">
+                    <div class="bg-green-400 text-indigo-900 text-xs font-bold text-center align-middle w-full p-1 rounded-sm my-auto">
                         <p>Disputat</p>
                     </div>
                     @if ($match->match_result_id == null)
