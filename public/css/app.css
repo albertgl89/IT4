@@ -831,11 +831,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mr-2 {
   margin-right: 0.5rem;
 }
-.mt-0 {
-  margin-top: 0px;
-}
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+.mt-0 {
+  margin-top: 0px;
 }
 .mt-4 {
   margin-top: 1rem;
@@ -877,9 +877,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-full {
   width: 100%;
 }
-.w-11\/12 {
-  width: 91.666667%;
-}
 .w-fit {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -887,6 +884,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-3\/4 {
   width: 75%;
+}
+.w-11\/12 {
+  width: 91.666667%;
 }
 .w-2\/4 {
   width: 50%;
@@ -966,9 +966,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .gap-1 {
   gap: 0.25rem;
 }
-.gap-0 {
-  gap: 0px;
-}
 .place-self-start {
   place-self: start;
 }
@@ -1003,12 +1000,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded-br-xl {
   border-bottom-right-radius: 0.75rem;
 }
-.rounded-tr-xl {
-  border-top-right-radius: 0.75rem;
-}
-.rounded-bl-xl {
-  border-bottom-left-radius: 0.75rem;
-}
 .rounded-tr-lg {
   border-top-right-radius: 0.5rem;
 }
@@ -1021,6 +1012,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded-bl-lg {
   border-bottom-left-radius: 0.5rem;
 }
+.rounded-tr-xl {
+  border-top-right-radius: 0.75rem;
+}
+.rounded-bl-xl {
+  border-bottom-left-radius: 0.75rem;
+}
 .rounded-bl-none {
   border-bottom-left-radius: 0px;
 }
@@ -1029,16 +1026,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .border-2 {
   border-width: 2px;
-}
-.border-t {
-  border-top-width: 1px;
-}
-.border-t-0 {
-  border-top-width: 0px;
-}
-.border-indigo-900 {
-  --tw-border-opacity: 1;
-  border-color: rgb(49 46 129 / var(--tw-border-opacity));
 }
 .border-violet-900 {
   --tw-border-opacity: 1;
@@ -1161,6 +1148,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1180,10 +1171,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
-}
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 .text-xs {
   font-size: 0.75rem;
@@ -1347,6 +1334,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:text-left {
     text-align: left;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 }
 
