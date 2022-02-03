@@ -21,6 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//auth
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
 //List all teams
 Route::get('teams', [TeamController::class, 'index']);
 
