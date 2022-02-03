@@ -44,6 +44,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        $user->assignRole('user');//by default any new user will have only permission to view data, not edit, add or delete
 
         event(new Registered($user));
 

@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             LocationSeeder::class,
             MatchSeeder::class,
             MatchResultSeeder::class,
+            PermissionsSeeder::class,
         ]);
     }
 }
