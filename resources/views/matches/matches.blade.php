@@ -4,16 +4,19 @@ use App\Models\Match;
 use App\Models\Team;
 use App\Models\Location;
 use App\Models\MatchResult;
+$isAdmin = Auth::user()->hasRole('admin');
 @endphp
 @section('page-title', 'Partits')
 @section('actions')
 <div class="flex flex-nowrap text-base justify-items-start gap-2">
-    <a href="{{url('matches/add')}}" class="green-pill-btn mx-0 h-fit w-fit"><span class="material-icons text-xl align-top pr-2">
-        add_circle
-        </span>Crea partit</a>
-        <a href="{{url('results/selectmatch')}}" class="green-pill-btn mx-0 h-fit w-fit"><span class="material-icons text-xl align-top pr-2">
-            emoji_events
-            </span>Registra un resultat</a>
+    @if($isAdmin)
+        <a href="{{url('matches/add')}}" class="green-pill-btn mx-0 h-fit w-fit"><span class="material-icons text-xl align-top pr-2">
+            add_circle
+            </span>Crea partit</a>
+            <a href="{{url('results/selectmatch')}}" class="green-pill-btn mx-0 h-fit w-fit"><span class="material-icons text-xl align-top pr-2">
+                emoji_events
+                </span>Registra un resultat</a>
+    @endif
 </div>
 
 @endsection
@@ -62,12 +65,14 @@ use App\Models\MatchResult;
                     
                     <div class="grid grid-flow-col p-1 text-center md:flex md:flex-wrap md:max-w-none max-w-[30%] md:justify-items-around justify-items-center content-center items-center md:gap-2 gap-2">
                         <a href="matches/{{ $match->id }}" class="gold-pill-btn w-fit md:w-full">Detalls</a>
-                        <a href="{{url('matches/'.$match->id.'/edit')}}" class="sm:inline hidden md:justify-self-stretch md:flex-1"><span class="material-icons text-xl gold-pill-btn md:w-full">
-                            edit
-                            </span></a>
-                        <a href="{{url('matches/'.$match->id.'/delete')}}" class="sm:inline hidden md:place-self-stretch md:flex-1"><span class="material-icons text-xl red-pill-btn md:w-full">
-                                delete
+                       @if($isAdmin)
+                            <a href="{{url('matches/'.$match->id.'/edit')}}" class="sm:inline hidden md:justify-self-stretch md:flex-1"><span class="material-icons text-xl gold-pill-btn md:w-full">
+                                edit
                                 </span></a>
+                            <a href="{{url('matches/'.$match->id.'/delete')}}" class="sm:inline hidden md:place-self-stretch md:flex-1"><span class="material-icons text-xl red-pill-btn md:w-full">
+                                    delete
+                                    </span></a>
+                        @endif
                     </div>
 
 

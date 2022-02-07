@@ -10,6 +10,7 @@ if ($team->location()->first() != null) {
     $location['city'] = $team->location()->first()->city;
     $location['state'] = $team->location()->first()->state;
 }
+$isAdmin = Auth::user()->hasRole('admin');
 @endphp
 
 @section('page-title', 'Detall de l\'equip')
@@ -31,28 +32,30 @@ if ($team->location()->first() != null) {
                             class="material-icons text-xl align-top">
                             arrow_back
                         </span></a>
-                    <div class="flex flex-nowrap">
-                        <a href="{{ url('teams/' . $team->id . '/edit') }}"
-                            class="gold-pill-btn m-2 align-middle h-min md:inline hidden"><span
-                                class="material-icons text-xl align-top">
-                                edit
-                            </span>Edita</a>
-                        <a href="{{ url('teams/' . $team->id . '/edit') }}"
-                            class="gold-pill-btn m-2 align-middle h-min md:hidden"><span
-                                class="material-icons text-xl align-top">
-                                edit
-                            </span></a>
-                        <a href="{{ url('teams/' . $team->id . '/delete') }}"
-                            class="red-pill-btn m-2 align-middle h-min md:inline hidden"><span
-                                class="material-icons text-xl align-top">
-                                delete
-                            </span>Elimina</a>
-                        <a href="{{ url('teams/' . $team->id . '/delete') }}"
-                            class="red-pill-btn m-2 align-middle h-min md:hidden"><span
-                                class="material-icons text-xl align-top">
-                                delete
-                            </span></a>
-                    </div>
+                    @if ($isAdmin)
+                        <div class="flex flex-nowrap">
+                            <a href="{{ url('teams/' . $team->id . '/edit') }}"
+                                class="gold-pill-btn m-2 align-middle h-min md:inline hidden"><span
+                                    class="material-icons text-xl align-top">
+                                    edit
+                                </span>Edita</a>
+                            <a href="{{ url('teams/' . $team->id . '/edit') }}"
+                                class="gold-pill-btn m-2 align-middle h-min md:hidden"><span
+                                    class="material-icons text-xl align-top">
+                                    edit
+                                </span></a>
+                            <a href="{{ url('teams/' . $team->id . '/delete') }}"
+                                class="red-pill-btn m-2 align-middle h-min md:inline hidden"><span
+                                    class="material-icons text-xl align-top">
+                                    delete
+                                </span>Elimina</a>
+                            <a href="{{ url('teams/' . $team->id . '/delete') }}"
+                                class="red-pill-btn m-2 align-middle h-min md:hidden"><span
+                                    class="material-icons text-xl align-top">
+                                    delete
+                                </span></a>
+                        </div>
+                    @endif
 
                 </div>
             </div>
@@ -71,7 +74,10 @@ if ($team->location()->first() != null) {
                                         place
                                     </span>{{ $location['stadium_name'] }}</a>
                             </p>
-                            <p class="p-2"><a href="{{url('cities/'.$team->location()->first()->id)}}" class="std-link">{{ $location['city'] }}</a>, <a href="{{url('states/'.$team->location()->first()->id)}}" class="std-link">{{ $location['state'] }}</a></p>
+                            <p class="p-2"><a href="{{ url('cities/' . $team->location()->first()->id) }}"
+                                    class="std-link">{{ $location['city'] }}</a>, <a
+                                    href="{{ url('states/' . $team->location()->first()->id) }}"
+                                    class="std-link">{{ $location['state'] }}</a></p>
                         @else
                             <p class="p-2">
                                 <a href="{{ url('locations/add/' . $team->id) }} " class="green-pill-btn">
