@@ -16,9 +16,9 @@
 </head>
 
 <body class="bg-fixed bg-gradient-to-br from-purple-400 via-teal-600 to-indigo-400">
-    <header class="w-full max-w-5xl mx-auto mt-2">
+    <header class="w-full lg:max-w-5xl mx-auto lg:mt-2">
         <div
-            class="rounded-tr-lg rounded-tl-lg bg-green-900 text-white text-3xl p-2 font-rubik flex flex-nowrap justify-between">
+            class="lg:rounded-tr-lg lg:rounded-tl-lg bg-green-900 text-white text-3xl p-2 font-rubik flex flex-nowrap justify-between">
             <div class="flex flex-nowrap">
                 <p class="my-auto mr-2 text-lg md:text-3xl">MatchMaker</p>
             </div>
@@ -64,12 +64,12 @@
                     </span></a>
                 <form action="{{ url('logout') }}" method="post">
                     @csrf
-                    <button type="submit" class="hidden md:inline text-base p-2 align-middle red-pill-btn">
+                    <button type="submit" class="hidden lg:inline text-base p-2 align-middle red-pill-btn">
                         <span class="material-icons text-xs align-top text-center">
                             logout
                         </span>
                         {{ Auth::user()->name }}</button>
-                    <button type="submit" class="md:hidden text-base p-2 align-middle red-pill-btn">
+                    <button type="submit" class="lg:hidden text-base p-2 align-middle red-pill-btn">
                         <span class="material-icons text-xs align-top text-center">
                             logout
                         </span></button>
@@ -79,7 +79,7 @@
 
         </div>
     </header>
-    <div class="w-full max-w-5xl mx-auto rounded-br-lg rounded-bl-lg mt-0 p-2 shadow bg-slate-300">
+    <div class="w-full lg:max-w-5xl mx-auto lg:rounded-br-lg lg:rounded-bl-lg mt-0 p-2 shadow bg-slate-300">
         <div class="w-full font-rubik text-green-900 text-2xl p-2 flex flex-nowrap justify-start">
             @yield('page-title')
         </div>

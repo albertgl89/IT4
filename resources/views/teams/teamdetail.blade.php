@@ -19,7 +19,7 @@ $isAdmin = Auth::user()->hasRole('admin');
 @section('content')
     <div class="grid grid-flow-row w-full mt-2 font-heebo">
 
-        <div class="w-3/4 mx-auto rounded-br-xl rounded-tl-xl bg-white grid grid-flow-row shadow pb-2">
+        <div class="lg:w-3/4 mx-auto rounded-br-xl rounded-tl-xl bg-white grid grid-flow-row shadow pb-2">
             <!--Action buttons-->
             <div class="mb-2 w-full mx-auto">
                 <div

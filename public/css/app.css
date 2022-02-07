@@ -693,7 +693,6 @@ select {
   margin-left: auto;
   margin-right: auto;
   display: grid;
-  width: 75%;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
@@ -702,17 +701,33 @@ select {
   padding: 0.5rem;
   font-family: Heebo, sans-serif;
 }
+@media (min-width: 1024px) {
+
+  .std-form {
+    width: 75%;
+  }
+}
 .std-form-label {
   margin-top: -0.5rem;
   margin-bottom: -0.5rem;
+  width: 91.666667%;
   padding: 0.5rem;
   padding-left: 0px;
   font-family: Heebo, sans-serif;
   font-size: 0.75rem;
   line-height: 1rem;
 }
+@media (min-width: 768px) {
+
+  .std-form-label {
+    width: 100%;
+  }
+}
 .std-form-text-input {
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 0.5rem;
+  width: 91.666667%;
   border-width: 1px;
   border-bottom-width: 2px;
   border-color: transparent;
@@ -729,6 +744,17 @@ select {
 .std-form-text-input:focus {
   outline-width: 2px;
   outline-color: #16a34a;
+}
+@media (min-width: 768px) {
+
+  .std-form-text-input {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .std-form-text-input {
+    width: 100%;
+  }
 }
 .std-form-number-input {
   margin-left: auto;
@@ -763,6 +789,9 @@ select {
   outline-color: #16a34a;
 }
 .std-form-selector {
+  margin-left: auto;
+  margin-right: auto;
+  width: 91.666667%;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-bottom-color: rgb(49 46 129 / var(--tw-border-opacity));
@@ -777,6 +806,17 @@ select {
 .std-form-selector:focus {
   outline-width: 2px;
   outline-color: #16a34a;
+}
+@media (min-width: 768px) {
+
+  .std-form-selector {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .std-form-selector {
+    width: 100%;
+  }
 }
 .std-form-radio-div {
   border-top-right-radius: 0.75rem;
@@ -1046,14 +1086,14 @@ select {
 .ml-4 {
   margin-left: 1rem;
 }
-.mt-2 {
-  margin-top: 0.5rem;
-}
 .mr-2 {
   margin-right: 0.5rem;
 }
 .mt-0 {
   margin-top: 0px;
+}
+.mt-2 {
+  margin-top: 0.5rem;
 }
 .mb-2 {
   margin-bottom: 0.5rem;
@@ -1157,9 +1197,6 @@ select {
   width: -moz-fit-content;
   width: fit-content;
 }
-.w-3\/4 {
-  width: 75%;
-}
 .w-8 {
   width: 2rem;
 }
@@ -1168,6 +1205,9 @@ select {
 }
 .w-48 {
   width: 12rem;
+}
+.w-3\/4 {
+  width: 75%;
 }
 .w-4 {
   width: 1rem;
@@ -1201,9 +1241,6 @@ select {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
-}
-.max-w-5xl {
-  max-width: 64rem;
 }
 .max-w-\[30\%\] {
   max-width: 30%;
@@ -1345,11 +1382,11 @@ select {
 .rounded-md {
   border-radius: 0.375rem;
 }
-.rounded-xl {
-  border-radius: 0.75rem;
-}
 .rounded-sm {
   border-radius: 0.125rem;
+}
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 .rounded-lg {
   border-radius: 0.5rem;
@@ -1371,18 +1408,6 @@ select {
 .rounded-t-lg {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
-}
-.rounded-tr-lg {
-  border-top-right-radius: 0.5rem;
-}
-.rounded-tl-lg {
-  border-top-left-radius: 0.5rem;
-}
-.rounded-br-lg {
-  border-bottom-right-radius: 0.5rem;
-}
-.rounded-bl-lg {
-  border-bottom-left-radius: 0.5rem;
 }
 .rounded-tr-xl {
   border-top-right-radius: 0.75rem;
@@ -1463,10 +1488,6 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
-.bg-green-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
-}
 .bg-orange-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(251 146 60 / var(--tw-bg-opacity));
@@ -1505,6 +1526,10 @@ select {
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+.bg-green-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
@@ -2156,8 +2181,44 @@ select {
 }
 @media (min-width: 1024px) {
 
+  .lg\:mt-2 {
+    margin-top: 0.5rem;
+  }
+
+  .lg\:inline {
+    display: inline;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
+
+  .lg\:w-3\/4 {
+    width: 75%;
+  }
+
+  .lg\:max-w-5xl {
+    max-width: 64rem;
+  }
+
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:rounded-tr-lg {
+    border-top-right-radius: 0.5rem;
+  }
+
+  .lg\:rounded-tl-lg {
+    border-top-left-radius: 0.5rem;
+  }
+
+  .lg\:rounded-br-lg {
+    border-bottom-right-radius: 0.5rem;
+  }
+
+  .lg\:rounded-bl-lg {
+    border-bottom-left-radius: 0.5rem;
   }
 
   .lg\:px-8 {
