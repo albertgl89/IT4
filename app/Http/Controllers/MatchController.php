@@ -16,7 +16,10 @@ class MatchController extends Controller
      */
     public function index()
     {
-        return view('matches.matches');
+        if (auth()->user()->can('view data')) {
+            return view('matches.matches');
+        }
+        return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
     }
 
     /**
@@ -26,6 +29,9 @@ class MatchController extends Controller
      */
     public function create()
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+        }
         return view('matches.addmatch');
     }
 
@@ -37,6 +43,9 @@ class MatchController extends Controller
      */
     public function store(StoreMatchRequest $request)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+        }
         $match = new Match;
         $match->match_date = $request->match_date;
         $match->location_id = $request->location_id;
@@ -54,7 +63,10 @@ class MatchController extends Controller
      */
     public function show(Match $match)
     {
-        return view('matches.matchdetail', ['match' => $match]);
+        if (auth()->user()->can('view data')) {
+            return view('matches.matchdetail', ['match' => $match]);
+        }
+        return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
     }
 
     /**
@@ -65,6 +77,9 @@ class MatchController extends Controller
      */
     public function edit(Match $match)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+        }
         return view('matches.editmatch', ['match' => $match]);
     }
 
@@ -77,6 +92,9 @@ class MatchController extends Controller
      */
     public function update(UpdateMatchRequest $request, Match $match)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+        }
         $match->match_date = $request->match_date;
         $match->location_id = $request->location_id;
         $match->team1 = $request->team1;
@@ -97,6 +115,9 @@ class MatchController extends Controller
      */
     public function destroy(Match $match)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+        }
         if($match->match_result_id != null){
             MatchResult::find($match->match_result_id)->delete();//Soft delete its result too
         }
@@ -112,6 +133,9 @@ class MatchController extends Controller
      */
     public function confirmSoftDeletion(Match $match)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+        }
         return view('matches.confirmdeletion', ['match' => $match]);
     }
 }
