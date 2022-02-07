@@ -6,6 +6,7 @@ use App\Models\Team;
 use App\Models\Match;
 use App\Models\MatchResult;
 use App\Models\Location;
+$isAdmin = Auth::user()->hasRole('admin');
 @endphp
 
 
@@ -26,19 +27,23 @@ use App\Models\Location;
                             class="material-icons text-xl align-top pr-2">
                             list_alt
                         </span>Mostra equips</a>
+                        @if ($isAdmin)
                     <a href="{{ url('teams/add') }}" class="green-pill-btn w-full text-center md:inline hidden"><span
                             class="material-icons text-xl align-top pr-2">
                             add_circle
                         </span>Crea equip</a>
+                        @endif
                         <!--SM-->
                         <a href="{{ url('teams') }}" class="green-pill-btn w-full text-center md:hidden"><span
                             class="material-icons text-xl align-middle pl-2 pr-2">
                             list_alt
                         </span>Mostra</a>
+                        @if($isAdmin)
                     <a href="{{ url('teams/add') }}" class="green-pill-btn w-full text-center md:hidden"><span
                             class="material-icons text-xl align-middle pl-2 pr-2">
                             add_circle
                         </span>Crea</a>
+                        @endif
                 </div>
                 <!--info-->
                 <div class="grid grid-cols-2 md:grid-flow-row md:grid-cols-none md:gap-2 gap-1 mb-2">
@@ -67,6 +72,7 @@ use App\Models\Location;
                             class="material-icons text-xl align-top pr-2">
                             list_alt
                         </span>Mostra partits</a>
+                        @if($isAdmin)
                     <a href="{{ url('matches/add') }}" class="green-pill-btn w-full text-center md:inline hidden"><span
                             class="material-icons text-xl align-top pr-2">
                             add_circle
@@ -76,11 +82,13 @@ use App\Models\Location;
                             class="material-icons text-xl align-top pr-2">
                             emoji_events
                         </span>Registra un resultat</a>
+                        @endif
                     <!--SM-->
                     <a href="{{ url('matches') }}" class="green-pill-btn w-full text-center md:hidden"><span
                             class="material-icons text-xl align-middle pl-2 pr-2">
                             list_alt
                         </span>Mostra</a>
+                        @if($isAdmin)
                     <a href="{{ url('matches/add') }}" class="green-pill-btn w-full text-center md:hidden"><span
                             class="material-icons text-xl align-middle pl-2 pr-2">
                             add_circle
@@ -89,6 +97,7 @@ use App\Models\Location;
                             class="material-icons text-xl align-middle pl-2 pr-2">
                             add_circle
                         </span>Resultat</a>
+                        @endif
                 </div>
                 <!--info-->
                 <div class="grid grid-cols-2 md:grid-flow-row md:grid-cols-none md:gap-2 gap-1 mb-2">
@@ -126,19 +135,23 @@ use App\Models\Location;
                             class="material-icons text-xl align-top pr-2">
                             list_alt
                         </span>Mostra localitzacions</a>
+                        @if($isAdmin)
                     <a href="{{ url('locations/add') }}" class="green-pill-btn w-full text-center md:inline hidden"><span
                             class="material-icons text-xl align-top pr-2">
                             add_circle
                         </span>Crea localització</a>
+                        @endif
                     <!--SM-->
                     <a href="{{ url('locations') }}" class="green-pill-btn w-full text-center md:hidden"><span
                             class="material-icons text-xl align-middle pl-2 pr-2">
                             list_alt
                         </span>Mostra</a>
+                        @if($isAdmin)
                     <a href="{{ url('locations/add') }}" class="green-pill-btn w-full text-center md:hidden"><span
                             class="material-icons text-xl align-middle pl-2 pr-2">
                             add_circle
                         </span>Crea</a>
+                        @endif
                 </div>
                 <!--info-->
                 <div class="grid grid-cols-2 md:grid-flow-row md:grid-cols-none md:gap-2 gap-1 mb-2">
