@@ -20,7 +20,7 @@ class LocationController extends Controller
         if (auth()->user()->can('view data')) {
             return view('locations.locations');
         }
-        return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+        return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
     }
 
     /**
@@ -32,7 +32,7 @@ class LocationController extends Controller
     public function create(Team $team = null)
     {
         if (!auth()->user()->can('manage data')) {
-            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
         if ($team != null){
             return view('locations.addlocation', ['team' => $team]);
@@ -49,7 +49,7 @@ class LocationController extends Controller
     public function store(StoreLocationRequest $request, Team $team)
     {
         if (!auth()->user()->can('manage data')) {
-            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
         $location = new Location;
         $location->city = $request->city;
@@ -63,9 +63,9 @@ class LocationController extends Controller
             $team->save();
         }
         if(!isset($request->team)){
-            return redirect('locations')->with('status', `La localització $location->city ($location->stadium_name) ha estat donat d'alta correctament.`);//TODO confirmation message
+            return redirect('locations')->with('status', "La localització $location->city ($location->stadium_name) ha estat donat d'alta correctament.");//TODO confirmation message
         } else {
-            return redirect('teams')->with('status', `La localització $location->city ($location->stadium_name) ha estat donat d'alta correctament per a l'equip $team->name ($team->short_name).`);//TODO confirmation message
+            return redirect('teams')->with('status', "La localització $location->city ($location->stadium_name) ha estat donat d'alta correctament per a l'equip $team->name ($team->short_name).");//TODO confirmation message
         }
         
     }
@@ -81,7 +81,7 @@ class LocationController extends Controller
         if (auth()->user()->can('view data')) {
             return view('locations.locationdetail', ['location' => $location]);
         }
-        return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+        return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
     }
 
     /**
@@ -93,7 +93,7 @@ class LocationController extends Controller
     public function edit(Location $location)
     {
         if (!auth()->user()->can('manage data')) {
-            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
         return view('locations.editlocation', ['location' => $location]);
     }
@@ -108,13 +108,13 @@ class LocationController extends Controller
     public function update(UpdateLocationRequest $request, Location $location)
     {
         if (!auth()->user()->can('manage data')) {
-            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
         $location->city = $request->city;
         $location->state = $request->state;
         $location->stadium_name = $request->stadium_name;
         $location->save();
-        return redirect('locations')->with('status', `La localització $location->city ($location->stadium_name) ha estat actualitzada correctament.`);//TODO confirmation message
+        return redirect('locations')->with('status', "La localització $location->city ($location->stadium_name) ha estat actualitzada correctament.");//TODO confirmation message
     }
 
     /**
@@ -126,7 +126,7 @@ class LocationController extends Controller
     public function destroy(Location $location)
     {
         if (!auth()->user()->can('manage data')) {
-            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
         //Dissociate this location from teams and future matches, but not past matches as they have already been celebrated
         foreach (Team::where('city', $location->id)->get() as $team){
@@ -139,7 +139,7 @@ class LocationController extends Controller
         }
 
         $location->delete();
-        return redirect('locations')->with('status', `La localització $location->stadium_name ha estat eliminada correctament.`);//TODO confirmation message
+        return redirect('locations')->with('status', "La localització $location->stadium_name ha estat eliminada correctament.");//TODO confirmation message
     }
 
     /**
@@ -151,7 +151,7 @@ class LocationController extends Controller
     public function confirmSoftDeletion(Location $location)
     {
         if (!auth()->user()->can('manage data')) {
-            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
         return view('locations.confirmdeletion', ['location' => $location]);
     }
@@ -167,7 +167,7 @@ class LocationController extends Controller
         if (auth()->user()->can('view data')) {
         return view('locations.cities.filter', ['location'=>$location]);
         }
-        return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+        return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
     }
 
         /**
@@ -181,6 +181,6 @@ class LocationController extends Controller
         if (auth()->user()->can('view data')) {
             return view('locations.states.filter', ['location'=>$location]);
         }
-        return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+        return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
     }
 }

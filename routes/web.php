@@ -17,12 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Home - as guest
+//default - as guest
 Route::get('/', function () {
     return view('auth.login');
 })->middleware(['guest']);
 
-//Home - as authenticated
+//default - as authenticated
 Route::get('/', function () {
     return view('welcome');
 })->middleware(['auth']);
@@ -97,7 +97,7 @@ Route::middleware(['auth'])->group(function () {
         if (auth()->user()->can('manage data')) {
             return view('results.selectmatch');
         }
-        return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+        return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
     });
     //New result form
     Route::get('results/add/', [MatchResultController::class, 'create']);

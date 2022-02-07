@@ -29,7 +29,7 @@ class MatchResultController extends Controller
     public function create(Request $request)
     {
         if (!auth()->user()->can('manage data')) {
-            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
         //If we try to access the form without selecting a match first, show the match selection view
         if (!isset($request->match_id)){
@@ -40,7 +40,7 @@ class MatchResultController extends Controller
         $match = Match::find($matchId);
         //If we try to add a result via url to a match in the future or a match with a result already, redirect
         if($match->match_date > now() || $match->match_result_id != null){
-            return redirect('/dashboard')->with('status', `Aquesta acció està prohibida.`);//TODO confirmation message
+            return redirect('/dashboard')->with('unauth', "Aquesta acció està prohibida.");//TODO confirmation message
         }
         return view('results.addresult', ['match' => $match]);
     }
@@ -54,11 +54,11 @@ class MatchResultController extends Controller
     public function createFromDetail(Match $match)
     {
         if (!auth()->user()->can('manage data')) {
-            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
         //If we try to add a result via url to a match in the future or a match with a result already, redirect
         if($match->match_date > now() || $match->match_result_id != null){
-            return redirect('/dashboard')->with('status', `Aquesta acció està prohibida.`);//TODO confirmation message
+            return redirect('/dashboard')->with('unauth', "Aquesta acció està prohibida.");//TODO confirmation message
         }
         return view('results.addresult', ['match' => $match]);
     }
@@ -72,7 +72,7 @@ class MatchResultController extends Controller
     public function store(StoreMatchResultRequest $request)
     {     
         if (!auth()->user()->can('manage data')) {
-            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }   
         $result = new MatchResult;
         $result->goals_team1 = $request->goals_team1;
@@ -91,7 +91,7 @@ class MatchResultController extends Controller
         $match = Match::find($request->match);
         $match->match_result_id = MatchResult::all()->last()->id;
         $match->save();
-        return redirect('matches')->with('status', `Els resultats s'han desat correctament.`);//TODO confirmation message
+        return redirect('matches')->with('status', "Els resultats s'han desat correctament.");//TODO confirmation message
     }
 
     /**
@@ -114,7 +114,7 @@ class MatchResultController extends Controller
     public function edit(MatchResult $matchResult)
     {
         if (!auth()->user()->can('manage data')) {
-            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
         $match = Match::firstWhere('match_result_id', $matchResult->id);
         return view('results.editresult',['matchResult' => $matchResult, 'match' => $match]);
@@ -130,7 +130,7 @@ class MatchResultController extends Controller
     public function update(UpdateMatchResultRequest $request, MatchResult $matchResult)
     {
         if (!auth()->user()->can('manage data')) {
-            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
         $matchResult->goals_team1 = $request->goals_team1;
         $matchResult->goals_team2 = $request->goals_team2;
@@ -144,7 +144,7 @@ class MatchResultController extends Controller
             $matchResult->winning_team = $request->team2;
         }
         $matchResult->save();
-        return redirect('/dashboard')->with('status', `Els resultats s'han actualitzat correctament.`);//TODO confirmation message
+        return redirect('/dashboard')->with('status', "Els resultats s'han actualitzat correctament.");//TODO confirmation message
     }
 
     /**
@@ -156,7 +156,7 @@ class MatchResultController extends Controller
     public function destroy(MatchResult $matchResult)
     {
         if (!auth()->user()->can('manage data')) {
-            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
         $matchId = $matchResult->match()->first()->id;
         //Set the result to null on the match where it was registered
@@ -165,7 +165,7 @@ class MatchResultController extends Controller
         $match->save();
         //Delete the result
         $matchResult->delete();
-        return redirect('matches/'.$matchId)->with('status', `Resultat eliminat correctament.`);//TODO confirmation message
+        return redirect('matches/'.$matchId)->with('status', "Resultat eliminat correctament.");//TODO confirmation message
     }
 
     /**
@@ -177,7 +177,7 @@ class MatchResultController extends Controller
     public function confirmSoftDeletion(MatchResult $matchResult)
     {
         if (!auth()->user()->can('manage data')) {
-            return redirect('/dashboard')->with('status', `Sense permisos suficients.`);
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
         return view('results.confirmdeletion', ['matchResult' => $matchResult]);
     }

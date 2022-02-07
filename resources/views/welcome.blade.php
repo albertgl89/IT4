@@ -162,3 +162,6 @@ use App\Models\Location;
 
     </div>
 @endsection
+@section('messages')
+    <x-status-message />
+@endsection

@@ -10,6 +10,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!--Material Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <title>MatchMaker</title>
 </head>
 
@@ -27,7 +29,8 @@
                         class="material-icons text-sm align-top">
                         dashboard
                     </span>Dashboard</a>
-                <a href="{{ url('/dashboard') }}" class="inline md:hidden text-base p-2 align-middle gold-pill-btn"><span
+                <a href="{{ url('/dashboard') }}"
+                    class="inline md:hidden text-base p-2 align-middle gold-pill-btn"><span
                         class="material-icons text-xs align-top text-center">
                         dashboard
                     </span></a>
@@ -65,11 +68,11 @@
                         <span class="material-icons text-xs align-top text-center">
                             logout
                         </span>
-                        {{Auth::user()->name}}</button>
-                        <button type="submit" class="md:hidden text-base p-2 align-middle red-pill-btn">
-                            <span class="material-icons text-xs align-top text-center">
-                                logout
-                            </span></button>
+                        {{ Auth::user()->name }}</button>
+                    <button type="submit" class="md:hidden text-base p-2 align-middle red-pill-btn">
+                        <span class="material-icons text-xs align-top text-center">
+                            logout
+                        </span></button>
                 </form>
             </div>
 
@@ -85,9 +88,9 @@
             @yield('content')
         </div>
     </div>
-
-
-
+    
 </body>
+@yield('messages')
+
 
 </html>

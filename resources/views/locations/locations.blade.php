@@ -17,12 +17,6 @@ use App\Models\Location;
 
     <div class="grid grid-flow-col w-full mt-2">
 
-        @if (session('status'))
-            <div class="rounded-xl bg-green-700 text-white font-bold p-2 w-3/4 mx-auto text-center font-heebo">
-                {{ session('status') }}
-            </div>
-        @endif
-
         @if (Location::all()->count() == 0)
             <div>
                 <p class="font-heebo font-bold text-center">No hi ha cap localització encara.</p>
@@ -65,4 +59,8 @@ use App\Models\Location;
 
 
     </div>
+@endsection
+
+@section('messages')
+    <x-status-message />
 @endsection
