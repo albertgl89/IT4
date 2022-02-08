@@ -30,7 +30,7 @@
     }
 
     .std-form {
-        @apply mx-auto grid grid-flow-row gap-2 p-2 min-w-fit lg:w-3/4 font-heebo;
+        @apply mx-auto grid grid-flow-row gap-2 p-2 min-w-fit w-11/12 lg:w-3/4 font-heebo;
     }
 
     .std-form-label {

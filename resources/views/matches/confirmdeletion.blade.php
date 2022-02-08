@@ -11,7 +11,7 @@ use App\Models\Match;
 @section('content')
     <div class="grid grid-flow-row w-full mt-2 font-heebo">
 
-        <div class="w-3/4 mx-auto rounded-br-xl rounded-tl-xl bg-white grid grid-flow-row shadow pb-2">
+        <div class="w-full lg:w-3/4 mx-auto rounded-br-xl rounded-tl-xl bg-white grid grid-flow-row shadow pb-2">
 
             <div class="mb-2 w-full -m-1 mx-auto">
                 <p class="p-2 rounded-tl-xl bg-indigo-900 text-white w-full">

@@ -19,7 +19,7 @@ $isAdmin = Auth::user()->hasRole('admin');
 @section('content')
     <div class="grid grid-flow-row w-full mt-2 font-heebo">
 
-        <div class="lg:w-3/4 mx-auto rounded-br-xl rounded-tl-xl bg-white grid grid-flow-row shadow pb-2">
+        <div class="w-full md:w-3/4 mx-auto rounded-br-xl rounded-tl-xl bg-white grid grid-flow-row shadow pb-2">
             <!--Action buttons-->
             <div class="mb-2 w-full mx-auto">
                 <div
@@ -80,7 +80,7 @@ $isAdmin = Auth::user()->hasRole('admin');
                                     class="std-link">{{ $location['state'] }}</a></p>
                         @else
                             <p class="p-2">
-                                <a href="{{ url('locations/add/' . $team->id) }} " class="green-pill-btn">
+                                <a href="{{ url('teams/' . $team->id.'/edit') }} " class="green-pill-btn">
                                     <span class="material-icons text-xl align-top mr-1">
                                         add_circle
                                     </span>{{ $location['stadium_name'] }}</a>
