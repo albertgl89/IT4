@@ -51,6 +51,9 @@
                     {{ __('Entra') }}
                 </x-button>
             </div>
+            <a class="std-link" href="{{ url('register') }}">
+                {{ __('Registra\'t') }}
+            </a>
         </form>
     </x-auth-card>
 </x-guest-layout>
