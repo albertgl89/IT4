@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use App\Notifications\MailResetPasswordToken;
+use App\Notifications\MailSignUpSuccess;
 
 class User extends Authenticatable
 {
@@ -52,4 +53,13 @@ class User extends Authenticatable
     {
         $this->notify(new MailResetPasswordToken($token));
     }
+
+    /**
+     * Send confirmation email to the user
+     */
+    public function sendSignUpNotification($user)
+    {
+        $this->notify(new MailSignUpSuccess($user));
+    }
+
 }

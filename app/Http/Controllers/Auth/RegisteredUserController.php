@@ -47,6 +47,7 @@ class RegisteredUserController extends Controller
         $user->assignRole('user');//by default any new user will have only permission to view data, not edit, add or delete
 
         event(new Registered($user));
+        $user->sendSignUpNotification($user);
 
         Auth::login($user);
 
