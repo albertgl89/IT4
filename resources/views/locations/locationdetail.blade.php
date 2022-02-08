@@ -4,6 +4,7 @@
 use App\Models\Location;
 use App\Models\Team;
 use App\Models\Match;
+$isAdmin = Auth::user()->hasRole('admin');
 @endphp
 
 @section('page-title', 'Detall de la localització')
@@ -12,7 +13,7 @@ use App\Models\Match;
 @section('content')
     <div class="grid grid-flow-row w-full mt-2 font-heebo">
 
-        <div class="w-3/4 mx-auto rounded-br-xl rounded-tl-xl bg-white grid grid-flow-row shadow pb-2">
+        <div class="w-full md:w-3/4 mx-auto rounded-br-xl rounded-tl-xl bg-white grid grid-flow-row shadow pb-2">
 
             <!--Action buttons-->
             <div class="mb-2 w-full mx-auto">
@@ -26,29 +27,30 @@ use App\Models\Match;
                             class="material-icons text-xl align-top">
                             arrow_back
                         </span></a>
-                    <div class="flex flex-nowrap">
-                        <a href="{{ url('locations/' . $location->id . '/edit') }}"
-                            class="gold-pill-btn m-2 align-middle h-min md:inline hidden"><span
-                                class="material-icons text-xl align-top">
-                                edit
-                            </span>Edita</a>
-                        <a href="{{ url('locations/' . $location->id . '/edit') }}"
-                            class="gold-pill-btn m-2 align-middle h-min md:hidden"><span
-                                class="material-icons text-xl align-top">
-                                edit
-                            </span></a>
-                        <a href="{{ url('locations/' . $location->id . '/delete') }}"
-                            class="red-pill-btn m-2 align-middle h-min md:inline hidden"><span
-                                class="material-icons text-xl align-top">
-                                delete
-                            </span>Elimina</a>
-                        <a href="{{ url('locations/' . $location->id . '/delete') }}"
-                            class="red-pill-btn m-2 align-middle h-min md:hidden"><span
-                                class="material-icons text-xl align-top">
-                                delete
-                            </span></a>
-                    </div>
-
+                    @if ($isAdmin)
+                        <div class="flex flex-nowrap">
+                            <a href="{{ url('locations/' . $location->id . '/edit') }}"
+                                class="gold-pill-btn m-2 align-middle h-min md:inline hidden"><span
+                                    class="material-icons text-xl align-top">
+                                    edit
+                                </span>Edita</a>
+                            <a href="{{ url('locations/' . $location->id . '/edit') }}"
+                                class="gold-pill-btn m-2 align-middle h-min md:hidden"><span
+                                    class="material-icons text-xl align-top">
+                                    edit
+                                </span></a>
+                            <a href="{{ url('locations/' . $location->id . '/delete') }}"
+                                class="red-pill-btn m-2 align-middle h-min md:inline hidden"><span
+                                    class="material-icons text-xl align-top">
+                                    delete
+                                </span>Elimina</a>
+                            <a href="{{ url('locations/' . $location->id . '/delete') }}"
+                                class="red-pill-btn m-2 align-middle h-min md:hidden"><span
+                                    class="material-icons text-xl align-top">
+                                    delete
+                                </span></a>
+                        </div>
+                    @endif
                 </div>
             </div>
             <!--Location details-->

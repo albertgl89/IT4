@@ -16,7 +16,10 @@ class TeamController extends Controller
      */
     public function index()
     {
-        return view('teams.teams');
+        if (auth()->user()->can('view data')) {
+            return view('teams.teams');
+        }
+        return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
     }
 
     /**
@@ -26,7 +29,10 @@ class TeamController extends Controller
      */
     public function create()
     {
-        return view('teams.addteam');
+        if (auth()->user()->can('manage data')) {
+            return view('teams.addteam');
+        }
+        return redirect('/dashboard')->with('unauth', 'Sense permisos suficients.');
     }
 
     /**
@@ -37,20 +43,23 @@ class TeamController extends Controller
      */
     public function store(StoreTeamRequest $request)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
+        }
         $team = new Team;
         $team->name = $request->name;
         $team->short_name = $request->short_name;
-        if($request->city === "null"){
+        if ($request->city === "null") {
             $team->city = null;
         } else {
             $team->city = $request->city;
         }
         $team->save();
         $dbTeam = Team::all()->last();
-        if($team->city == null){
-            return redirect()->action([LocationController::class, 'create'],['team' => $dbTeam]);
+        if ($team->city == null) {
+            return redirect()->action([LocationController::class, 'create'], ['team' => $dbTeam]);
         }
-        return redirect('teams')->with('status', `L'equip $team->name ha estat donat d'alta correctament.`);//TODO confirmation message
+        return redirect('teams')->with('status', "L'equip $team->name ha estat donat d'alta correctament."); //TODO confirmation message
     }
 
     /**
@@ -72,6 +81,9 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
+        }
         return view('teams.editteam', ['team' => $team]);
     }
 
@@ -84,20 +96,23 @@ class TeamController extends Controller
      */
     public function update(UpdateTeamRequest $request, Team $team)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
+        }
         $team->name = $request->name;
         $team->short_name = $request->short_name;
-        if($request->city === "null"){
+        if ($request->city === "null") {
             $team->city = null;
         } else {
             $team->city = $request->city;
         }
         $team->save();
-        
-        if($team->city == null){
-            return redirect()->action([LocationController::class, 'create'],['team' => $team]);
+
+        if ($team->city == null) {
+            return redirect()->action([LocationController::class, 'create'], ['team' => $team]);
         }
-        
-        return redirect('teams')->with('status', `L'equip $team->name ha estat actualitzat correctament.`);//TODO confirmation message
+
+        return redirect('teams')->with('status', "L'equip $team->name ha estat actualitzat correctament."); //TODO confirmation message
     }
 
     /**
@@ -108,8 +123,11 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
+        }
         $team->delete();
-        return redirect('teams')->with('status', `L'equip $team->name ha estat eliminat correctament.`);//TODO confirmation message
+        return redirect('teams')->with('status', "L'equip $team->name ha estat eliminat correctament."); //TODO confirmation message
     }
 
     /**
@@ -120,6 +138,9 @@ class TeamController extends Controller
      */
     public function confirmSoftDeletion(Team $team)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
+        }
         return view('teams.confirmdeletion', ['team' => $team]);
     }
 }

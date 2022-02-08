@@ -15,7 +15,7 @@ if($team->city != null){
 @section('content')
     <div class="grid grid-flow-row w-full mt-2 font-heebo">
 
-        <div class="w-3/4 mx-auto rounded-br-xl rounded-tl-xl bg-white grid grid-flow-row shadow pb-2">
+        <div class="w-full lg:w-3/4 mx-auto rounded-br-xl rounded-tl-xl bg-white grid grid-flow-row shadow pb-2">
 
             <div class="mb-2 w-full -m-1 mx-auto">
                 <p class="p-2 rounded-tl-xl bg-indigo-900 text-white w-full">
@@ -39,9 +39,9 @@ if($team->city != null){
                 <p class="text-green-900 font-rubik text-2xl">{{ $team->name }}</p>
                 <p class="text-left">Nom abreviat de l'equip: {{ $team->short_name }}</p>
                 @if($ciutat)
-                <p class="">Estadi de l'equip: <a href="{{url('locations', [$team->city]);}}" class="green-pill-btn text-center w-fit"><span class="material-icons text-2xl align-top p-2">place</span>{{ $team->location()->first()->stadium_name }}</a></p>
-                <p class="">Ciutat de l'equip: {{ $team->location()->first()->city }}</p>
-                <p class="">País de l'equip: {{ $team->location()->first()->state }}</p>                    
+                <a href="{{url('locations', [$team->city]);}}" class="green-pill-btn text-center w-fit"><span class="material-icons text-2xl my-auto align-middle">place</span>{{ $team->location()->first()->stadium_name }}</a></p>
+                <a class="std-link" href="{{url('cities/' . $team->location()->first()->id)}}">{{ $team->location()->first()->city }}</a>
+                <a class="std-link" href="{{url('states/' . $team->location()->first()->id)}}">{{ $team->location()->first()->state }}</a>                    
                 @else
                 <p>Sense localització assignada</p>  
                 @endif
@@ -52,7 +52,7 @@ if($team->city != null){
                 <br>
                 <p class="font-rubik text-2xl text-green-900 p-2">Estadístiques</p>
                 <!--Stats-->
-                <div class="list-item-bg">
+                <div class="list-item-bg max-w-3/4">
                     <p class="text-center md:text-left">Total partits disputats</p>
                     <p class="text-center">{{ $team->countMatches() }}</p>
                 </div>

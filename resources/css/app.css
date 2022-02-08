@@ -30,15 +30,15 @@
     }
 
     .std-form {
-        @apply mx-auto grid grid-flow-row gap-2 p-2 min-w-fit w-3/4;
+        @apply mx-auto grid grid-flow-row gap-2 p-2 min-w-fit w-11/12 lg:w-3/4 font-heebo;
     }
 
     .std-form-label {
-        @apply p-2 pl-0 -my-2 text-xs;
+        @apply p-2 pl-0 -my-2 text-xs font-heebo w-11/12 md:w-full;
     }
 
     .std-form-text-input {
-        @apply p-2 mb-2 border border-transparent border-b-2 border-b-indigo-900 text-indigo-600 hover:border-green-900 focus:outline-green-600 focus:outline-2;
+        @apply p-2 mb-2 border border-transparent border-b-2 border-b-indigo-900 text-indigo-600 hover:border-green-900 focus:outline-green-600 focus:outline-2 w-11/12 md:w-full mx-auto md:mx-0;
     }
 
     .std-form-number-input {
@@ -46,7 +46,7 @@
     }
 
     .std-form-selector {
-        @apply p-2 border border-b-indigo-900 text-indigo-600 hover:border-green-900 focus:outline-green-600 focus:outline-2;
+        @apply p-2 border border-b-indigo-900 text-indigo-600 hover:border-green-900 focus:outline-green-600 focus:outline-2 w-11/12 md:w-full mx-auto md:mx-0;
     }
 
     .std-form-radio-div {

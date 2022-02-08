@@ -9,6 +9,7 @@ $resultat = false;
 if ($match->match_result_id != null){
     $resultat = true;
 }
+$isAdmin = Auth::user()->hasRole('admin');
 @endphp
 
 @section('page-title', 'Detall del partit')
@@ -17,7 +18,7 @@ if ($match->match_result_id != null){
 @section('content')
     <div class="grid grid-flow-row w-full mt-2 font-heebo">
 
-        <div class="w-11/12 mx-auto rounded-br-xl rounded-tl-xl bg-white grid grid-flow-row shadow pb-2">
+        <div class="w-full md:w-11/12 mx-auto rounded-br-xl rounded-tl-xl bg-white grid grid-flow-row shadow pb-2">
 
              <!--Action buttons-->
              <div class="mb-2 w-full mx-auto">
@@ -31,40 +32,42 @@ if ($match->match_result_id != null){
                             class="material-icons text-xl align-top">
                             arrow_back
                         </span></a>
-                    <div class="flex flex-nowrap">
-                        <a href="{{ url('matches/' . $match->id . '/edit') }}"
-                            class="gold-pill-btn m-2 align-middle h-min md:inline hidden"><span
-                                class="material-icons text-xl align-top">
-                                edit
-                            </span>Edita</a>
-                        <a href="{{ url('matches/' . $match->id . '/edit') }}"
-                            class="gold-pill-btn m-2 align-middle h-min md:hidden"><span
-                                class="material-icons text-xl align-top">
-                                edit
-                            </span></a>
-                        <a href="{{ url('matches/' . $match->id . '/delete') }}"
-                            class="red-pill-btn m-2 align-middle h-min md:inline hidden"><span
-                                class="material-icons text-xl align-top">
-                                delete
-                            </span>Elimina</a>
-                        <a href="{{ url('matches/' . $match->id . '/delete') }}"
-                            class="red-pill-btn m-2 align-middle h-min md:hidden"><span
-                                class="material-icons text-xl align-top">
-                                delete
-                            </span></a>
-                            @if ($match->match_date < now() && $match->match_result_id == null)
-                                <a href="{{ url('results/add/' . $match->id ) }}"
-                                    class="gold-pill-btn m-2 align-middle h-min md:inline hidden"><span
-                                        class="material-icons text-xl align-top">
-                                        add_circle
-                                    </span>Afegeix un resultat</a>
-                                <a href="{{ url('results/add/' . $match->id) }}"
-                                    class="gold-pill-btn m-2 align-middle h-min md:hidden"><span
-                                        class="material-icons text-xl align-top">
-                                        add_circle emoji_events
-                                    </span></a>
-                            @endif
-                    </div>
+                    @if($isAdmin)
+                        <div class="flex flex-nowrap">
+                            <a href="{{ url('matches/' . $match->id . '/edit') }}"
+                                class="gold-pill-btn m-2 align-middle h-min md:inline hidden"><span
+                                    class="material-icons text-xl align-top">
+                                    edit
+                                </span>Edita</a>
+                            <a href="{{ url('matches/' . $match->id . '/edit') }}"
+                                class="gold-pill-btn m-2 align-middle h-min md:hidden"><span
+                                    class="material-icons text-xl align-top">
+                                    edit
+                                </span></a>
+                            <a href="{{ url('matches/' . $match->id . '/delete') }}"
+                                class="red-pill-btn m-2 align-middle h-min md:inline hidden"><span
+                                    class="material-icons text-xl align-top">
+                                    delete
+                                </span>Elimina</a>
+                            <a href="{{ url('matches/' . $match->id . '/delete') }}"
+                                class="red-pill-btn m-2 align-middle h-min md:hidden"><span
+                                    class="material-icons text-xl align-top">
+                                    delete
+                                </span></a>
+                                @if ($match->match_date < now() && $match->match_result_id == null)
+                                    <a href="{{ url('results/add/' . $match->id ) }}"
+                                        class="gold-pill-btn m-2 align-middle h-min md:inline hidden"><span
+                                            class="material-icons text-xl align-top">
+                                            add_circle
+                                        </span>Afegeix un resultat</a>
+                                    <a href="{{ url('results/add/' . $match->id) }}"
+                                        class="gold-pill-btn m-2 align-middle h-min md:hidden"><span
+                                            class="material-icons text-xl align-top">
+                                            add_circle emoji_events
+                                        </span></a>
+                                @endif
+                        </div>
+                    @endif
 
                 </div>
             </div>
@@ -104,20 +107,21 @@ if ($match->match_result_id != null){
                 @endif
                 
             </div>
-            @if ($match->match_date < now() && $resultat)
-                <a href="{{ url('results/' . $match->match_result_id.'/edit') }}"
-                    class="gold-pill-btn m-2 align-middle h-min w-3/4 mx-auto"><span
-                        class="material-icons text-xl align-top">
-                        edit
-                    </span>Edita resultat</a>
-                
-                    <a href="{{ url('results/' . $match->match_result_id.'/delete') }}"
-                        class="red-pill-btn m-2 align-middle h-min w-3/4 mx-auto"><span
+            @if($isAdmin)
+                @if ($match->match_date < now() && $resultat)
+                    <a href="{{ url('results/' . $match->match_result_id.'/edit') }}"
+                        class="gold-pill-btn m-2 align-middle h-min w-3/4 mx-auto"><span
                             class="material-icons text-xl align-top">
-                            delete
-                        </span>Elimina resultat</a>
+                            edit
+                        </span>Edita resultat</a>
+                    
+                        <a href="{{ url('results/' . $match->match_result_id.'/delete') }}"
+                            class="red-pill-btn m-2 align-middle h-min w-3/4 mx-auto"><span
+                                class="material-icons text-xl align-top">
+                                delete
+                            </span>Elimina resultat</a>
+                @endif
             @endif
-
         </div>
 
     </div>

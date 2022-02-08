@@ -16,7 +16,10 @@ class MatchController extends Controller
      */
     public function index()
     {
-        return view('matches.matches');
+        if (auth()->user()->can('view data')) {
+            return view('matches.matches');
+        }
+        return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
     }
 
     /**
@@ -26,6 +29,9 @@ class MatchController extends Controller
      */
     public function create()
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
+        }
         return view('matches.addmatch');
     }
 
@@ -37,13 +43,16 @@ class MatchController extends Controller
      */
     public function store(StoreMatchRequest $request)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
+        }
         $match = new Match;
         $match->match_date = $request->match_date;
         $match->location_id = $request->location_id;
         $match->team1 = $request->team1;
         $match->team2 = $request->team2;
         $match->save();
-        return redirect('matches')->with('status', `El partit ha estat donat d'alta correctament.`);//TODO confirmation message
+        return redirect('matches')->with('status', "El partit ha estat donat d'alta correctament.");//TODO confirmation message
     }
 
     /**
@@ -54,7 +63,10 @@ class MatchController extends Controller
      */
     public function show(Match $match)
     {
-        return view('matches.matchdetail', ['match' => $match]);
+        if (auth()->user()->can('view data')) {
+            return view('matches.matchdetail', ['match' => $match]);
+        }
+        return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
     }
 
     /**
@@ -65,6 +77,9 @@ class MatchController extends Controller
      */
     public function edit(Match $match)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
+        }
         return view('matches.editmatch', ['match' => $match]);
     }
 
@@ -77,6 +92,9 @@ class MatchController extends Controller
      */
     public function update(UpdateMatchRequest $request, Match $match)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
+        }
         $match->match_date = $request->match_date;
         $match->location_id = $request->location_id;
         $match->team1 = $request->team1;
@@ -86,7 +104,7 @@ class MatchController extends Controller
             $match->match_result_id = null;
         }
         $match->save();
-        return redirect('matches')->with('status', `El partit ha estat modificat correctament.`);//TODO confirmation message
+        return redirect('matches')->with('status', "El partit ha estat modificat correctament.");//TODO confirmation message
     }
 
         /**
@@ -97,11 +115,14 @@ class MatchController extends Controller
      */
     public function destroy(Match $match)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
+        }
         if($match->match_result_id != null){
             MatchResult::find($match->match_result_id)->delete();//Soft delete its result too
         }
         $match->delete();
-        return redirect('matches')->with('status', `El partit ha estat eliminat correctament.`);//TODO confirmation message
+        return redirect('matches')->with('status', "El partit ha estat eliminat correctament.");//TODO confirmation message
     }
 
     /**
@@ -112,6 +133,9 @@ class MatchController extends Controller
      */
     public function confirmSoftDeletion(Match $match)
     {
+        if (!auth()->user()->can('manage data')) {
+            return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
+        }
         return view('matches.confirmdeletion', ['match' => $match]);
     }
 }
