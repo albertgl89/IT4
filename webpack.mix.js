@@ -17,14 +17,20 @@ mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'pub
     require('autoprefixer'),
 ]);
 
-mix.js(['resources/js/src/chart.js','resources/js/src/graph.js','resources/js/src/jquery-3.3.1.min.js'], 'public/js/src').postCss('resources/css/tailwindadmin-all.css', 'public/css', [
+mix.js('resources/js/src/chart.js', 'public/js/src').postCss('resources/css/tailwindadmin-all.css', 'public/css', [
     require('postcss-import'),
     require('tailwindcss'),
     require('autoprefixer'),
 ]);
 
-mix.js(['resources/js/index.js','resources/js/main.js','resources/js/theme.js'], 'public/js').postCss('resources/css/tailwindadmin-styles.css', 'public/css', [
+mix.js('resources/js/src/graph.js', 'public/js/src');
+mix.js('resources/js/src/jquery-3.3.1.min.js', 'public/js/src');
+
+mix.js('resources/js/index.js', 'public/js').postCss('resources/css/tailwindadmin-styles.css', 'public/css', [
     require('postcss-import'),
     require('tailwindcss'),
     require('autoprefixer'),
 ]);
+
+mix.js('resources/js/main.js', 'public/js');
+mix.js('resources/js/theme.js', 'public/js');

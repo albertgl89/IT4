@@ -1,4 +1,5 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[1]!./node_modules/laravel-mix/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[8].oneOf[1].use[2]!./resources/js/src/styles.css":
@@ -7,7 +8,6 @@
   \*************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -31,7 +31,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@tailwind base;\r\n\r\n@tailwind compo
   \******************************************************************************/
 /***/ ((module) => {
 
-"use strict";
 
 
 /*
@@ -107,7 +106,6 @@ module.exports = function (cssWithMappingToString) {
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -137,7 +135,6 @@ var update = _node_modules_laravel_mix_node_modules_style_loader_dist_runtime_in
   \*****************************************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
 
 
 var isOldIE = function isOldIE() {
@@ -479,88 +476,14 @@ module.exports = function (list, options) {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-"use strict";
-var __webpack_exports__ = {};
 /*!*******************************!*\
   !*** ./resources/js/index.js ***!
   \*******************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/styles.css */ "./resources/js/src/styles.css");
 
-})();
-
-// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
-(() => {
-/*!******************************!*\
-  !*** ./resources/js/main.js ***!
-  \******************************/
-var sidebar = document.getElementById('sidebar');
-
-function sidebarToggle() {
-  if (sidebar.style.display === "none") {
-    sidebar.style.display = "block";
-  } else {
-    sidebar.style.display = "none";
-  }
-}
-
-var profileDropdown = document.getElementById('ProfileDropDown');
-
-function profileToggle() {
-  if (profileDropdown.style.display === "none") {
-    profileDropdown.style.display = "block";
-  } else {
-    profileDropdown.style.display = "none";
-  }
-}
-/**
- * ### Modals ###
- */
-
-
-function toggleModal(action, elem_trigger) {
-  elem_trigger.addEventListener('click', function () {
-    if (action == 'add') {
-      var modal_id = this.dataset.modal;
-      document.getElementById("".concat(modal_id)).classList.add('modal-is-open');
-    } else {
-      // Automaticlly get the opned modal ID
-      var _modal_id = elem_trigger.closest('.modal-wrapper').getAttribute('id');
-
-      document.getElementById("".concat(_modal_id)).classList.remove('modal-is-open');
-    }
-  });
-} // Check if there is modals on the page
-
-
-if (document.querySelector('.modal-wrapper')) {
-  // Open the modal
-  document.querySelectorAll('.modal-trigger').forEach(function (btn) {
-    toggleModal('add', btn);
-  }); // close the modal
-
-  document.querySelectorAll('.close-modal').forEach(function (btn) {
-    toggleModal('remove', btn);
-  });
-}
-})();
-
-// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
-(() => {
-/*!*******************************!*\
-  !*** ./resources/js/theme.js ***!
-  \*******************************/
-// sidenav toggle
-$(document).ready(function () {
-  $("#menu").click(function () {
-    $("#sidenav").toggle();
-  });
-  $("#menu2").click(function () {
-    $("#sidenav").toggle();
-  });
-});
 })();
 
 /******/ })()
