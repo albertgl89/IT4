@@ -113,4 +113,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('results/{matchResult}/delete', [MatchResultController::class, 'confirmSoftDeletion']);
     //Soft delete result
     Route::delete('results/{matchResult}/delete', [MatchResultController::class, 'destroy']);
+
+    //Player management index
+    Route::get('players', function(){
+        return view('players.index');
+    });
 });

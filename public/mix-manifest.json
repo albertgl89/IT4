@@ -1,4 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/src/chart.js": "/js/src/chart.js",
+    "/js/index.js": "/js/index.js",
+    "/css/tailwindadmin-styles.css": "/css/tailwindadmin-styles.css",
+    "/css/tailwindadmin-all.css": "/css/tailwindadmin-all.css",
     "/css/app.css": "/css/app.css"
 }

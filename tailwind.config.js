@@ -20,6 +20,8 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms'), require('tailwindcss'),
+    plugins: [require('@tailwindcss/forms')({
+        strategy: 'class',
+      }), require('tailwindcss'),
     require('autoprefixer')],
 };
