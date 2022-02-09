@@ -58,7 +58,7 @@ use App\Models\Team;
                 <!--/Sidebar-->
 
                 <!--Main-->
-                <main class="bg-white-300 w-auto md:w-4/5 p-3 overflow-hidden">
+                <main class="bg-white-300 w-full p-3 overflow-hidden">
 
                     <div class="flex flex-col">
                         <!-- Stats Row Starts Here -->
