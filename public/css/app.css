@@ -1181,6 +1181,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-screen {
   width: 100vw;
 }
+.w-\[\] {
+  width: ;
+}
+.w-\[20px\] {
+  width: 20px;
+}
+.w-\[100px\] {
+  width: 100px;
+}
 .min-w-fit {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
@@ -1262,6 +1271,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .grid-rows-none {
   grid-template-rows: none;
 }
+.flex-row {
+  flex-direction: row;
+}
 .flex-col {
   flex-direction: column;
 }
@@ -1329,8 +1341,19 @@ Ensure the default browser behavior of the `hidden` attribute.
 .justify-self-center {
   justify-self: center;
 }
+.overflow-auto {
+  overflow: auto;
+}
 .overflow-hidden {
   overflow: hidden;
+}
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.overflow-ellipsis {
+  text-overflow: ellipsis;
 }
 .break-all {
   word-break: break-all;
@@ -2133,6 +2156,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     display: none;
   }
 
+  .md\:h-screen {
+    height: 100vh;
+  }
+
   .md\:w-3\/4 {
     width: 75%;
   }
@@ -2143,6 +2170,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:w-1\/6 {
     width: 16.666667%;
+  }
+
+  .md\:w-4\/5 {
+    width: 80%;
   }
 
   .md\:w-1\/4 {
@@ -2183,6 +2214,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:flex-col {
+    flex-direction: column;
   }
 
   .md\:flex-wrap {
