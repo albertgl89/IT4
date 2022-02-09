@@ -2,6 +2,7 @@
 <html lang="en">
 @php
 use App\Models\Team;
+use App\Models\Player;
 @endphp
 
 <head>
@@ -40,8 +41,7 @@ use App\Models\Team;
 
             <div class="grid grid-flow-row md:grid-flow-col">
                 <!--Sidebar-->
-                <aside id="sidebar"
-                    class="bg-side-nav w-full h-fit md:h-screen border-r border-side-nav overflow-auto">
+                <aside id="sidebar" class="bg-side-nav w-full h-fit md:h-screen border-r border-side-nav overflow-auto">
                     <ul class="list-reset flex flex-row md:flex-col">
                         @foreach (Team::all() as $team)
                             <li class="w-fit md:w-full h-full py-3 px-2 border-b border-light-border">
@@ -57,76 +57,8 @@ use App\Models\Team;
                 </aside>
                 <!--/Sidebar-->
 
-                <!--Main-->
-                <main class="bg-white-300 w-full p-3 overflow-hidden">
-
-                    <div class="flex flex-col">
-                        <!-- Stats Row Starts Here -->
-                        <div class="flex flex-1 flex-col md:flex-row lg:flex-row mx-2">
-                            <div
-                                class="shadow-lg bg-red-vibrant border-l-8 hover:bg-red-vibrant-dark border-red-vibrant-dark mb-2 p-2 md:w-1/4 mx-2">
-                                <div class="p-4 flex flex-col">
-                                    <a href="#" class="no-underline text-white text-2xl">
-                                        $244
-                                    </a>
-                                    <a href="#" class="no-underline text-white text-lg">
-                                        Total Sales
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class="shadow bg-info border-l-8 hover:bg-info-dark border-info-dark mb-2 p-2 md:w-1/4 mx-2">
-                                <div class="p-4 flex flex-col">
-                                    <a href="#" class="no-underline text-white text-2xl">
-                                        $199.4
-                                    </a>
-                                    <a href="#" class="no-underline text-white text-lg">
-                                        Total Cost
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class="shadow bg-warning border-l-8 hover:bg-warning-dark border-warning-dark mb-2 p-2 md:w-1/4 mx-2">
-                                <div class="p-4 flex flex-col">
-                                    <a href="#" class="no-underline text-white text-2xl">
-                                        900
-                                    </a>
-                                    <a href="#" class="no-underline text-white text-lg">
-                                        Total Users
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class="shadow bg-success border-l-8 hover:bg-success-dark border-success-dark mb-2 p-2 md:w-1/4 mx-2">
-                                <div class="p-4 flex flex-col">
-                                    <a href="#" class="no-underline text-white text-2xl">
-                                        500
-                                    </a>
-                                    <a href="#" class="no-underline text-white text-lg">
-                                        Total Products
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- /Stats Row Ends Here -->
-
-
-
-
-                        <!--Profile Tabs-->
-                        <div
-                            class="flex flex-1 flex-col md:flex-row lg:flex-row mx-2 p-1 mt-2 mx-auto lg:mx-2 md:mx-2 justify-between">
-                            <x-twa-profile-card />
-                            <x-twa-profile-card />
-                            <x-twa-profile-card />
-                            <!--/Profile Tabs-->
-                        </div>
-                </main>
-                <!--/Main-->
+                @yield('content')
+                
             </div>
             <!--Footer-->
             <footer class="bg-grey-darkest text-white p-2">

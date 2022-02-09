@@ -4,6 +4,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\MatchController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MatchResultController;
+use App\Http\Controllers\PlayerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -115,7 +116,9 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('results/{matchResult}/delete', [MatchResultController::class, 'destroy']);
 
     //Player management index
-    Route::get('players', function(){
+    Route::get('players', function () {
         return view('players.index');
     });
+    //Player management index
+    Route::get('players/{team}', [PlayerController::class, 'index']);
 });

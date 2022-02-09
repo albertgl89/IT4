@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Player;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,8 @@ class DatabaseSeeder extends Seeder
             MatchSeeder::class,
             MatchResultSeeder::class,
             PermissionsSeeder::class,
+            
         ]);
+        Player::factory()->count(25)->create();
     }
 }

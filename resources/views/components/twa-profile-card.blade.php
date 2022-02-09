@@ -6,18 +6,10 @@
              class="rounded-full border-solid border-white border-2 -mt-3">
     </div>
     <div class="text-center px-3 pb-6 pt-2">
-        <h3 class="text-black text-sm bold font-sans">Olivia Dunham</h3>
-        <p class="mt-2 font-sans font-light text-grey-700">Hello, i'm from another the other
-            side!</p>
+        <h3 class="text-black text-sm bold font-sans">{{$player->name." ".$player->surname}}</h3>
+        <p class="mt-2 font-sans font-light text-grey-700">{{$team->name}}</p>
     </div>
     <div class="flex justify-center pb-3 text-grey-dark">
-        <div class="text-center mr-3 border-r pr-3">
-            <h2>34</h2>
-            <span>Photos</span>
-        </div>
-        <div class="text-center">
-            <h2>42</h2>
-            <span>Friends</span>
-        </div>
+        <x-twa-edit-delete :player="$player"/>
     </div>
 </div>
