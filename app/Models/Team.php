@@ -30,6 +30,13 @@ class Team extends Model
     }
 
     /**
+     * Loads players
+     */
+    public function players(){
+        return $this->hasMany(Player::class);
+    }
+
+    /**
      * Load matches where this team has taken part in as team 1
      */
     public function matchT1(){

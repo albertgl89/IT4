@@ -2305,6 +2305,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: fit-content;
   }
 
+  .md\:w-2\/4 {
+    width: 50%;
+  }
+
   .md\:max-w-none {
     max-width: none;
   }
@@ -2325,6 +2329,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:grid-flow-col {
     grid-auto-flow: column;
+  }
+
+  .md\:grid-flow-col-dense {
+    grid-auto-flow: column dense;
   }
 
   .md\:grid-cols-none {
