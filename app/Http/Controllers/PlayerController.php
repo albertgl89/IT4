@@ -31,7 +31,7 @@ class PlayerController extends Controller
     public function create(Team $team)
     {
         if (auth()->user()->can('manage data')) {
-            return view('teams.addplayer', ['team'=>$team]);
+            return view('players.addplayer', ['team'=>$team]);
         }
         return redirect('/dashboard')->with('unauth', 'Sense permisos suficients.');
     }
@@ -77,7 +77,7 @@ class PlayerController extends Controller
         if (!auth()->user()->can('manage data')) {
             return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
-        return view('teams.editplayer', ['player' => $player]);
+        return view('players.editplayer', ['player' => $player]);
     }
 
     /**
