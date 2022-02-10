@@ -29,12 +29,13 @@ use App\Models\Player;
         <div class="min-h-screen flex flex-col">
             <!--Header Section Starts Here-->
             <header class="bg-nav">
-                <div class="flex justify-between">
+                <div class="flex justify-between items-center">
                     <div class="p-1 mx-3 inline-flex items-center">
                         <a href="{{ url('/dashboard') }}"><span
                                 class="material-icons pr-2 text-white align-middle">arrow_back</span></a>
                         <h1 class="text-white p-2">Dashboard</h1>
                     </div>
+                    <x-twa-alert />
                 </div>
             </header>
             <!--/Header-->
@@ -58,7 +59,7 @@ use App\Models\Player;
                 <!--/Sidebar-->
 
                 @yield('content')
-                
+
             </div>
             <!--Footer-->
             <footer class="bg-grey-darkest text-white p-2">
