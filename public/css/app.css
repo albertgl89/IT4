@@ -2299,6 +2299,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 91.666667%;
   }
 
+  .md\:w-fit {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
   .md\:max-w-none {
     max-width: none;
   }

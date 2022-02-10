@@ -52,7 +52,7 @@ class PlayerController extends Controller
         $player->surname = $request->surname;
         $player->team_id = $team->id;
         $player->save();
-        return redirect('/players'.$team->id)->with('status', "El jugador $player->name $player->surname ha estat afegit a l'equip $team->name."); //TODO confirmation message
+        return redirect('players/'.$team->id)->with('status', "El jugador $player->name $player->surname ha estat afegit a l'equip $team->name."); //TODO confirmation message
     }
 
     /**
@@ -97,7 +97,7 @@ class PlayerController extends Controller
         $player->team_id = $request->team_id;
         $player->save();
 
-        return redirect('/players'.$player->team_id)->with('status', "Les dades del jugador $player->name $player->surname s'han actualitzat correctament."); //TODO confirmation message
+        return redirect('players/'.$player->team_id)->with('status', "Les dades del jugador $player->name $player->surname s'han actualitzat correctament."); //TODO confirmation message
     }
 
     /**
@@ -113,7 +113,7 @@ class PlayerController extends Controller
         }
         $team = $player->team_id;
         $player->delete();
-        return redirect('/players'.$team)->with('status', "El jugador ha estat eliminat correctament."); //TODO confirmation message
+        return redirect('players/'.$team)->with('status', "El jugador ha estat eliminat correctament."); //TODO confirmation message
     }
 
     /**
