@@ -121,4 +121,16 @@ Route::middleware(['auth'])->group(function () {
     });
     //Player management index
     Route::get('players/{team}', [PlayerController::class, 'index']);
+    //Player add to team form
+    Route::get('players/{team}/add', [PlayerController::class, 'create']);
+    //Player add to team form
+    Route::post('players/{team}/add', [PlayerController::class, 'store']);
+    //Player edit form
+    Route::get('players/{player}/edit', [PlayerController::class, 'edit']);
+    //Player edit form
+    Route::put('players/{player}/edit', [PlayerController::class, 'update']);
+    //Player soft delete confirm page
+    Route::get('players/{player}/delete', [PlayerController::class, 'confirmSoftDeletion']);
+    //Player soft delete page
+    Route::delete('players/{player}/delete', [PlayerController::class, 'destroy']);
 });
