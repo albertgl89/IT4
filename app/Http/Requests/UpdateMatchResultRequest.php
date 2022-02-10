@@ -13,7 +13,10 @@ class UpdateMatchResultRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        if(auth()->user()->hasRole('admin')){
+            return true;
+        }
+        return false;
     }
 
      /**
