@@ -34,10 +34,7 @@ class LocationController extends Controller
         if (!auth()->user()->can('manage data')) {
             return redirect('/dashboard')->with('unauth', "Sense permisos suficients.");
         }
-        if ($team != null){
-            return view('locations.addlocation', ['team' => $team]);
-        }
-        return view('locations.addlocation');
+        return view('locations.addlocation', ['team' => $team]);
     }
 
     /**

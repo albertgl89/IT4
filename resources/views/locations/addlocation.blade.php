@@ -4,7 +4,9 @@
 use App\Models\Location;
 use App\Models\Team;
 if(!($team instanceof Team)){
-    $team->id = "";
+    $teamid = "";
+} else {
+    $teamid = $team->id;
 }
 @endphp
 
@@ -44,7 +46,7 @@ if(!($team instanceof Team)){
                 </div>
             @endif
 
-            <form action="{{url('locations/add/'.$team->id)}}" method="post" class="std-form">
+            <form action="{{url('locations/add/'.$teamid)}}" method="post" class="std-form">
                 @csrf
                 @if (isset($team) && $team != null)
                 <input type="hidden" name="team" value="{{ $team->id }}">
