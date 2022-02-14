@@ -5,7 +5,7 @@
 @endphp
 @section('content')
     <!--Main-->
-    <main class="bg-white-300 w-full p-3 overflow-hidden">
+    <main class="bg-white-300 w-full p-3 overflow-hidden md:col-span-3">
 
         <div class="flex flex-col">
             <!-- Stats Row Starts Here -->
