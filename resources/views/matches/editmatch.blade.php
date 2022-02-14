@@ -4,6 +4,7 @@
 use App\Models\Match;
 use App\Models\Team;
 use App\Models\Location;
+use Illuminate\Support\Carbon;
 @endphp
 
 @section('page-title', 'Editar partit')
@@ -34,7 +35,7 @@ use App\Models\Location;
                 @method('put')
                 <label for="match_date" class="std-form-label">Data i hora del partit</label>
                 <input type="datetime-local" name="match_date" id=""
-                    class="std-form-text-input" value="{{ $match->match_date }}">
+                    class="std-form-text-input" value="{{ Carbon::parse($match->match_date)->toDateTimeLocalString() }}">
 
                 <label for="location_id" class="std-form-label">Localització del partit</label>
                
