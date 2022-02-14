@@ -1,4 +1,12 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/src/chart.js": "/js/src/chart.js",
+    "/js/src/graph.js": "/js/src/graph.js",
+    "/js/src/jquery-3.3.1.min.js": "/js/src/jquery-3.3.1.min.js",
+    "/js/index.js": "/js/index.js",
+    "/js/main.js": "/js/main.js",
+    "/js/theme.js": "/js/theme.js",
+    "/css/tailwindadmin-styles.css": "/css/tailwindadmin-styles.css",
+    "/css/tailwindadmin-all.css": "/css/tailwindadmin-all.css",
     "/css/app.css": "/css/app.css"
 }

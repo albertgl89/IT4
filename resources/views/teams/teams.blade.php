@@ -6,12 +6,16 @@ $isAdmin = Auth::user()->hasRole('admin');
 
 @section('page-title', 'Equips')
 @section('actions')
-    <div class="flex flex-col-reverse text-base justify-items-start gap-2">
+    <div class="grid grid-flow-row md:grid-flow-col text-base justify-start gap-1">
         @if ($isAdmin)
             <a href="{{ url('teams/add') }}" class="green-pill-btn w-fit mx-0 h-fit"><span
                     class="material-icons text-xl align-top pr-2">
                     add_circle
                 </span>Crea equip</a>
+            <a href="{{ url('players') }}" class="green-pill-btn w-fit mx-0 h-fit"><span
+                    class="material-icons text-xl align-top pr-2">
+                    group
+                </span>Gestiona jugadors</a>
         @endif
     </div>
 @endsection

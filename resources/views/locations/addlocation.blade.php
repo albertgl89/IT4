@@ -3,6 +3,11 @@
 @php
 use App\Models\Location;
 use App\Models\Team;
+if(!($team instanceof Team)){
+    $teamid = "";
+} else {
+    $teamid = $team->id;
+}
 @endphp
 
 @section('page-title', 'Afegir nova localització')
@@ -41,7 +46,7 @@ use App\Models\Team;
                 </div>
             @endif
 
-            <form action="add" method="post" class="std-form">
+            <form action="{{url('locations/add/'.$teamid)}}" method="post" class="std-form">
                 @csrf
                 @if (isset($team) && $team != null)
                 <input type="hidden" name="team" value="{{ $team->id }}">

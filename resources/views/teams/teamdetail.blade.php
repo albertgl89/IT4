@@ -114,6 +114,10 @@ $isAdmin = Auth::user()->hasRole('admin');
                     <p class="text-center md:text-left">Total derrotes</p>
                     <p class="text-center">{{ $team->losses() }}</p>
                 </div>
+                <div class="list-item-bg">
+                    <p class="text-center md:text-left">Jugadors de l'equip</p>
+                    <p class="text-center">{{ $team->players()->count() }}</p>
+                </div>
             </div>
 
 

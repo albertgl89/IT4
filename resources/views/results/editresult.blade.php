@@ -6,6 +6,7 @@ use App\Models\Team;
 use App\Models\Location;
 use App\Models\MatchResult;
 $prevResult = MatchResult::find($match->match_result_id);
+$match = $prevResult->match()->withTrashed()->first();
 @endphp
 
 @section('page-title', 'Editar un resultat')
@@ -36,17 +37,17 @@ $prevResult = MatchResult::find($match->match_result_id);
                 @method('put')
                 <div class="rounded-xl bg-yellow-500 text-indigo-900 p-2 mb-2 w-full mx-auto text-center">
                     Partit celebrat en <b>{{$match->match_date}}</b><br> a <b>{{Location::find($match->location_id)->stadium_name}}</b> entre <br>
-                    <b>{{Team::find($match->team1)->name}}</b> i <b>{{ Team::find($match->team2)->name }}</b>
+                    <b>{{$match->team1()->withTrashed()->first()->name}}</b> i <b>{{ $match->team2()->withTrashed()->first()->name }}</b>
                 </div>
                 <div class="grid grid-flow-col gap-2">
                     <input type="hidden" name="match" value="{{$match->id}}">
                     <div class="border rounded-xl shadow p-2 text-center text-xl font-bold grid grid-flow-row gap-2">
-                        {{ Team::find($match->team1)->short_name }}
+                        {{ $match->team1()->withTrashed()->first()->short_name }}
                         <input type="hidden" name="team1" value="{{$match->team1}}">
                         <input type="number" name="goals_team1" id="" class="std-form-number-input" value="{{$prevResult->goals_team1}}">
                     </div>
                     <div class="border rounded-xl shadow p-2 text-center text-xl font-bold grid grid-flow-row gap-2">
-                        {{ Team::find($match->team2)->short_name }}
+                        {{ $match->team2()->withTrashed()->first()->short_name}}
                         <input type="hidden" name="team2" value="{{$match->team2}}">
                         <input type="number" name="goals_team2" id="" class="std-form-number-input" value="{{$prevResult->goals_team2}}">
                     </div>

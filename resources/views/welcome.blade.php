@@ -6,6 +6,7 @@ use App\Models\Team;
 use App\Models\Match;
 use App\Models\MatchResult;
 use App\Models\Location;
+use App\Models\Player;
 $isAdmin = Auth::user()->hasRole('admin');
 @endphp
 
@@ -32,6 +33,10 @@ $isAdmin = Auth::user()->hasRole('admin');
                             class="material-icons text-xl align-top pr-2">
                             add_circle
                         </span>Crea equip</a>
+                        <a href="{{ url('players') }}" class="green-pill-btn w-full text-center md:inline hidden"><span
+                            class="material-icons text-xl align-top pr-2">
+                            group
+                        </span>Gestiona jugadors</a>
                         @endif
                         <!--SM-->
                         <a href="{{ url('teams') }}" class="green-pill-btn w-full text-center md:hidden"><span
@@ -43,6 +48,10 @@ $isAdmin = Auth::user()->hasRole('admin');
                             class="material-icons text-xl align-middle pl-2 pr-2">
                             add_circle
                         </span>Crea</a>
+                        <a href="{{ url('players') }}" class="green-pill-btn w-full text-center md:hidden"><span
+                            class="material-icons text-xl align-top pr-2">
+                            group
+                        </span>Jugadors</a>
                         @endif
                 </div>
                 <!--info-->
@@ -54,6 +63,10 @@ $isAdmin = Auth::user()->hasRole('admin');
                     <div class="dashboard-info-div">
                         <p class="text-indigo-900 text-lg">Equips sense localització</p>
                         <p class="font-heebo text-2xl text-indigo-900">{{Team::all()->where('city', null)->count()}}</p>
+                    </div>
+                    <div class="dashboard-info-div">
+                        <p class="text-indigo-900 text-lg">Total jugadors</p>
+                        <p class="font-heebo text-2xl text-indigo-900">{{Player::all()->count()}}</p>
                     </div>
                 </div>
             </div>
