@@ -1,0 +1,2106 @@
+{
+	"info": {
+		"_postman_id": "1306a20d-9056-42c9-9bce-7abc8b1dde49",
+		"name": "MM API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sanctum/csrf-cookie",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/sanctum/csrf-cookie",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"sanctum",
+						"csrf-cookie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dashboard",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/dashboard",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"dashboard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": null,
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "forgot-password",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/forgot-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"forgot-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "forgot-password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/forgot-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"forgot-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset-password/{token}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/reset-password/:token",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"reset-password",
+						":token"
+					],
+					"variable": [
+						{
+							"key": "token"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset-password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/reset-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify-email",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/verify-email",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"verify-email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify-email/{id}/{hash}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/verify-email/:id/:hash",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"verify-email",
+						":id",
+						":hash"
+					],
+					"variable": [
+						{
+							"key": "id"
+						},
+						{
+							"key": "hash"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "email/verification-notification",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/email/verification-notification",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"email",
+						"verification-notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirm-password",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/confirm-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"confirm-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirm-password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/confirm-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"confirm-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/logout",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "teams",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/teams",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "teams/add",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/teams/add",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teams",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "teams/add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "short_name",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": null,
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teams/add",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teams",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "teams/{team}/edit",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/teams/:team/edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teams",
+						":team",
+						"edit"
+					],
+					"variable": [
+						{
+							"key": "team"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "teams/{team}/edit",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "short_name",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": null,
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/teams/:team/edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teams",
+						":team",
+						"edit"
+					],
+					"variable": [
+						{
+							"key": "team"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "teams/{team}/delete",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/teams/:team/delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teams",
+						":team",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "team"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "teams/{team}/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/teams/:team/delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teams",
+						":team",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "team"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "teams/{team}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/teams/:team",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"teams",
+						":team"
+					],
+					"variable": [
+						{
+							"key": "team"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "matches",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/matches",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"matches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "matches/add",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/matches/add",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"matches",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "matches/add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "match_date",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "location_id",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "team1",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "team2",
+							"value": null,
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/matches/add",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"matches",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "matches/{match}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/matches/:match",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"matches",
+						":match"
+					],
+					"variable": [
+						{
+							"key": "match"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "matches/{match}/edit",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/matches/:match/edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"matches",
+						":match",
+						"edit"
+					],
+					"variable": [
+						{
+							"key": "match"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "matches/{match}/edit",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "match_date",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "location_id",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "team1",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "team2",
+							"value": null,
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/matches/:match/edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"matches",
+						":match",
+						"edit"
+					],
+					"variable": [
+						{
+							"key": "match"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "matches/{match}/delete",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/matches/:match/delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"matches",
+						":match",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "match"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "matches/{match}/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/matches/:match/delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"matches",
+						":match",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "match"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locations",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/locations",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locations/add/{team}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/locations/add/{team?}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"locations",
+						"add",
+						"{team"
+					],
+					"query": [
+						{
+							"key": "}",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locations/add/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/locations/add/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"locations",
+						"add",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locations/add/{team}",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "city",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "stadium_name",
+							"value": null,
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/locations/add/:team",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"locations",
+						"add",
+						":team"
+					],
+					"variable": [
+						{
+							"key": "team",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locations/add/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "city",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "stadium_name",
+							"value": null,
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/locations/add/{team?}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"locations",
+						"add",
+						"{team"
+					],
+					"query": [
+						{
+							"key": "}",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locations/{location}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/locations/:location",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"locations",
+						":location"
+					],
+					"variable": [
+						{
+							"key": "location"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locations/{location}/edit",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/locations/:location/edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"locations",
+						":location",
+						"edit"
+					],
+					"variable": [
+						{
+							"key": "location"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locations/{location}/edit",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "city",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "stadium_name",
+							"value": null,
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/locations/:location/edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"locations",
+						":location",
+						"edit"
+					],
+					"variable": [
+						{
+							"key": "location"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locations/{location}/delete",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/locations/:location/delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"locations",
+						":location",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "location"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "locations/{location}/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/locations/:location/delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"locations",
+						":location",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "location"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cities/{location}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/cities/:location",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"cities",
+						":location"
+					],
+					"variable": [
+						{
+							"key": "location"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "states/{location}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/states/:location",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"states",
+						":location"
+					],
+					"variable": [
+						{
+							"key": "location"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "results/selectmatch",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/results/selectmatch",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"results",
+						"selectmatch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "results/add",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/results/add",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"results",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "results/add/{match}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/results/add/:match",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"results",
+						"add",
+						":match"
+					],
+					"variable": [
+						{
+							"key": "match"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "results/add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "goals_team1",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "goals_team2",
+							"value": null,
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/results/add",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"results",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "results/{matchResult}/edit",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/results/:matchResult/edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"results",
+						":matchResult",
+						"edit"
+					],
+					"variable": [
+						{
+							"key": "matchResult"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "results/{matchResult}/edit",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "goals_team1",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "goals_team2",
+							"value": null,
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/results/:matchResult/edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"results",
+						":matchResult",
+						"edit"
+					],
+					"variable": [
+						{
+							"key": "matchResult"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "results/{matchResult}/delete",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/results/:matchResult/delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"results",
+						":matchResult",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "matchResult"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "results/{matchResult}/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/results/:matchResult/delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"results",
+						":matchResult",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "matchResult"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "players",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/players",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"players"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "players/{team}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/players/:team",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"players",
+						":team"
+					],
+					"variable": [
+						{
+							"key": "team"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "players/{team}/add",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/players/:team/add",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"players",
+						":team",
+						"add"
+					],
+					"variable": [
+						{
+							"key": "team"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "players/{team}/add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "surname",
+							"value": null,
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/players/:team/add",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"players",
+						":team",
+						"add"
+					],
+					"variable": [
+						{
+							"key": "team"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "players/{player}/edit",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/players/:player/edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"players",
+						":player",
+						"edit"
+					],
+					"variable": [
+						{
+							"key": "player"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "players/{player}/edit",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "surname",
+							"value": null,
+							"type": "text"
+						},
+						{
+							"key": "team_id",
+							"value": null,
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/players/:player/edit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"players",
+						":player",
+						"edit"
+					],
+					"variable": [
+						{
+							"key": "player"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "players/{player}/delete",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/players/:player/delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"players",
+						":player",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "player"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "players/{player}/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/players/:player/delete",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"players",
+						":player",
+						"delete"
+					],
+					"variable": [
+						{
+							"key": "player"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost/IT4/public"
+		}
+	]
+}
